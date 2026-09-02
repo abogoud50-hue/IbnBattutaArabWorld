@@ -1,230 +1,386 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ابن بطوطة في الوطن العربي</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
+<title>ابن بطوطة في الوطن العربي</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f4ead8;
+    color: #34271c;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.card {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #776754;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+/* الأزرار */
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.option {
+    width: 100%;
+    padding: 20px;
+    border-radius: 18px;
+    border: 2px solid #c49a61;
+    background: #fffaf1;
+    font-size: 20px;
+    font-weight: bold;
+    color: #34271c;
+    cursor: pointer;
+}
+
+.option:active {
+    transform: scale(.98);
+}
+
+/* العمر */
+
+.age-number {
+    font-size: 70px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.age-label {
+    font-size: 20px;
+    color: #776754;
+}
+
+.age-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 20px 0 35px;
+}
+
+.age-button {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background: #b47b3c;
+    color: white;
+    font-size: 30px;
+}
+
+.continue {
+    width: 100%;
+    padding: 17px;
+    border: none;
+    border-radius: 15px;
+    background: #a86d32;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.back {
+    margin-top: 18px;
+    border: none;
+    background: transparent;
+    color: #806c55;
+    font-size: 16px;
+}
+
+/* المشهد */
+
+.story {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            to bottom,
+            #b9d8e5 0%,
+            #e9d5a8 65%,
+            #c99c5a 100%
+        );
+}
+
+.scene {
+    width: 100%;
+    max-width: 500px;
+    min-height: 650px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 70px;
+}
+
+.sun {
+    position: absolute;
+    top: 70px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #f4c96a;
+    opacity: .9;
+}
+
+.character {
+    font-size: 110px;
+    z-index: 2;
+    margin-bottom: 20px;
+}
+
+.magic-carpet {
+    width: 250px;
+    height: 55px;
+    border-radius: 50%;
+    background: #8b4939;
+    border: 5px solid #d5a65b;
+    box-shadow: 0 12px 20px rgba(0,0,0,.18);
+    position: relative;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+.magic-carpet::after {
+    content: "✦  ✦  ✦";
+    color: #f3d38a;
+    font-size: 18px;
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%);
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
     }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: #f5ead7;
-      color: #3d2b1f;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    50% {
+        transform: translateY(-10px);
     }
+}
 
-    .game {
-      width: 100%;
-      max-width: 500px;
-      min-height: 100vh;
-      padding: 30px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
+.dialogue {
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - 30px);
+    background: rgba(255,250,241,.96);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.15);
+    font-size: 19px;
+    line-height: 1.7;
+    text-align: right;
+}
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
+.dialogue-name {
+    font-weight: bold;
+    color: #a86d32;
+    margin-bottom: 5px;
+}
 
-    p {
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    button {
-      width: 100%;
-      border: none;
-      border-radius: 16px;
-      padding: 18px;
-      margin-top: 12px;
-      font-size: 19px;
-      font-weight: bold;
-      cursor: pointer;
-      background: #8b5e3c;
-      color: white;
-    }
-
-    button:active {
-      transform: scale(0.98);
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .character {
-      font-size: 80px;
-      margin: 20px 0;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.6);
-      padding: 25px;
-      border-radius: 24px;
-    }
-  </style>
+.dialogue-button {
+    display: block;
+    margin-top: 12px;
+    margin-right: auto;
+    border: none;
+    background: #a86d32;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 15px;
+}
+</style>
 </head>
 
 <body>
 
-  <main class="game">
+<!-- اختيار الجنس -->
 
-    <!-- الشاشة الأولى -->
-    <section id="welcome">
-      <div class="character">🧭</div>
+<section id="gender" class="screen active">
 
-      <h1>ابن بطوطة في الوطن العربي</h1>
+    <div class="card">
 
-      <p>
-        رحلة جديدة تبدأ من هنا...
-        اختر شخصيتك وانطلق في مغامرة عبر الوطن العربي.
-      </p>
+        <h1 class="title">اختر شخصيتك</h1>
 
-      <button onclick="showGender()">
-        ابدأ الرحلة
-      </button>
-    </section>
-
-
-    <!-- اختيار الجنس -->
-    <section id="gender" class="hidden">
-      <div class="card">
-
-        <h1>اختر شخصيتك</h1>
-
-        <p>من سيكون بطل الرحلة؟</p>
-
-        <button onclick="chooseGender('male')">
-          👨 ابن بطوطة
-        </button>
-
-        <button onclick="chooseGender('female')">
-          👩 بنت بطوطة
-        </button>
-
-      </div>
-    </section>
-
-
-    <!-- اختيار البداية -->
-    <section id="start" class="hidden">
-      <div class="card">
-
-        <h1 id="characterName"></h1>
-
-        <p>
-          اختر منطقة انطلاق رحلتك:
+        <p class="subtitle">
+            اختر الشخصية التي ستخوض الرحلة
         </p>
 
-        <button onclick="startGame('موريتانيا')">
-          🇲🇷 موريتانيا
+        <div class="options">
+
+            <button class="option" onclick="selectGender('male')">
+                👨 ابن بطوطة
+            </button>
+
+            <button class="option" onclick="selectGender('female')">
+                👩 بنت بطوطة
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- اختيار العمر -->
+
+<section id="age" class="screen">
+
+    <div class="card">
+
+        <h1 class="title">اختر عمرك</h1>
+
+        <div class="age-number" id="ageNumber">
+            15
+        </div>
+
+        <div class="age-label">
+            سنة
+        </div>
+
+        <div class="age-controls">
+
+            <button class="age-button" onclick="changeAge(-1)">
+                −
+            </button>
+
+            <button class="age-button" onclick="changeAge(1)">
+                +
+            </button>
+
+        </div>
+
+        <button class="continue" onclick="startStory()">
+            متابعة
         </button>
 
-        <button onclick="startGame('المغرب')">
-          🇲🇦 المغرب
+        <button class="back" onclick="showScreen('gender')">
+            ← رجوع
         </button>
 
-        <button onclick="startGame('مصر')">
-          🇪🇬 مصر
-        </button>
+    </div>
 
-        <button onclick="startGame('السعودية')">
-          🇸🇦 السعودية
-        </button>
-
-        <button onclick="startGame('العراق')">
-          🇮🇶 العراق
-        </button>
-
-        <button onclick="startGame('عمان')">
-          🇴🇲 عمان
-        </button>
-
-      </div>
-    </section>
+</section>
 
 
-    <!-- بداية اللعبة -->
-    <section id="gameScreen" class="hidden">
-      <div class="card">
+<!-- المشهد القصصي -->
 
-        <div class="character">🧭</div>
+<section id="story" class="screen story">
 
-        <h1 id="welcomePlayer"></h1>
+    <div class="scene">
 
-        <p id="locationText"></p>
+        <div class="sun"></div>
 
-        <p>
-          🗺️ هنا ستظهر خريطة الوطن العربي الحقيقية
-          في النسخة القادمة.
-        </p>
+        <div class="character" id="character">
+            👨
+        </div>
 
-        <button onclick="alert('المغامرة قادمة!')">
-          تابع الرحلة
-        </button>
+        <div class="magic-carpet"></div>
 
-      </div>
-    </section>
+        <div class="dialogue">
 
-  </main>
+            <div class="dialogue-name">
+                البساط السحري
+            </div>
+
+            <div id="dialogueText">
+                مرحبًا!
+            </div>
+
+            <button class="dialogue-button" onclick="nextDialogue()">
+                متابعة
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-  <script>
+<script>
 
-    let playerName = "";
+let gender = "";
+let age = 15;
 
-    function hideAll() {
-      document.getElementById("welcome").classList.add("hidden");
-      document.getElementById("gender").classList.add("hidden");
-      document.getElementById("start").classList.add("hidden");
-      document.getElementById("gameScreen").classList.add("hidden");
+let dialogueStep = 0;
+
+function showScreen(id) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+}
+
+
+function selectGender(selectedGender) {
+
+    gender = selectedGender;
+
+    showScreen("age");
+}
+
+
+function changeAge(amount) {
+
+    age += amount;
+
+    if (age < 15) {
+        age = 15;
     }
 
-    function showGender() {
-      hideAll();
-      document.getElementById("gender").classList.remove("hidden");
+    document.getElementById("ageNumber").textContent = age;
+}
+
+
+function startStory() {
+
+    if (gender === "female") {
+        document.getElementById("character").textContent = "👩";
+    } else {
+        document.getElementById("character").textContent = "👨";
     }
 
-    function chooseGender(gender) {
+    dialogueStep = 0;
 
-      if (gender === "male") {
-        playerName = "ابن بطوطة";
-      } else {
-        playerName = "بنت بطوطة";
-      }
-
-      document.getElementById("characterName").textContent =
-        playerName;
-
-      hideAll();
-      document.getElementById("start").classList.remove("hidden");
-    }
-
-    function startGame(location) {
-
-      document.getElementById("welcomePlayer").textContent =
-        "أهلًا يا " + playerName;
-
-      document.getElementById("locationText").textContent =
-        "رحلتك تبدأ من " + location;
-
-      hideAll();
-      document.getElementById("gameScreen").classList.remove("hidden");
-    }
-
-  </script>
-
-</body>
-</html>
+    document.getElementById("dialogueText").textContent =
+        "مرحب
