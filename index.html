@@ -2,21 +2,12 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width,
-      initial-scale=1.0,
-      maximum-scale=1.0,
-      user-scalable=no">
-
-<meta name="theme-color" content="#173f3f">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#173f3a">
 
 <title>ابن بطوطة في الوطن العربي</title>
 
-<link rel="manifest" href="manifest.json">
-
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -28,411 +19,508 @@ html,body{
     width:100%;
     height:100%;
     overflow:hidden;
+    background:#173f3a;
+    font-family:Tahoma,Arial,sans-serif;
 }
+
+/* =====================================================
+   منطقة اللعبة
+===================================================== */
 
 body{
-    font-family:Tahoma,Arial,sans-serif;
-    background:#dce9df;
-    color:#27352f;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-/* =========================
-   التطبيق
-========================= */
+#game{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:#d7e8e5;
+}
 
-#app{
+/*
+   التصميم الداخلي دائمًا بنسبة 16:9
+   وهذا يمنع عناصر اللعبة من التصرف كصفحة عمودية.
+*/
+
+#gameCanvas{
+    position:absolute;
+
     width:100%;
     height:100%;
-    position:relative;
+
     overflow:hidden;
 }
 
-/* =========================
+/* =====================================================
    الشاشات
-========================= */
+===================================================== */
 
 .screen{
     position:absolute;
     inset:0;
+
     width:100%;
     height:100%;
+
     display:none;
+    overflow:hidden;
 }
 
 .screen.active{
-    display:flex;
+    display:block;
 }
 
-/* =========================
+/* =====================================================
    شاشة البداية
-========================= */
+===================================================== */
 
 #home{
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-
-    background:
-        linear-gradient(
-            rgba(255,255,255,.18),
-            rgba(255,255,255,.18)
-        ),
-        #d8e7dc;
+    background:#c8e0df;
 }
 
-/* خريطة زخرفية للخلفية */
+/* السماء / البحر */
 
-.map{
+.home-sea{
     position:absolute;
     inset:0;
-    overflow:hidden;
-}
 
-/* البحر */
-
-.sea{
-    position:absolute;
-    inset:0;
     background:
         radial-gradient(
             ellipse at 50% 45%,
-            #d9eef0 0%,
-            #c5e2e4 55%,
-            #b6d7d9 100%
+            #e0f1f0 0%,
+            #c8e5e5 55%,
+            #b5d6d6 100%
         );
 }
 
-/* شكل مبسط للوطن العربي */
+/* =====================================================
+   خريطة الوطن العربي - خلفية أولية
+===================================================== */
 
 .arab-map{
     position:absolute;
 
-    width:72%;
-    height:64%;
+    left:8%;
+    top:18%;
 
-    left:14%;
-    top:19%;
+    width:84%;
+    height:62%;
 
     background:
         linear-gradient(
             135deg,
-            #e2c58f,
-            #d6ad70
+            #d9c08e,
+            #cda56a
         );
 
+    /*
+      شكل زخرفي مؤقت للخريطة.
+      سيتم استبداله لاحقًا بخريطة جغرافية فعلية.
+    */
+
     clip-path:polygon(
-        0% 38%,
-        6% 27%,
-        15% 25%,
-        21% 17%,
-        31% 18%,
-        38% 8%,
-        49% 13%,
-        57% 18%,
-        66% 17%,
-        74% 24%,
-        86% 25%,
-        94% 36%,
-        100% 48%,
-        94% 55%,
-        88% 62%,
-        81% 65%,
-        77% 75%,
-        69% 82%,
-        61% 77%,
-        54% 86%,
-        46% 81%,
-        40% 74%,
-        32% 76%,
-        25% 68%,
-        18% 64%,
-        12% 56%,
-        5% 53%
+        0% 37%,
+        4% 28%,
+        12% 26%,
+        17% 20%,
+        25% 21%,
+        31% 14%,
+        39% 12%,
+        47% 17%,
+        55% 19%,
+        63% 18%,
+        71% 24%,
+        82% 25%,
+        91% 33%,
+        98% 45%,
+        94% 53%,
+        87% 57%,
+        82% 65%,
+        76% 72%,
+        69% 78%,
+        62% 73%,
+        55% 83%,
+        48% 79%,
+        41% 72%,
+        34% 74%,
+        28% 68%,
+        21% 66%,
+        14% 58%,
+        7% 54%,
+        2% 47%
     );
 
+    opacity:.95;
+
     box-shadow:
-        0 15px 35px rgba(55,75,61,.22);
+        0 20px 40px rgba(38,70,65,.2);
 }
 
-/* زخرفة الخريطة */
+/* تفاصيل بسيطة */
 
-.map-lines{
+.map-detail{
     position:absolute;
     inset:0;
-    opacity:.3;
+
+    opacity:.25;
 
     background:
         repeating-linear-gradient(
             25deg,
             transparent 0px,
-            transparent 22px,
-            rgba(120,90,45,.16) 23px,
-            transparent 24px
+            transparent 20px,
+            rgba(90,70,35,.18) 21px,
+            transparent 23px
         );
 }
 
-/* =========================
+/* =====================================================
    العنوان
-========================= */
+===================================================== */
 
-.title{
+.game-title{
     position:absolute;
+
     top:5%;
     left:50%;
+
     transform:translateX(-50%);
-    z-index:5;
 
     text-align:center;
+
+    z-index:10;
+
     white-space:nowrap;
 }
 
-.title h1{
-    font-size:clamp(24px,4vw,46px);
-    color:#28433a;
+.game-title h1{
+    font-size:clamp(24px,4vw,44px);
+
+    color:#24443d;
 
     text-shadow:
         0 2px 5px rgba(255,255,255,.8);
 }
 
-.title p{
-    margin-top:7px;
-    color:#62766d;
+.game-title p{
+    margin-top:6px;
+
+    color:#62766f;
+
     font-size:clamp(12px,1.7vw,18px);
 }
 
-/* =========================
-   الإعدادات
-========================= */
+/* =====================================================
+   زر الإعدادات
+===================================================== */
 
 .settings{
     position:absolute;
-    top:20px;
-    right:22px;
-    z-index:20;
 
-    width:52px;
-    height:52px;
+    top:4%;
+    right:3%;
 
-    border:none;
+    z-index:30;
+
+    width:clamp(44px,5vw,58px);
+    height:clamp(44px,5vw,58px);
+
+    border:0;
     border-radius:50%;
 
-    background:#24463e;
+    background:#24463f;
+
     color:white;
 
-    font-size:23px;
+    font-size:clamp(19px,2.5vw,27px);
 
     box-shadow:
-        0 6px 16px rgba(0,0,0,.2);
+        0 6px 18px rgba(0,0,0,.22);
 }
 
 .settings:active{
     transform:scale(.94);
 }
 
-/* =========================
-   زر البداية
-========================= */
+/* =====================================================
+   زر بدء الرحلة
+===================================================== */
 
-.start-area{
+.start-wrap{
     position:absolute;
-    bottom:6%;
+
     left:50%;
+    bottom:5%;
+
     transform:translateX(-50%);
 
-    width:min(430px,60%);
-    z-index:20;
+    width:min(430px,42%);
+
+    z-index:30;
 }
 
 .start{
     width:100%;
 
-    border:none;
-    border-radius:18px;
+    padding:clamp(12px,2vw,18px);
 
-    padding:17px;
+    border:2px solid rgba(255,255,255,.5);
+    border-radius:18px;
 
     background:
         linear-gradient(
             135deg,
-            #a86f35,
-            #c99755
+            #a66d35,
+            #ca9655
         );
 
     color:white;
 
-    font-size:clamp(18px,2.5vw,25px);
+    font-size:clamp(17px,2.5vw,25px);
+
     font-weight:bold;
 
     box-shadow:
-        0 9px 25px rgba(72,51,28,.3);
+        0 9px 25px rgba(65,45,25,.3);
 }
 
-/* =========================
-   الشاشات الداخلية
-========================= */
+/* =====================================================
+   الخلفية الداخلية
+===================================================== */
 
 .inner{
+    position:absolute;
+    inset:0;
+
     width:100%;
     height:100%;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #fffdf6,
+            #ead9bb
+        );
+}
+
+/* =====================================================
+   عنوان داخلي
+===================================================== */
+
+.inner-title{
+    position:absolute;
+
+    top:6%;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    text-align:center;
+
+    white-space:nowrap;
+}
+
+.inner-title h2{
+    font-size:clamp(25px,4vw,42px);
+    color:#31473f;
+}
+
+.inner-title p{
+    margin-top:5px;
+    color:#7d6c55;
+    font-size:clamp(12px,1.8vw,17px);
+}
+
+/* =====================================================
+   اختيار الجنس
+===================================================== */
+
+.gender-area{
+    position:absolute;
+
+    top:25%;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(720px,75%);
+
+    display:flex;
+
+    gap:25px;
+}
+
+.gender-card{
+    flex:1;
+
+    min-height:210px;
+
+    border:3px solid #d2b078;
+    border-radius:25px;
+
+    background:#fffaf0;
+
+    box-shadow:
+        0 10px 30px rgba(65,48,30,.14);
 
     display:flex;
     flex-direction:column;
 
     align-items:center;
     justify-content:center;
-
-    padding:25px;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #fffdf5,
-            #e7d8bb
-        );
-}
-
-.heading{
-    font-size:clamp(26px,4vw,43px);
-    color:#31473e;
-    margin-bottom:8px;
-}
-
-.subheading{
-    color:#7a6a54;
-    font-size:clamp(13px,2vw,18px);
-    margin-bottom:25px;
-}
-
-/* =========================
-   الجنس
-========================= */
-
-.gender{
-    display:flex;
-    gap:25px;
-    width:min(680px,80%);
-}
-
-.gender-card{
-    flex:1;
-
-    min-height:190px;
-
-    border:3px solid #d3b27c;
-    border-radius:25px;
-
-    background:#fffaf0;
-
-    box-shadow:
-        0 10px 28px rgba(70,50,30,.14);
 }
 
 .gender-card:active{
     transform:scale(.97);
 }
 
-.avatar{
-    font-size:clamp(60px,9vw,100px);
+.gender-avatar{
+    font-size:clamp(65px,8vw,95px);
+
     margin-bottom:10px;
 }
 
-.gender-card strong{
-    display:block;
-    font-size:clamp(18px,3vw,26px);
-    color:#4b3a27;
+.gender-name{
+    font-size:clamp(18px,2.7vw,27px);
+
+    font-weight:bold;
+
+    color:#493826;
 }
 
-.gender-card small{
-    display:block;
+.gender-description{
     margin-top:5px;
-    color:#89755b;
+
+    color:#88735a;
+
+    font-size:clamp(12px,1.5vw,16px);
 }
 
-/* =========================
+/* =====================================================
    العمر
-========================= */
+===================================================== */
 
 .age-box{
-    width:min(500px,80%);
+    position:absolute;
+
+    top:25%;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(550px,65%);
+
     padding:30px;
 
     background:#fffaf0;
+
     border-radius:28px;
 
     box-shadow:
-        0 12px 30px rgba(70,50,30,.15);
+        0 12px 30px rgba(65,48,30,.15);
 
     text-align:center;
 }
 
-.age{
-    font-size:clamp(55px,9vw,90px);
-    color:#a96f34;
+.age-number{
+    font-size:clamp(55px,8vw,85px);
+
+    color:#a66d35;
+
     font-weight:bold;
 }
 
-.age-text{
-    color:#806e56;
+.age-label{
+    color:#806d55;
+
     margin-bottom:25px;
 }
 
-input[type=range]{
+.age-slider{
     width:100%;
-    accent-color:#a96f34;
+
+    accent-color:#a66d35;
 }
 
-.range{
+.age-range{
     display:flex;
+
     justify-content:space-between;
-    color:#99856b;
-    font-size:13px;
+
+    color:#9a866c;
+
     margin-top:8px;
+
+    font-size:13px;
 }
+
+/* =====================================================
+   زر المتابعة
+===================================================== */
 
 .next{
-    margin-top:24px;
+    position:absolute;
 
-    border:none;
+    left:50%;
+    bottom:7%;
+
+    transform:translateX(-50%);
+
+    padding:14px 50px;
+
+    border:0;
     border-radius:16px;
 
-    padding:15px 45px;
+    background:#a66d35;
 
-    background:#a96f34;
     color:white;
 
     font-size:18px;
+
     font-weight:bold;
 }
 
-/* =========================
+/* =====================================================
    الشخصية
-========================= */
+===================================================== */
 
-.character-layout{
+.character-area{
+    position:absolute;
+
+    top:22%;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:80%;
+    height:52%;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    gap:60px;
-
-    width:90%;
+    gap:10%;
 }
 
-.character-info{
-    text-align:center;
-}
+/* الشخصية */
 
-.person{
-    width:160px;
-    height:230px;
+.character{
+    width:180px;
+    height:260px;
+
     position:relative;
-    margin:auto;
 }
 
 .head{
     position:absolute;
-    top:5px;
-    left:39px;
+
+    top:0;
+    left:49px;
 
     width:82px;
     height:82px;
@@ -440,16 +528,18 @@ input[type=range]{
     border-radius:50%;
 
     background:#c9825d;
+
     border:4px solid #70472f;
 }
 
 .hair{
     position:absolute;
-    top:3px;
-    left:43px;
 
-    width:74px;
-    height:35px;
+    top:0;
+    left:52px;
+
+    width:75px;
+    height:34px;
 
     border-radius:50% 50% 20% 20%;
 
@@ -460,83 +550,92 @@ input[type=range]{
 
 .body{
     position:absolute;
-    top:90px;
-    left:28px;
 
-    width:105px;
-    height:115px;
+    top:87px;
+    left:37px;
+
+    width:108px;
+    height:125px;
 
     border-radius:45px 45px 18px 18px;
 
     background:#eee4d0;
-    border:4px solid #8a7358;
+
+    border:4px solid #887259;
 }
 
 .arm{
     position:absolute;
-    top:105px;
 
-    width:27px;
-    height:82px;
+    top:103px;
+
+    width:28px;
+    height:88px;
 
     border-radius:20px;
 
-    background:#f0d7c1;
+    background:#efd7c1;
 }
 
-.arm.left{
-    left:12px;
+.arm-left{
+    left:18px;
     transform:rotate(12deg);
 }
 
-.arm.right{
-    right:12px;
+.arm-right{
+    right:18px;
     transform:rotate(-12deg);
 }
 
 .leg{
     position:absolute;
-    top:194px;
 
-    width:34px;
-    height:58px;
+    top:205px;
+
+    width:35px;
+    height:65px;
 
     background:#46372a;
+
     border-radius:15px;
 }
 
-.leg.left{
-    left:48px;
+.leg-left{
+    left:53px;
 }
 
-.leg.right{
-    right:48px;
+.leg-right{
+    right:53px;
+}
+
+/* اسم الشخصية */
+
+.player-info{
+    text-align:center;
 }
 
 .player-name{
-    margin-top:10px;
+    margin-top:8px;
 
-    font-size:25px;
+    color:#9b622e;
+
     font-weight:bold;
 
-    color:#9a622e;
+    font-size:25px;
 }
 
 .player-age{
     margin-top:5px;
+
     color:#786650;
 }
 
-/* =========================
+/* =====================================================
    البساط
-========================= */
-
-.carpet-area{
-    text-align:center;
-}
+===================================================== */
 
 .carpet{
-    width:340px;
+    width:330px;
     height:105px;
 
     position:relative;
@@ -546,8 +645,8 @@ input[type=range]{
     background:
         linear-gradient(
             135deg,
-            #793e2d,
-            #b86e38
+            #773e2d,
+            #b96f38
         );
 
     border:8px solid #dfb15e;
@@ -556,20 +655,21 @@ input[type=range]{
         perspective(400px)
         rotateX(35deg);
 
-    animation:float 2.5s infinite ease-in-out;
-
     box-shadow:
-        0 16px 30px rgba(60,40,20,.3);
+        0 17px 32px rgba(55,35,20,.3);
+
+    animation:float 2.5s ease-in-out infinite;
 }
 
 .carpet-face{
     position:absolute;
+
     left:50%;
     top:50%;
 
     transform:translate(-50%,-50%);
 
-    font-size:37px;
+    font-size:38px;
 }
 
 @keyframes float{
@@ -589,16 +689,21 @@ input[type=range]{
     }
 }
 
-/* =========================
+/* =====================================================
    الحوار
-========================= */
+===================================================== */
 
 .dialogue{
-    margin-top:12px;
+    position:absolute;
 
-    width:min(750px,80%);
+    left:50%;
+    bottom:6%;
 
-    padding:17px 25px;
+    transform:translateX(-50%);
+
+    width:min(750px,75%);
+
+    padding:15px 22px;
 
     border-radius:20px;
 
@@ -609,530 +714,512 @@ input[type=range]{
     text-align:center;
 
     box-shadow:
-        0 8px 20px rgba(60,40,20,.12);
+        0 8px 22px rgba(60,40,20,.13);
 }
 
 .speaker{
-    color:#a96f34;
+    color:#a66d35;
+
     font-weight:bold;
+
     margin-bottom:5px;
 }
 
 .dialogue-text{
-    font-size:clamp(17px,2.5vw,24px);
-    line-height:1.6;
+    font-size:clamp(16px,2.3vw,23px);
+
+    line-height:1.5;
 }
 
-/* =========================
-   إشعار الاتجاه
-========================= */
+/* =====================================================
+   شاشة اختيار الدولة
+===================================================== */
 
-.orientation-hint{
-    position:fixed;
-    inset:0;
+.country-placeholder{
+    position:absolute;
 
-    z-index:99999;
+    left:50%;
+    top:22%;
 
-    display:none;
+    transform:translateX(-50%);
+
+    width:80%;
+    height:55%;
+
+    border-radius:25px;
+
+    background:#c6e1e1;
+
+    display:flex;
 
     align-items:center;
     justify-content:center;
 
     text-align:center;
 
-    background:#203b35;
-    color:white;
+    color:#50675e;
+
+    box-shadow:
+        0 10px 30px rgba(50,70,60,.15);
 }
 
-.orientation-hint .box{
-    width:80%;
-}
-
-.orientation-hint .icon{
+.country-placeholder .icon{
     font-size:70px;
-    margin-bottom:15px;
-}
-
-.orientation-hint h2{
-    font-size:27px;
     margin-bottom:10px;
 }
 
-.orientation-hint p{
-    color:#d9e5df;
-    line-height:1.8;
+.country-placeholder .text{
+    font-size:20px;
 }
 
-/* =========================
-   الوضع الطولي
-========================= */
+.country-placeholder small{
+    display:block;
 
-@media (orientation:portrait){
+    margin-top:8px;
 
-    .orientation-hint{
-        display:flex;
-    }
-
-    #app{
-        display:none;
-    }
-
+    font-size:14px;
 }
 
-/* =========================
-   الشاشات الصغيرة بالعرض
-========================= */
+/* =====================================================
+   Toast
+===================================================== */
 
-@media (max-height:500px) and (orientation:landscape){
+#toast{
+    position:fixed;
 
-    .title{
-        top:3%;
-    }
+    left:50%;
+    bottom:25px;
 
-    .start-area{
-        bottom:4%;
+    transform:
+        translateX(-50%)
+        translateY(120px);
+
+    z-index:999999;
+
+    background:#263e37;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:14px;
+
+    transition:.25s;
+
+    font-size:16px;
+}
+
+#toast.show{
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+/* =====================================================
+   الشاشات الصغيرة جدًا بالعرض
+===================================================== */
+
+@media(max-height:500px){
+
+    .gender-area{
+        top:22%;
     }
 
     .gender-card{
-        min-height:130px;
-    }
-
-    .avatar{
-        font-size:55px;
-        margin-bottom:3px;
+        min-height:150px;
     }
 
     .age-box{
-        padding:18px;
+        top:22%;
+        padding:20px;
     }
 
-    .character-layout{
-        gap:20px;
-    }
-
-    .person{
+    .character{
         transform:scale(.7);
-        margin-bottom:-45px;
+        margin-top:-35px;
     }
 
     .carpet{
         width:250px;
-        height:78px;
+        height:80px;
     }
 
     .dialogue{
+        bottom:4%;
         padding:9px 15px;
     }
 
-    .subheading{
-        margin-bottom:12px;
+    .dialogue-text{
+        font-size:16px;
     }
-}
 
+}
 </style>
 </head>
 
 <body>
 
-<div id="app">
+<div id="game">
 
-    <!-- =====================
-         البداية
-    ====================== -->
+<div id="gameCanvas">
 
-    <section id="home" class="screen active">
+<!-- =====================================================
+     البداية
+===================================================== -->
 
-        <div class="map">
+<section id="home" class="screen active">
 
-            <div class="sea"></div>
+    <div class="home-sea"></div>
 
-            <div class="arab-map">
+    <div class="arab-map">
+        <div class="map-detail"></div>
+    </div>
 
-                <div class="map-lines"></div>
+    <div class="game-title">
 
-            </div>
-
-        </div>
-
-
-        <div class="title">
-
-            <h1>
-                ابن بطوطة في الوطن العربي
-            </h1>
-
-            <p>
-                رحلة استكشافية عبر الوطن العربي
-            </p>
-
-        </div>
-
-
-        <button
-            class="settings"
-            onclick="settings()"
-        >
-            ⚙️
-        </button>
-
-
-        <div class="start-area">
-
-            <button
-                class="start"
-                onclick="beginGame()"
-            >
-                🧭 بدء الرحلة
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================
-         الجنس
-    ====================== -->
-
-    <section id="genderScreen" class="screen">
-
-        <div class="inner">
-
-            <h2 class="heading">
-                اختر شخصيتك
-            </h2>
-
-            <p class="subheading">
-                من سيكون رحّالتنا؟
-            </p>
-
-
-            <div class="gender">
-
-                <button
-                    class="gender-card"
-                    onclick="chooseGender('male')"
-                >
-
-                    <div class="avatar">
-                        👨🏻
-                    </div>
-
-                    <strong>
-                        ابن بطوطة
-                    </strong>
-
-                    <small>
-                        رحّال
-                    </small>
-
-                </button>
-
-
-                <button
-                    class="gender-card"
-                    onclick="chooseGender('female')"
-                >
-
-                    <div class="avatar">
-                        👩🏻
-                    </div>
-
-                    <strong>
-                        بنت بطوطة
-                    </strong>
-
-                    <small>
-                        رحّالة
-                    </small>
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================
-         العمر
-    ====================== -->
-
-    <section id="ageScreen" class="screen">
-
-        <div class="inner">
-
-            <h2 class="heading">
-                كم عمرك؟
-            </h2>
-
-            <p class="subheading">
-                اختر عمرك من 15 إلى 50 سنة
-            </p>
-
-
-            <div class="age-box">
-
-                <div
-                    id="ageNumber"
-                    class="age"
-                >
-                    15
-                </div>
-
-                <div class="age-text">
-                    سنة
-                </div>
-
-
-                <input
-                    id="ageSlider"
-                    type="range"
-                    min="15"
-                    max="50"
-                    value="15"
-                    oninput="changeAge()"
-                >
-
-
-                <div class="range">
-
-                    <span>15 سنة</span>
-
-                    <span>50 سنة</span>
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="next"
-                onclick="confirmAge()"
-            >
-                متابعة
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================
-         الشخصية + البساط
-    ====================== -->
-
-    <section id="characterScreen" class="screen">
-
-        <div class="inner">
-
-            <h2 class="heading">
-                بداية الرحلة
-            </h2>
-
-
-            <div class="character-layout">
-
-
-                <div class="character-info">
-
-                    <div class="person">
-
-                        <div class="head"></div>
-
-                        <div class="hair"></div>
-
-                        <div class="body"></div>
-
-                        <div class="arm left"></div>
-
-                        <div class="arm right"></div>
-
-                        <div class="leg left"></div>
-
-                        <div class="leg right"></div>
-
-                    </div>
-
-
-                    <div
-                        id="playerName"
-                        class="player-name"
-                    >
-                        ابن بطوطة
-                    </div>
-
-
-                    <div
-                        id="playerAge"
-                        class="player-age"
-                    >
-                        العمر: 15 سنة
-                    </div>
-
-                </div>
-
-
-                <div class="carpet-area">
-
-                    <div class="carpet">
-
-                        <div class="carpet-face">
-                            🪄
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="dialogue">
-
-                <div class="speaker">
-                    🪄 البساط السحري
-                </div>
-
-                <div class="dialogue-text">
-                    هل أنت جاهز لبدء رحلتك الاستكشافية؟
-                </div>
-
-            </div>
-
-
-            <button
-                class="next"
-                onclick="readyForJourney()"
-            >
-                نعم، أنا جاهز!
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================
-         شاشة اختيار البلد
-    ====================== -->
-
-    <section id="countryScreen" class="screen">
-
-        <div class="inner">
-
-            <h2 class="heading">
-                اختر بلد انطلاقك
-            </h2>
-
-            <p class="subheading">
-                ستبدأ رحلتك من الدولة التي تختارها
-            </p>
-
-
-            <div
-                style="
-                width:min(850px,85%);
-                height:55%;
-                background:#c7e2e2;
-                border-radius:25px;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                box-shadow:0 10px 30px rgba(50,70,60,.15);
-                "
-            >
-
-                <div
-                    style="
-                    text-align:center;
-                    color:#50675e;
-                    "
-                >
-
-                    <div style="font-size:60px;">
-                        🗺️
-                    </div>
-
-                    <div style="font-size:20px;">
-                        خريطة اختيار الدول
-                    </div>
-
-                    <div
-                        style="
-                        margin-top:8px;
-                        font-size:14px;
-                        "
-                    >
-                        سيتم ربط الخريطة الجغرافية التفصيلية هنا
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="next"
-                onclick="showToast('اختيار الدولة سيكون في الخطوة التالية')"
-            >
-                اختيار الدولة
-            </button>
-
-        </div>
-
-    </section>
-
-</div>
-
-
-<!-- =========================
-     تنبيه الوضع الأفقي
-========================= -->
-
-<div class="orientation-hint">
-
-    <div class="box">
-
-        <div class="icon">
-            📱↔️
-        </div>
-
-        <h2>
-            اللعبة بالعرض
-        </h2>
+        <h1>
+            ابن بطوطة في الوطن العربي
+        </h1>
 
         <p>
-            للحصول على أفضل تجربة، استخدم اللعبة
-            بالوضع الأفقي.
+            رحلة استكشافية عبر الوطن العربي
         </p>
 
     </div>
 
+    <button
+        class="settings"
+        onclick="showMessage('الإعدادات ستتوفر لاحقًا')"
+    >
+        ⚙️
+    </button>
+
+    <div class="start-wrap">
+
+        <button
+            class="start"
+            onclick="startGame()"
+        >
+            🧭 بدء الرحلة
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     الجنس
+===================================================== -->
+
+<section id="genderScreen" class="screen">
+
+    <div class="inner"></div>
+
+    <div class="inner-title">
+
+        <h2>
+            اختر شخصيتك
+        </h2>
+
+        <p>
+            من سيكون رحّالتنا؟
+        </p>
+
+    </div>
+
+    <div class="gender-area">
+
+        <button
+            class="gender-card"
+            onclick="selectGender('male')"
+        >
+
+            <div class="gender-avatar">
+                👨🏻
+            </div>
+
+            <div class="gender-name">
+                ابن بطوطة
+            </div>
+
+            <div class="gender-description">
+                رحّال
+            </div>
+
+        </button>
+
+
+        <button
+            class="gender-card"
+            onclick="selectGender('female')"
+        >
+
+            <div class="gender-avatar">
+                👩🏻
+            </div>
+
+            <div class="gender-name">
+                بنت بطوطة
+            </div>
+
+            <div class="gender-description">
+                رحّالة
+            </div>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     العمر
+===================================================== -->
+
+<section id="ageScreen" class="screen">
+
+    <div class="inner"></div>
+
+    <div class="inner-title">
+
+        <h2>
+            اختر عمرك
+        </h2>
+
+        <p>
+            من 15 سنة إلى 50 سنة
+        </p>
+
+    </div>
+
+
+    <div class="age-box">
+
+        <div
+            id="ageNumber"
+            class="age-number"
+        >
+            15
+        </div>
+
+        <div class="age-label">
+            سنة
+        </div>
+
+        <input
+            id="ageSlider"
+            class="age-slider"
+            type="range"
+            min="15"
+            max="50"
+            value="15"
+            oninput="changeAge()"
+        >
+
+        <div class="age-range">
+
+            <span>
+                15
+            </span>
+
+            <span>
+                50
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="next"
+        onclick="confirmAge()"
+    >
+        متابعة
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     الشخصية والبساط
+===================================================== -->
+
+<section id="characterScreen" class="screen">
+
+    <div class="inner"></div>
+
+
+    <div class="inner-title">
+
+        <h2>
+            بداية الرحلة
+        </h2>
+
+    </div>
+
+
+    <div class="character-area">
+
+
+        <div class="player-info">
+
+            <div class="character">
+
+                <div class="head"></div>
+
+                <div class="hair"></div>
+
+                <div class="body"></div>
+
+                <div class="arm arm-left"></div>
+
+                <div class="arm arm-right"></div>
+
+                <div class="leg leg-left"></div>
+
+                <div class="leg leg-right"></div>
+
+            </div>
+
+
+            <div
+                id="playerName"
+                class="player-name"
+            >
+                ابن بطوطة
+            </div>
+
+
+            <div
+                id="playerAge"
+                class="player-age"
+            >
+                العمر: 15 سنة
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <div class="carpet">
+
+                <div class="carpet-face">
+                    🪄
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="dialogue">
+
+        <div class="speaker">
+            🪄 البساط السحري
+        </div>
+
+        <div class="dialogue-text">
+            هل أنت جاهز لبدء رحلتك الاستكشافية؟
+        </div>
+
+    </div>
+
+
+    <button
+        class="next"
+        onclick="ready()"
+    >
+        نعم، أنا جاهز!
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     الدولة
+===================================================== -->
+
+<section id="countryScreen" class="screen">
+
+    <div class="inner"></div>
+
+
+    <div class="inner-title">
+
+        <h2>
+            اختر بلد انطلاقك
+        </h2>
+
+        <p>
+            من أين تريد أن تبدأ رحلتك؟
+        </p>
+
+    </div>
+
+
+    <div class="country-placeholder">
+
+        <div>
+
+            <div class="icon">
+                🗺️
+            </div>
+
+            <div class="text">
+                خريطة الوطن العربي
+            </div>
+
+            <small>
+                سيتم وضع الخريطة الجغرافية الحقيقية هنا
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="next"
+        onclick="showMessage('سنضيف اختيار الدول في الخطوة القادمة')"
+    >
+        اختيار الدولة
+    </button>
+
+</section>
+
 </div>
+</div>
+
+
+<div id="toast"></div>
 
 
 <script>
 
-/* =========================
+/* =====================================================
    بيانات اللاعب
-========================= */
+===================================================== */
 
 const player = {
 
-    gender:null,
+    gender: null,
 
-    age:15,
+    age: 15,
 
-    name:"ابن بطوطة"
+    name: "ابن بطوطة"
 
 };
 
 
-/* =========================
+/* =====================================================
    الانتقال بين الشاشات
-========================= */
+===================================================== */
 
 function showScreen(id){
 
@@ -1145,49 +1232,27 @@ function showScreen(id){
         });
 
 
-    document
-        .getElementById(id)
-        .classList.add("active");
+    const screen =
+        document.getElementById(id);
+
+    if(screen){
+
+        screen.classList.add("active");
+
+    }
 
 }
 
 
-/* =========================
-   بدء اللعبة
-========================= */
+/* =====================================================
+   بداية اللعبة
+===================================================== */
 
-async function beginGame(){
-
-    /*
-       نحاول طلب ملء الشاشة.
-       المتصفح قد يسمح أو يرفض حسب الجهاز.
-    */
-
-    try{
-
-        if(
-            document.documentElement.requestFullscreen
-        ){
-
-            await document
-                .documentElement
-                .requestFullscreen();
-
-        }
-
-    }catch(error){
-
-        console.log(
-            "Fullscreen unavailable",
-            error
-        );
-
-    }
-
+async function startGame(){
 
     /*
-       نحاول قفل الاتجاه أفقيًا
-       عندما يسمح المتصفح بذلك.
+       محاولة تفعيل الوضع الأفقي.
+       المتصفح يسمح بذلك فقط في بعض الحالات.
     */
 
     try{
@@ -1206,8 +1271,32 @@ async function beginGame(){
     }catch(error){
 
         console.log(
-            "Orientation lock unavailable",
-            error
+            "Landscape lock غير متاح في المتصفح"
+        );
+
+    }
+
+
+    /*
+       محاولة ملء الشاشة.
+    */
+
+    try{
+
+        if(
+            document.documentElement.requestFullscreen
+        ){
+
+            await document
+                .documentElement
+                .requestFullscreen();
+
+        }
+
+    }catch(error){
+
+        console.log(
+            "Fullscreen غير متاح"
         );
 
     }
@@ -1218,22 +1307,24 @@ async function beginGame(){
 }
 
 
-/* =========================
+/* =====================================================
    اختيار الجنس
-========================= */
+===================================================== */
 
-function chooseGender(gender){
+function selectGender(gender){
 
     player.gender = gender;
 
 
     if(gender === "female"){
 
-        player.name = "بنت بطوطة";
+        player.name =
+            "بنت بطوطة";
 
     }else{
 
-        player.name = "ابن بطوطة";
+        player.name =
+            "ابن بطوطة";
 
     }
 
@@ -1243,9 +1334,9 @@ function chooseGender(gender){
 }
 
 
-/* =========================
+/* =====================================================
    العمر
-========================= */
+===================================================== */
 
 function changeAge(){
 
@@ -1266,6 +1357,10 @@ function changeAge(){
 
 }
 
+
+/* =====================================================
+   تأكيد العمر
+===================================================== */
 
 function confirmAge(){
 
@@ -1288,126 +1383,62 @@ function confirmAge(){
 }
 
 
-/* =========================
-   البساط
-========================= */
+/* =====================================================
+   جاهز للرحلة
+===================================================== */
 
-function readyForJourney(){
+function ready(){
 
     showScreen("countryScreen");
 
 }
 
 
-/* =========================
+/* =====================================================
    الإعدادات
-========================= */
+===================================================== */
 
-function settings(){
+function showMessage(message){
 
-    showToast(
-        "الإعدادات ستكون متاحة لاحقًا"
-    );
-
-}
-
-
-/* =========================
-   رسائل
-========================= */
-
-let toastTimer;
-
-function showToast(message){
-
-    let toast =
+    const toast =
         document.getElementById(
             "toast"
         );
-
-
-    if(!toast){
-
-        toast =
-            document.createElement(
-                "div"
-            );
-
-
-        toast.id = "toast";
-
-
-        toast.style.position =
-            "fixed";
-
-        toast.style.left = "50%";
-
-        toast.style.bottom = "25px";
-
-        toast.style.transform =
-            "translateX(-50%)";
-
-        toast.style.zIndex =
-            "999999";
-
-        toast.style.background =
-            "#273d36";
-
-        toast.style.color =
-            "white";
-
-        toast.style.padding =
-            "13px 22px";
-
-        toast.style.borderRadius =
-            "14px";
-
-        toast.style.fontSize =
-            "16px";
-
-        toast.style.boxShadow =
-            "0 6px 20px rgba(0,0,0,.2)";
-
-
-        document.body.appendChild(
-            toast
-        );
-
-    }
 
 
     toast.textContent =
         message;
 
 
-    clearTimeout(toastTimer);
+    toast.classList.add(
+        "show"
+    );
 
 
-    toastTimer =
-        setTimeout(() => {
+    setTimeout(() => {
 
-            toast.remove();
+        toast.classList.remove(
+            "show"
+        );
 
-        },2200);
+    },2200);
 
 }
 
 
-/* =========================
-   التعامل مع تغير الاتجاه
-========================= */
+/* =====================================================
+   تغيير الاتجاه
+===================================================== */
 
 window.addEventListener(
-    "orientationchange",
-    () => {
+    "resize",
+    function(){
 
-        setTimeout(() => {
-
-            window.dispatchEvent(
-                new Event("resize")
-            );
-
-        },300);
+        /*
+          جميع عناصر اللعبة تعتمد على
+          مساحة الشاشة الحالية، لذلك عند
+          تدوير الهاتف يعاد حسابها تلقائيًا.
+        */
 
     }
 );
