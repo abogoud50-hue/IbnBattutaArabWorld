@@ -5,23 +5,18 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,
-               initial-scale=1,
-               maximum-scale=1,
-               user-scalable=no,
-               viewport-fit=cover">
+content="width=device-width, initial-scale=1, maximum-scale=1,
+user-scalable=no, viewport-fit=cover">
 
 <meta name="theme-color" content="#173f3a">
 
 <title>ابن بطوطة في الوطن العربي</title>
 
-<link rel="manifest" href="manifest.json">
-
 <style>
 
-/* =========================================================
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -46,17 +41,24 @@ body{
     touch-action:manipulation;
 }
 
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
 
-/* =========================================================
-   اللعبة
-========================================================= */
+
+/* =====================================================
+   GAME
+===================================================== */
 
 #game{
     position:relative;
     width:100vw;
     height:100vh;
+
     width:100dvw;
     height:100dvh;
+
     overflow:hidden;
     background:#e8dcc4;
 }
@@ -73,9 +75,9 @@ body{
 }
 
 
-/* =========================================================
-   الشاشات
-========================================================= */
+/* =====================================================
+   SCREENS
+===================================================== */
 
 .screen{
     position:absolute;
@@ -91,9 +93,9 @@ body{
 }
 
 
-/* =========================================================
-   الخلفيات
-========================================================= */
+/* =====================================================
+   BACKGROUND
+===================================================== */
 
 .background{
     position:absolute;
@@ -109,9 +111,9 @@ body{
 }
 
 
-/* =========================================================
-   شاشة البداية
-========================================================= */
+/* =====================================================
+   HOME
+===================================================== */
 
 #home{
     background:#cce4e2;
@@ -130,17 +132,10 @@ body{
         );
 }
 
-
-/* =========================================================
-   الخريطة
-========================================================= */
-
 .map{
     position:absolute;
-
     left:7%;
     right:7%;
-
     top:24%;
     height:48%;
 
@@ -181,11 +176,6 @@ body{
         rgba(50,70,60,.18);
 }
 
-
-/* =========================================================
-   عنوان البداية
-========================================================= */
-
 .home-title{
     position:absolute;
     top:7%;
@@ -198,10 +188,7 @@ body{
 
 .home-title h1{
     color:#24443d;
-
-    font-size:
-        clamp(24px,4.2vw,46px);
-
+    font-size:clamp(24px,4.2vw,46px);
     line-height:1.2;
     white-space:nowrap;
 }
@@ -209,38 +196,27 @@ body{
 .home-title p{
     margin-top:8px;
     color:#60756e;
-
-    font-size:
-        clamp(12px,1.8vw,19px);
+    font-size:clamp(12px,1.8vw,19px);
 }
 
 
-/* =========================================================
-   الإعدادات
-========================================================= */
+/* =====================================================
+   SETTINGS
+===================================================== */
 
 .settings{
-
     position:absolute;
-
     top:4%;
     right:3%;
 
-    width:
-        clamp(46px,5vw,62px);
-
-    height:
-        clamp(46px,5vw,62px);
+    width:clamp(46px,5vw,62px);
+    height:clamp(46px,5vw,62px);
 
     border:none;
     border-radius:50%;
 
     background:#24463f;
-
     color:white;
-
-    font-size:
-        clamp(20px,2.5vw,28px);
 
     z-index:20;
 
@@ -249,22 +225,55 @@ body{
         rgba(0,0,0,.2);
 }
 
+.settings-icon{
+    position:absolute;
+    left:50%;
+    top:50%;
 
-/* =========================================================
-   زر البداية
-========================================================= */
+    width:22px;
+    height:22px;
 
-.start-button{
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+
+    border:
+        4px solid #fff;
+
+    border-radius:5px;
+}
+
+.settings-icon::before{
+    content:"";
 
     position:absolute;
+    left:50%;
+    top:50%;
 
+    width:7px;
+    height:7px;
+
+    transform:translate(-50%,-50%);
+
+    border:3px solid #24463f;
+    border-radius:50%;
+
+    background:white;
+}
+
+
+/* =====================================================
+   START BUTTON
+===================================================== */
+
+.start-button{
+    position:absolute;
     left:50%;
     bottom:6%;
 
     transform:translateX(-50%);
 
-    width:
-        min(430px,50%);
+    width:min(430px,50%);
 
     padding:
         clamp(13px,2vw,19px);
@@ -294,12 +303,11 @@ body{
 }
 
 
-/* =========================================================
-   العناوين
-========================================================= */
+/* =====================================================
+   PAGE TITLE
+===================================================== */
 
 .page-title{
-
     position:absolute;
 
     top:7%;
@@ -315,7 +323,6 @@ body{
 }
 
 .page-title h2{
-
     color:#31483f;
 
     font-size:
@@ -325,7 +332,6 @@ body{
 }
 
 .page-title p{
-
     margin-top:7px;
 
     color:#806e55;
@@ -335,16 +341,15 @@ body{
 }
 
 
-/* =========================================================
-   صفحة الجنس والعمر
-========================================================= */
+/* =====================================================
+   SETUP
+===================================================== */
 
 .setup-container{
-
     position:absolute;
 
     left:50%;
-    top:21%;
+    top:22%;
 
     transform:translateX(-50%);
 
@@ -353,58 +358,34 @@ body{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
-    gap:35px;
-
-    direction:rtl;
+    gap:25px;
 }
 
 
-/* =========================================================
-   الجنس
-========================================================= */
-
-.gender-section{
-
-    flex:1;
-
-    text-align:center;
-}
-
-.section-label{
-
-    color:#806e55;
-
-    font-size:
-        clamp(15px,2vw,20px);
-
-    font-weight:bold;
-
-    margin-bottom:12px;
-}
+/* =====================================================
+   GENDER
+===================================================== */
 
 .gender-container{
+    flex:1;
 
     display:flex;
 
-    gap:15px;
-
-    width:100%;
+    gap:18px;
 }
 
 .gender-card{
-
     flex:1;
 
-    min-height:
-        clamp(145px,25vh,210px);
+    height:
+        clamp(150px,27vh,220px);
 
     border:
         3px solid #d5b681;
 
-    border-radius:22px;
+    border-radius:25px;
 
     background:#fffaf0;
 
@@ -417,45 +398,146 @@ body{
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
     color:#493927;
-
-    transition:.15s;
 }
 
 .gender-card.selected{
 
     border-color:#a86e35;
 
-    background:#f7ead5;
-
-    transform:translateY(-3px);
-
     box-shadow:
-        0 15px 30px
-        rgba(90,55,25,.20);
+        0 0 0 4px
+        rgba(168,110,53,.15),
+        0 12px 28px
+        rgba(70,50,25,.18);
 }
 
-.gender-icon{
 
-    font-size:
-        clamp(48px,7vw,78px);
+/* شخصية ذكر مصغرة */
 
-    margin-bottom:5px;
+.gender-person{
+    position:relative;
+
+    width:70px;
+    height:95px;
+
+    margin-bottom:12px;
 }
+
+.gender-person .g-head{
+    position:absolute;
+
+    left:21px;
+    top:0;
+
+    width:30px;
+    height:30px;
+
+    border-radius:50%;
+
+    background:#c98561;
+
+    border:2px solid #744b34;
+}
+
+.gender-person .g-hair{
+    position:absolute;
+
+    left:22px;
+    top:1px;
+
+    width:28px;
+    height:13px;
+
+    background:#30251f;
+
+    border-radius:
+        50% 50% 20% 20%;
+}
+
+.gender-person .g-body{
+    position:absolute;
+
+    left:13px;
+    top:32px;
+
+    width:44px;
+    height:43px;
+
+    background:#eee3ce;
+
+    border:
+        3px solid #88745d;
+
+    border-radius:
+        17px 17px 8px 8px;
+}
+
+.gender-person .g-leg{
+    position:absolute;
+
+    top:73px;
+
+    width:12px;
+    height:22px;
+
+    background:#46372a;
+
+    border-radius:7px;
+}
+
+.gender-person .g-leg-one{
+    left:22px;
+}
+
+.gender-person .g-leg-two{
+    right:22px;
+}
+
+
+/* شخصية أنثى */
+
+.gender-person.female .g-hair{
+    left:17px;
+    top:-2px;
+
+    width:36px;
+    height:38px;
+
+    border-radius:
+        50% 50% 35% 35%;
+
+    background:#30251f;
+}
+
+.gender-person.female .g-head{
+    z-index:2;
+}
+
+.gender-person.female .g-body{
+    background:#c88c68;
+
+    border-color:#754a38;
+
+    border-radius:
+        18px 18px 8px 8px;
+}
+
+
+/* =====================================================
+   GENDER TEXT
+===================================================== */
 
 .gender-name{
-
     font-size:
-        clamp(16px,2.5vw,25px);
+        clamp(17px,2.4vw,25px);
 
     font-weight:bold;
 }
 
 .gender-description{
-
     margin-top:5px;
 
     color:#88745b;
@@ -465,171 +547,130 @@ body{
 }
 
 
-/* =========================================================
-   عجلة العمر
-========================================================= */
+/* =====================================================
+   AGE PANEL
+===================================================== */
 
-.age-section{
-
+.age-panel{
     flex:1;
 
-    text-align:center;
-}
-
-.age-wheel-box{
-
-    position:relative;
-
     height:
-        clamp(190px,30vh,240px);
+        clamp(230px,34vh,285px);
 
     background:#fffaf0;
 
     border:
         3px solid #d5b681;
 
-    border-radius:22px;
+    border-radius:25px;
 
     box-shadow:
         0 12px 28px
         rgba(70,50,25,.13);
 
-    overflow:hidden;
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
 }
 
+.age-panel-title{
+    color:#806d55;
 
-/* التدرج فوق وتحت */
+    font-size:
+        clamp(13px,1.7vw,18px);
 
-.age-wheel-box::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    top:0;
-
-    height:35%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fffaf0,
-            rgba(255,250,240,0)
-        );
-
-    z-index:5;
-
-    pointer-events:none;
-}
-
-.age-wheel-box::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    height:35%;
-
-    background:
-        linear-gradient(
-            to top,
-            #fffaf0,
-            rgba(255,250,240,0)
-        );
-
-    z-index:5;
-
-    pointer-events:none;
-}
-
-
-/* خط تحديد الرقم */
-
-.age-selector{
-
-    position:absolute;
-
-    left:8%;
-    right:8%;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    height:55px;
-
-    border-top:
-        2px solid #d6bd8b;
-
-    border-bottom:
-        2px solid #d6bd8b;
-
-    z-index:3;
-
-    pointer-events:none;
+    margin-bottom:12px;
 }
 
 .age-wheel{
+    position:relative;
 
-    position:absolute;
+    height:145px;
+    width:150px;
 
-    inset:0;
-
-    overflow-y:scroll;
-
-    scroll-snap-type:y mandatory;
-
-    scrollbar-width:none;
-
-    -webkit-overflow-scrolling:touch;
-
-    padding-top:67px;
-    padding-bottom:67px;
-}
-
-.age-wheel::-webkit-scrollbar{
-    display:none;
-}
-
-.age-item{
-
-    height:55px;
+    overflow:hidden;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
+}
+
+.age-wheel::before,
+.age-wheel::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:15px;
+    right:15px;
+
+    height:2px;
+
+    background:#d5b681;
+
+    z-index:5;
+}
+
+.age-wheel::before{
+    top:48px;
+}
+
+.age-wheel::after{
+    bottom:48px;
+}
+
+.age-list{
+    width:100%;
+    height:100%;
+
+    overflow-y:auto;
+
+    scroll-snap-type:y mandatory;
+
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+
+    text-align:center;
+
+    padding-top:48px;
+    padding-bottom:48px;
+}
+
+.age-list::-webkit-scrollbar{
+    display:none;
+}
+
+.age-item{
+    height:48px;
+
+    line-height:48px;
 
     scroll-snap-align:center;
 
-    color:#9c8a70;
+    color:#b3a28b;
 
-    font-size:25px;
+    font-size:22px;
 
     font-weight:bold;
-
-    user-select:none;
 }
 
-.age-item.active{
+.age-item.current{
     color:#a66d35;
-    font-size:34px;
+
+    font-size:36px;
 }
 
 
-/* =========================================================
-   زر المتابعة
-========================================================= */
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .next-button{
-
     position:absolute;
 
     left:50%;
@@ -654,25 +695,23 @@ body{
     font-weight:bold;
 
     z-index:30;
+
+    box-shadow:
+        0 8px 20px
+        rgba(70,45,20,.18);
 }
 
-
-/* =========================================================
-   زر الرجوع داخل اللعبة
-========================================================= */
-
 .back-button{
-
     position:absolute;
 
     top:4%;
     left:3%;
 
     width:
-        clamp(46px,5vw,62px);
+        clamp(50px,5vw,64px);
 
     height:
-        clamp(46px,5vw,62px);
+        clamp(50px,5vw,64px);
 
     border:none;
 
@@ -683,55 +722,66 @@ body{
     color:white;
 
     font-size:
-        clamp(22px,3vw,30px);
+        clamp(25px,3vw,34px);
 
     z-index:50;
 
     box-shadow:
         0 7px 18px
-        rgba(0,0,0,.18);
+        rgba(0,0,0,.2);
+
+    direction:ltr;
 }
 
 
-/* =========================================================
-   الشخصية
-========================================================= */
+/* =====================================================
+   CHARACTER SCREEN
+===================================================== */
 
 .character-layout{
-
     position:absolute;
 
     left:50%;
-    top:19%;
+    top:17%;
 
     transform:translateX(-50%);
 
-    width:78%;
-    height:55%;
+    width:82%;
+    height:56%;
 
     display:flex;
 
     align-items:center;
 
-    justify-content:center;
-
-    gap:12%;
+    justify-content:space-between;
 
     direction:ltr;
 }
 
-.player-character{
 
+/* =====================================================
+   PLAYER
+===================================================== */
+
+.player-info{
+    text-align:center;
+
+    direction:rtl;
+
+    margin-left:5%;
+}
+
+.player-character{
     position:relative;
 
     width:180px;
     height:270px;
-
-    flex-shrink:0;
 }
 
-.head{
 
+/* الرأس */
+
+.head{
     position:absolute;
 
     left:49px;
@@ -744,11 +794,16 @@ body{
 
     background:#c98561;
 
-    border:4px solid #744b34;
+    border:
+        4px solid #744b34;
+
+    z-index:2;
 }
 
-.hair{
 
+/* الشعر */
+
+.hair{
     position:absolute;
 
     left:51px;
@@ -761,10 +816,14 @@ body{
         50% 50% 20% 20%;
 
     background:#30251f;
+
+    z-index:3;
 }
 
-.body{
 
+/* جسم الذكر */
+
+.body{
     position:absolute;
 
     left:36px;
@@ -782,8 +841,10 @@ body{
         4px solid #88745d;
 }
 
-.arm{
 
+/* الذراعان */
+
+.arm{
     position:absolute;
 
     top:103px;
@@ -797,21 +858,19 @@ body{
 }
 
 .arm.left{
-
     left:17px;
-
     transform:rotate(12deg);
 }
 
 .arm.right{
-
     right:17px;
-
     transform:rotate(-12deg);
 }
 
-.leg{
 
+/* الرجلان */
+
+.leg{
     position:absolute;
 
     top:207px;
@@ -832,14 +891,56 @@ body{
     right:53px;
 }
 
-.player-info{
 
-    text-align:center;
-    direction:rtl;
+/* =====================================================
+   FEMALE CHARACTER
+===================================================== */
+
+.player-character.female .hair{
+
+    left:43px;
+    top:-6px;
+
+    width:94px;
+    height:100px;
+
+    border-radius:
+        48% 48% 40% 40%;
+
+    background:#30251f;
+
+    z-index:3;
 }
 
-.player-name{
+.player-character.female .head{
 
+    z-index:2;
+}
+
+.player-character.female .body{
+
+    background:#c88c68;
+
+    border-color:#754a38;
+
+    border-radius:
+        45px 45px 20px 20px;
+}
+
+.player-character.female .arm{
+    background:#efd5bd;
+}
+
+.player-character.female .leg{
+    background:#46372a;
+}
+
+
+/* =====================================================
+   PLAYER INFO
+===================================================== */
+
+.player-name{
     margin-top:5px;
 
     color:#a66d35;
@@ -851,60 +952,152 @@ body{
 }
 
 .player-age{
-
     margin-top:4px;
 
     color:#7b6952;
 }
 
 
-/* =========================================================
-   البساط
-========================================================= */
+/* =====================================================
+   CARPET
+===================================================== */
 
 .carpet-wrapper{
+    position:relative;
+
+    width:390px;
+    height:230px;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
+
+    margin-right:6%;
 }
+
+
+/* =====================================================
+   ARROW
+===================================================== */
+
+.travel-arrow{
+
+    position:absolute;
+
+    left:-230px;
+    top:50%;
+
+    width:210px;
+    height:5px;
+
+    background:#a86e35;
+
+    transform:
+        translateY(-50%);
+
+    border-radius:10px;
+
+    z-index:1;
+}
+
+.travel-arrow::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-2px;
+    top:50%;
+
+    width:18px;
+    height:18px;
+
+    border-top:
+        5px solid #a86e35;
+
+    border-right:
+        5px solid #a86e35;
+
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+}
+
+
+/* =====================================================
+   CARPET
+===================================================== */
 
 .carpet{
 
     position:relative;
 
-    width:
-        clamp(240px,28vw,350px);
-
-    height:
-        clamp(75px,10vw,110px);
-
-    border-radius:50%;
+    width:310px;
+    height:135px;
 
     background:
         linear-gradient(
             135deg,
-            #773e2d,
-            #b96f38
+            #713b2c,
+            #9e5832 48%,
+            #7a3c2c
         );
 
     border:
-        8px solid #dfb15e;
+        8px solid #d8a94f;
+
+    border-radius:
+        9px 15px 7px 13px /
+        13px 8px 14px 9px;
 
     transform:
-        perspective(500px)
-        rotateX(35deg);
+        perspective(700px)
+        rotateX(15deg)
+        rotateZ(-1deg);
 
     box-shadow:
-        0 20px 35px
-        rgba(55,35,20,.3);
+        0 25px 35px
+        rgba(55,35,20,.28);
 
     animation:
-        carpetFloat 2.5s ease-in-out infinite;
+        carpetFloat 2.7s
+        ease-in-out infinite;
+
+    z-index:3;
 }
 
-.carpet-symbol{
+
+/* التطريز */
+
+.carpet::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:13px;
+
+    border:
+        3px solid #e3b75c;
+
+    border-radius:6px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent 0 18px,
+            rgba(227,183,92,.22)
+            19px 21px
+        );
+}
+
+
+/* زخرفة مركزية بدون ايموجي */
+
+.carpet::after{
+
+    content:"✦  ❖  ✦";
 
     position:absolute;
 
@@ -914,8 +1107,54 @@ body{
     transform:
         translate(-50%,-50%);
 
-    font-size:
-        clamp(30px,4vw,45px);
+    color:#edc86d;
+
+    font-size:30px;
+
+    letter-spacing:15px;
+}
+
+
+/* =====================================================
+   FRINGE
+===================================================== */
+
+.fringe{
+
+    position:absolute;
+
+    left:5px;
+    right:5px;
+
+    bottom:-19px;
+
+    height:17px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    overflow:hidden;
+}
+
+.fringe span{
+
+    display:block;
+
+    width:5px;
+    height:20px;
+
+    background:#dfb15e;
+
+    border-radius:
+        0 0 5px 5px;
+
+    transform:
+        rotate(
+            calc(
+                var(--r) * 1deg
+            )
+        );
 }
 
 @keyframes carpetFloat{
@@ -923,56 +1162,121 @@ body{
     0%,100%{
 
         transform:
-            perspective(500px)
-            rotateX(35deg)
+            perspective(700px)
+            rotateX(15deg)
+            rotateZ(-1deg)
             translateY(0);
     }
 
     50%{
 
         transform:
-            perspective(500px)
-            rotateX(35deg)
-            translateY(-10px);
+            perspective(700px)
+            rotateX(15deg)
+            rotateZ(-1deg)
+            translateY(-9px);
     }
+
 }
 
 
-/* =========================================================
-   الحوار
-========================================================= */
+/* =====================================================
+   DIALOGUE BUBBLE
+===================================================== */
 
 .dialogue{
 
     position:absolute;
 
-    left:50%;
-    bottom:13%;
+    right:12%;
+    top:25%;
 
-    transform:translateX(-50%);
+    width:min(430px,38%);
 
-    width:min(800px,76%);
+    min-height:100px;
 
-    min-height:75px;
-
-    padding:
-        12px 22px;
+    padding:18px 25px;
 
     border:
-        2px solid #d6bd8b;
+        3px solid #d6bd8b;
 
-    border-radius:20px;
+    border-radius:28px;
 
     background:#fffaf0;
 
     text-align:center;
 
     box-shadow:
-        0 8px 22px
-        rgba(60,40,20,.12);
+        0 10px 28px
+        rgba(60,40,20,.16);
 
-    z-index:10;
+    z-index:15;
 }
+
+
+/*
+   الذيل يخرج من أسفل الفقاعة
+   وينزل مباشرة باتجاه رأس البساط.
+*/
+
+.dialogue::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-31px;
+
+    width:0;
+    height:0;
+
+    transform:
+        translateX(-50%);
+
+    border-left:
+        18px solid transparent;
+
+    border-right:
+        18px solid transparent;
+
+    border-top:
+        31px solid #d6bd8b;
+
+    z-index:-1;
+}
+
+.dialogue::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-25px;
+
+    width:0;
+    height:0;
+
+    transform:
+        translateX(-50%);
+
+    border-left:
+        15px solid transparent;
+
+    border-right:
+        15px solid transparent;
+
+    border-top:
+        25px solid #fffaf0;
+}
+
+
+/* =====================================================
+   DIALOGUE TEXT
+===================================================== */
 
 .speaker{
 
@@ -980,7 +1284,7 @@ body{
 
     font-weight:bold;
 
-    margin-bottom:3px;
+    margin-bottom:7px;
 }
 
 .dialogue-text{
@@ -988,13 +1292,15 @@ body{
     color:#443a2f;
 
     font-size:
-        clamp(15px,2vw,22px);
+        clamp(15px,2vw,21px);
+
+    line-height:1.5;
 }
 
 
-/* =========================================================
-   الدولة
-========================================================= */
+/* =====================================================
+   COUNTRY
+===================================================== */
 
 .country-map{
 
@@ -1004,7 +1310,6 @@ body{
     right:7%;
 
     top:21%;
-
     height:60%;
 
     border-radius:25px;
@@ -1035,9 +1340,39 @@ body{
 
 .country-map-icon{
 
-    font-size:70px;
+    width:70px;
+    height:55px;
 
-    margin-bottom:10px;
+    margin:0 auto 10px;
+
+    border:
+        4px solid #597068;
+
+    border-radius:8px;
+
+    position:relative;
+}
+
+.country-map-icon::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:12px;
+    top:11px;
+
+    width:38px;
+    height:25px;
+
+    border-top:
+        3px solid #597068;
+
+    border-bottom:
+        3px solid #597068;
+
+    transform:
+        skewX(-20deg);
 }
 
 .country-map-title{
@@ -1055,104 +1390,9 @@ body{
 }
 
 
-/* =========================================================
-   نافذة الخروج
-========================================================= */
-
-.exit-overlay{
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-        rgba(20,35,32,.58);
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    z-index:100000;
-
-    padding:25px;
-}
-
-.exit-overlay.show{
-    display:flex;
-}
-
-.exit-box{
-
-    width:min(430px,90%);
-
-    background:#fffaf0;
-
-    border-radius:24px;
-
-    padding:30px 25px;
-
-    text-align:center;
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.30);
-}
-
-.exit-box h3{
-
-    color:#31483f;
-
-    font-size:25px;
-
-    margin-bottom:10px;
-}
-
-.exit-box p{
-
-    color:#806e55;
-
-    margin-bottom:22px;
-}
-
-.exit-buttons{
-
-    display:flex;
-
-    gap:12px;
-}
-
-.exit-buttons button{
-
-    flex:1;
-
-    border:none;
-
-    border-radius:14px;
-
-    padding:13px;
-
-    font-family:inherit;
-
-    font-size:17px;
-
-    font-weight:bold;
-}
-
-.exit-yes{
-    background:#a86e35;
-    color:white;
-}
-
-.exit-no{
-    background:#dce8e5;
-    color:#31483f;
-}
-
-
-/* =========================================================
-   الرسائل
-========================================================= */
+/* =====================================================
+   MESSAGE
+===================================================== */
 
 #message{
 
@@ -1184,9 +1424,9 @@ body{
 }
 
 
-/* =========================================================
-   الشاشات القصيرة
-========================================================= */
+/* =====================================================
+   SHORT SCREENS
+===================================================== */
 
 @media(max-height:500px){
 
@@ -1208,33 +1448,70 @@ body{
     }
 
     .setup-container{
-        top:15%;
-        height:67%;
+        top:17%;
     }
 
-    .age-wheel-box{
-        height:180px;
+    .gender-card{
+        height:145px;
+    }
+
+    .age-panel{
+        height:210px;
     }
 
     .character-layout{
-        top:13%;
-        height:58%;
+        top:11%;
+        height:62%;
     }
 
     .dialogue{
-        bottom:9%;
-        min-height:60px;
+        top:19%;
+        min-height:80px;
     }
 
-    .back-button{
-        top:3%;
+    .carpet{
+        transform:
+            perspective(700px)
+            rotateX(15deg)
+            rotateZ(-1deg)
+            scale(.85);
+    }
+
+    .travel-arrow{
+        left:-180px;
+        width:160px;
+    }
+
+    .next-button{
+        bottom:3%;
     }
 
 }
 
-button{
-    font-family:inherit;
-    cursor:pointer;
+
+/* =====================================================
+   PREVENT OVERFLOW
+===================================================== */
+
+@media(max-width:700px){
+
+    .setup-container{
+        width:92%;
+        gap:12px;
+    }
+
+    .gender-container{
+        gap:8px;
+    }
+
+    .gender-card{
+        border-width:2px;
+    }
+
+    .age-panel{
+        border-width:2px;
+    }
+
 }
 
 </style>
@@ -1247,7 +1524,7 @@ button{
 
 
 <!-- =====================================================
-     البداية
+     HOME
 ===================================================== -->
 
 <section id="home" class="screen active">
@@ -1255,6 +1532,7 @@ button{
     <div class="sky"></div>
 
     <div class="map"></div>
+
 
     <div class="home-title">
 
@@ -1268,33 +1546,35 @@ button{
 
     </div>
 
+
     <button
         class="settings"
         onclick="message('الإعدادات ستتوفر لاحقًا')">
 
-        ⚙️
+        <span class="settings-icon"></span>
 
     </button>
+
 
     <button
         class="start-button"
         onclick="startJourney()">
 
-        🧭 بدء الرحلة
+        بدء الرحلة
 
     </button>
 
 </section>
 
 
-
 <!-- =====================================================
-     الجنس + العمر
+     SETUP
 ===================================================== -->
 
 <section id="setup" class="screen">
 
     <div class="background"></div>
+
 
     <button
         class="back-button"
@@ -1308,11 +1588,11 @@ button{
     <div class="page-title">
 
         <h2>
-            ابدأ رحلتك
+            اختر الجنس والعمر
         </h2>
 
         <p>
-            اختر الجنس والعمر
+            اختر الجنس ثم حدد عمرك
         </p>
 
     </div>
@@ -1323,79 +1603,88 @@ button{
 
         <!-- الجنس -->
 
-        <div class="gender-section">
-
-            <div class="section-label">
-                اختر الجنس
-            </div>
-
-            <div class="gender-container">
-
-                <button
-                    id="maleCard"
-                    class="gender-card selected"
-                    onclick="chooseGender('male')">
-
-                    <div class="gender-icon">
-                        👨🏻
-                    </div>
-
-                    <div class="gender-name">
-                        ذكر
-                    </div>
-
-                    <div class="gender-description">
-                        ابن بطوطة
-                    </div>
-
-                </button>
+        <div class="gender-container">
 
 
-                <button
-                    id="femaleCard"
-                    class="gender-card"
-                    onclick="chooseGender('female')">
+            <!-- ذكر -->
 
-                    <div class="gender-icon">
-                        👩🏻
-                    </div>
+            <button
+                id="maleCard"
+                class="gender-card"
+                onclick="chooseGender('male')">
 
-                    <div class="gender-name">
-                        أنثى
-                    </div>
+                <div class="gender-person">
 
-                    <div class="gender-description">
-                        بنت بطوطة
-                    </div>
+                    <div class="g-head"></div>
+                    <div class="g-hair"></div>
+                    <div class="g-body"></div>
 
-                </button>
+                    <div class="g-leg g-leg-one"></div>
+                    <div class="g-leg g-leg-two"></div>
 
-            </div>
+                </div>
+
+                <div class="gender-name">
+                    ذكر
+                </div>
+
+                <div class="gender-description">
+                    رحّال
+                </div>
+
+            </button>
+
+
+            <!-- أنثى -->
+
+            <button
+                id="femaleCard"
+                class="gender-card"
+                onclick="chooseGender('female')">
+
+                <div class="gender-person female">
+
+                    <div class="g-head"></div>
+                    <div class="g-hair"></div>
+                    <div class="g-body"></div>
+
+                    <div class="g-leg g-leg-one"></div>
+                    <div class="g-leg g-leg-two"></div>
+
+                </div>
+
+                <div class="gender-name">
+                    أنثى
+                </div>
+
+                <div class="gender-description">
+                    رحّالة
+                </div>
+
+            </button>
 
         </div>
 
 
         <!-- العمر -->
 
-        <div class="age-section">
+        <div class="age-panel">
 
-            <div class="section-label">
-                اختر العمر
+            <div class="age-panel-title">
+                اختر عمرك
             </div>
 
-            <div class="age-wheel-box">
 
-                <div class="age-selector"></div>
+            <div class="age-wheel">
 
                 <div
-                    id="ageWheel"
-                    class="age-wheel">
+                    id="ageList"
+                    class="age-list">
                 </div>
 
             </div>
 
         </div>
-
 
     </div>
 
@@ -1411,14 +1700,14 @@ button{
 </section>
 
 
-
 <!-- =====================================================
-     الشخصية
+     CHARACTER
 ===================================================== -->
 
 <section id="character" class="screen">
 
     <div class="background"></div>
+
 
     <button
         class="back-button"
@@ -1441,9 +1730,14 @@ button{
     <div class="character-layout">
 
 
+        <!-- اللاعب -->
+
         <div class="player-info">
 
-            <div class="player-character">
+
+            <div
+                id="playerCharacter"
+                class="player-character">
 
                 <div class="head"></div>
 
@@ -1482,13 +1776,34 @@ button{
         </div>
 
 
+        <!-- البساط -->
+
         <div class="carpet-wrapper">
+
+
+            <div class="travel-arrow"></div>
+
 
             <div class="carpet">
 
-                <div class="carpet-symbol">
-                    🪄
+
+                <div class="fringe">
+
+                    <span style="--r:-4"></span>
+                    <span style="--r:3"></span>
+                    <span style="--r:-2"></span>
+                    <span style="--r:4"></span>
+                    <span style="--r:-3"></span>
+                    <span style="--r:2"></span>
+                    <span style="--r:-4"></span>
+                    <span style="--r:3"></span>
+                    <span style="--r:-2"></span>
+                    <span style="--r:4"></span>
+                    <span style="--r:-3"></span>
+                    <span style="--r:2"></span>
+
                 </div>
+
 
             </div>
 
@@ -1497,14 +1812,16 @@ button{
     </div>
 
 
+    <!-- الحوار -->
+
     <div class="dialogue">
 
         <div class="speaker">
-            🪄 البساط السحري
+            البساط السحري
         </div>
 
         <div class="dialogue-text">
-            هل أنت جاهز لبدء رحلتك الاستكشافية؟
+            هل أنت جاهز لاستكشاف الوطن العربي؟
         </div>
 
     </div>
@@ -1521,14 +1838,14 @@ button{
 </section>
 
 
-
 <!-- =====================================================
-     الدولة
+     COUNTRY
 ===================================================== -->
 
 <section id="country" class="screen">
 
     <div class="background"></div>
+
 
     <button
         class="back-button"
@@ -1556,9 +1873,7 @@ button{
 
         <div class="country-map-content">
 
-            <div class="country-map-icon">
-                🗺️
-            </div>
+            <div class="country-map-icon"></div>
 
             <div class="country-map-title">
                 خريطة الوطن العربي
@@ -1578,66 +1893,18 @@ button{
 </div>
 
 
-<!-- =====================================================
-     رسالة صغيرة
-===================================================== -->
-
 <div id="message"></div>
-
-
-<!-- =====================================================
-     نافذة الخروج
-===================================================== -->
-
-<div
-    id="exitOverlay"
-    class="exit-overlay">
-
-    <div class="exit-box">
-
-        <h3>
-            هل تريد الخروج؟
-        </h3>
-
-        <p>
-            هل أنت متأكد أنك تريد الخروج من اللعبة؟
-        </p>
-
-        <div class="exit-buttons">
-
-            <button
-                class="exit-no"
-                onclick="closeExitDialog()">
-
-                لا
-
-            </button>
-
-            <button
-                class="exit-yes"
-                onclick="exitGame()">
-
-                نعم
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
 
 
 <script>
 
-/* =========================================================
-   بيانات اللاعب
-========================================================= */
+/* =====================================================
+   PLAYER DATA
+===================================================== */
 
 const player = {
 
-    gender:"male",
+    gender:null,
 
     age:15,
 
@@ -1646,219 +1913,24 @@ const player = {
 };
 
 
-/* =========================================================
-   حالة اللعبة
-========================================================= */
+/* =====================================================
+   SCREEN HISTORY
+===================================================== */
 
-let currentScreen = "home";
+let screenHistory = ["home"];
 
-let historyStack = ["home"];
 
-let exitDialogOpen = false;
+/* =====================================================
+   SHOW SCREEN
+===================================================== */
 
-
-/* =========================================================
-   عجلة العمر
-========================================================= */
-
-const ageWheel =
-    document.getElementById("ageWheel");
-
-
-for(let age = 15; age <= 50; age++){
-
-    const item =
-        document.createElement("div");
-
-    item.className = "age-item";
-
-    item.dataset.age = age;
-
-    item.textContent = age;
-
-    ageWheel.appendChild(item);
-}
-
-
-/* =========================================================
-   تحديد العمر الحالي
-========================================================= */
-
-function updateAgeFromWheel(){
-
-    const items =
-        document.querySelectorAll(".age-item");
-
-    const center =
-        ageWheel.scrollTop +
-        ageWheel.clientHeight / 2;
-
-    let closest = null;
-
-    let closestDistance = Infinity;
-
-    items.forEach(item => {
-
-        const itemCenter =
-            item.offsetTop +
-            item.offsetHeight / 2;
-
-        const distance =
-            Math.abs(center - itemCenter);
-
-        if(distance < closestDistance){
-
-            closestDistance = distance;
-
-            closest = item;
-
-        }
-
-    });
-
-
-    if(closest){
-
-        items.forEach(item => {
-
-            item.classList.remove("active");
-
-        });
-
-        closest.classList.add("active");
-
-        player.age =
-            Number(closest.dataset.age);
-
-    }
-
-}
-
-
-ageWheel.addEventListener(
-    "scroll",
-    function(){
-
-        window.clearTimeout(
-            ageWheel.scrollTimer
-        );
-
-        ageWheel.scrollTimer =
-            window.setTimeout(
-                function(){
-
-                    updateAgeFromWheel();
-
-                    snapAgeToCenter();
-
-                },
-                80
-            );
-
-    }
-);
-
-
-/* =========================================================
-   تثبيت العمر في المنتصف
-========================================================= */
-
-function snapAgeToCenter(){
-
-    const items =
-        document.querySelectorAll(".age-item");
-
-    let closest = null;
-
-    let closestDistance = Infinity;
-
-    const center =
-        ageWheel.scrollTop +
-        ageWheel.clientHeight / 2;
-
-    items.forEach(item => {
-
-        const itemCenter =
-            item.offsetTop +
-            item.offsetHeight / 2;
-
-        const distance =
-            Math.abs(center - itemCenter);
-
-        if(distance < closestDistance){
-
-            closestDistance = distance;
-
-            closest = item;
-
-        }
-
-    });
-
-
-    if(closest){
-
-        ageWheel.scrollTo({
-
-            top:
-                closest.offsetTop -
-                (
-                    ageWheel.clientHeight -
-                    closest.offsetHeight
-                ) / 2,
-
-            behavior:"smooth"
-
-        });
-
-    }
-
-}
-
-
-/* =========================================================
-   تجهيز عجلة العمر
-========================================================= */
-
-function initializeAgeWheel(){
-
-    const item =
-        document.querySelector(
-            '.age-item[data-age="15"]'
-        );
-
-    if(item){
-
-        ageWheel.scrollTop =
-            item.offsetTop -
-            (
-                ageWheel.clientHeight -
-                item.offsetHeight
-            ) / 2;
-
-    }
-
-    updateAgeFromWheel();
-
-}
-
-
-/* =========================================================
-   تغيير الشاشة
-========================================================= */
-
-function showScreen(
-    id,
-    addHistory = true
-){
+function showScreen(id, saveHistory=true){
 
     document
         .querySelectorAll(".screen")
         .forEach(screen => {
 
-            screen.classList.remove(
-                "active"
-            );
+            screen.classList.remove("active");
 
         });
 
@@ -1867,38 +1939,35 @@ function showScreen(
         document.getElementById(id);
 
 
-    if(!target){
-        return;
-    }
+    if(target){
+
+        target.classList.add("active");
 
 
-    target.classList.add("active");
+        if(saveHistory){
 
-    currentScreen = id;
-
-
-    if(addHistory){
-
-        historyStack.push(id);
-
-    }
+            const last =
+                screenHistory[
+                    screenHistory.length - 1
+                ];
 
 
-    if(id === "setup"){
+            if(last !== id){
 
-        setTimeout(
-            initializeAgeWheel,
-            50
-        );
+                screenHistory.push(id);
+
+            }
+
+        }
 
     }
 
 }
 
 
-/* =========================================================
-   بدء الرحلة
-========================================================= */
+/* =====================================================
+   START JOURNEY
+===================================================== */
 
 function startJourney(){
 
@@ -1909,33 +1978,29 @@ function startJourney(){
 }
 
 
-/* =========================================================
-   اختيار الجنس
-========================================================= */
+/* =====================================================
+   CHOOSE GENDER
+===================================================== */
 
 function chooseGender(gender){
 
     player.gender = gender;
 
 
-    const male =
+    document
+        .getElementById("maleCard")
+        .classList.remove("selected");
+
+
+    document
+        .getElementById("femaleCard")
+        .classList.remove("selected");
+
+
+    const character =
         document.getElementById(
-            "maleCard"
+            "playerCharacter"
         );
-
-    const female =
-        document.getElementById(
-            "femaleCard"
-        );
-
-
-    male.classList.remove(
-        "selected"
-    );
-
-    female.classList.remove(
-        "selected"
-    );
 
 
     if(gender === "female"){
@@ -1943,235 +2008,315 @@ function chooseGender(gender){
         player.name =
             "بنت بطوطة";
 
-        female.classList.add(
-            "selected"
-        );
 
-    }else{
+        document
+            .getElementById("femaleCard")
+            .classList.add("selected");
+
+
+        character.classList.add("female");
+
+    }
+
+    else{
 
         player.name =
             "ابن بطوطة";
 
-        male.classList.add(
-            "selected"
-        );
+
+        document
+            .getElementById("maleCard")
+            .classList.add("selected");
+
+
+        character.classList.remove("female");
 
     }
 
 }
 
 
-/* =========================================================
-   تأكيد الجنس والعمر
-========================================================= */
+/* =====================================================
+   AGE WHEEL
+===================================================== */
+
+const ageList =
+    document.getElementById(
+        "ageList"
+    );
+
+
+for(
+    let age = 15;
+    age <= 50;
+    age++
+){
+
+    const item =
+        document.createElement(
+            "div"
+        );
+
+
+    item.className =
+        "age-item";
+
+
+    item.textContent =
+        age;
+
+
+    item.dataset.age =
+        age;
+
+
+    ageList.appendChild(
+        item
+    );
+
+}
+
+
+/* =====================================================
+   UPDATE AGE
+===================================================== */
+
+function updateAgeFromWheel(){
+
+    const items =
+        document.querySelectorAll(
+            ".age-item"
+        );
+
+
+    const center =
+        ageList.scrollTop +
+        ageList.clientHeight / 2;
+
+
+    let closest = null;
+
+    let smallest =
+        Infinity;
+
+
+    items.forEach(
+        item => {
+
+            const itemCenter =
+                item.offsetTop +
+                item.offsetHeight / 2;
+
+
+            const distance =
+                Math.abs(
+                    center -
+                    itemCenter
+                );
+
+
+            if(
+                distance <
+                smallest
+            ){
+
+                smallest =
+                    distance;
+
+                closest =
+                    item;
+
+            }
+
+        }
+    );
+
+
+    if(closest){
+
+        player.age =
+            Number(
+                closest.dataset.age
+            );
+
+
+        items.forEach(
+            item => {
+
+                item.classList
+                    .remove("current");
+
+            }
+        );
+
+
+        closest.classList
+            .add("current");
+
+    }
+
+}
+
+
+ageList.addEventListener(
+    "scroll",
+    updateAgeFromWheel
+);
+
+
+/* =====================================================
+   INITIAL AGE
+===================================================== */
+
+setTimeout(
+    function(){
+
+        const first =
+            ageList.querySelector(
+                '[data-age="15"]'
+            );
+
+
+        if(first){
+
+            ageList.scrollTop =
+                0;
+
+        }
+
+
+        updateAgeFromWheel();
+
+    },
+    100
+);
+
+
+/* =====================================================
+   CONFIRM SETUP
+===================================================== */
 
 function confirmSetup(){
 
-    document
-        .getElementById("playerName")
-        .textContent =
-        player.name;
+    if(!player.gender){
 
-
-    document
-        .getElementById("playerAge")
-        .textContent =
-        "العمر: " +
-        player.age +
-        " سنة";
-
-
-    showScreen("character");
-
-}
-
-
-/* =========================================================
-   جاهز للرحلة
-========================================================= */
-
-function readyForJourney(){
-
-    showScreen("country");
-
-}
-
-
-/* =========================================================
-   الرجوع
-========================================================= */
-
-function goBack(){
-
-    if(currentScreen === "home"){
-
-        showExitDialog();
+        message(
+            "اختر الجنس أولًا"
+        );
 
         return;
 
     }
 
 
-    if(historyStack.length > 1){
+    document
+        .getElementById(
+            "playerName"
+        )
+        .textContent =
+        player.name;
 
-        historyStack.pop();
-
-        const previous =
-            historyStack[
-                historyStack.length - 1
-            ];
-
-        showScreen(
-            previous,
-            false
-        );
-
-    }else{
-
-        showExitDialog();
-
-    }
-
-}
-
-
-/* =========================================================
-   زر رجوع الجوال
-========================================================= */
-
-window.addEventListener(
-    "popstate",
-    function(){
-
-        if(exitDialogOpen){
-
-            closeExitDialog();
-
-            return;
-
-        }
-
-
-        goBack();
-
-    }
-);
-
-
-/* =========================================================
-   اعتراض زر الرجوع داخل WebView
-========================================================= */
-
-function prepareBackHistory(){
-
-    try{
-
-        history.replaceState(
-            {
-                game:true
-            },
-            "",
-            location.href
-        );
-
-        history.pushState(
-            {
-                game:true
-            },
-            "",
-            location.href
-        );
-
-    }catch(error){
-
-        console.log(error);
-
-    }
-
-}
-
-
-/* =========================================================
-   نافذة الخروج
-========================================================= */
-
-function showExitDialog(){
-
-    exitDialogOpen = true;
 
     document
         .getElementById(
-            "exitOverlay"
+            "playerAge"
         )
-        .classList.add("show");
+        .textContent =
+        "العمر: " +
+        player.age +
+        " سنة";
 
-}
-
-
-function closeExitDialog(){
-
-    exitDialogOpen = false;
-
-    document
-        .getElementById(
-            "exitOverlay"
-        )
-        .classList.remove("show");
-
-}
-
-
-function exitGame(){
-
-    closeExitDialog();
-
-
-    /*
-     * نحاول إغلاق التطبيق إذا كان
-     * WebView يسمح بذلك.
-     */
-
-    try{
-
-        if(
-            window.Android &&
-            typeof window.Android.exitApp ===
-            "function"
-        ){
-
-            window.Android.exitApp();
-
-            return;
-
-        }
-
-    }catch(error){
-
-        console.log(error);
-
-    }
-
-
-    /*
-     * إذا لم يسمح النظام بإغلاق التطبيق،
-     * نرجع للصفحة الرئيسية.
-     */
 
     showScreen(
-        "home",
+        "character"
+    );
+
+}
+
+
+/* =====================================================
+   READY
+===================================================== */
+
+function readyForJourney(){
+
+    showScreen(
+        "country"
+    );
+
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+function goBack(){
+
+    if(
+        screenHistory.length <= 1
+    ){
+
+        return;
+
+    }
+
+
+    screenHistory.pop();
+
+
+    const previous =
+        screenHistory[
+            screenHistory.length - 1
+        ];
+
+
+    showScreen(
+        previous,
         false
     );
 
-    historyStack = [
-        "home"
-    ];
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+function message(text){
+
+    const box =
+        document.getElementById(
+            "message"
+        );
+
+
+    box.textContent =
+        text;
+
+
+    box.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        function(){
+
+            box.classList.remove(
+                "show"
+            );
+
+        },
+        2200
+    );
 
 }
 
 
-/* =========================================================
-   Fullscreen + Landscape
-========================================================= */
+/* =====================================================
+   LANDSCAPE
+===================================================== */
 
 async function forceLandscape(){
 
@@ -2189,7 +2334,9 @@ async function forceLandscape(){
 
         }
 
-    }catch(error){
+    }
+
+    catch(error){
 
         console.log(
             "Fullscreen غير متاح:",
@@ -2212,7 +2359,9 @@ async function forceLandscape(){
 
         }
 
-    }catch(error){
+    }
+
+    catch(error){
 
         console.log(
             "قفل الاتجاه غير متاح:",
@@ -2224,76 +2373,23 @@ async function forceLandscape(){
 }
 
 
-/* =========================================================
-   الرسائل
-========================================================= */
-
-function message(text){
-
-    const box =
-        document.getElementById(
-            "message"
-        );
-
-
-    box.textContent = text;
-
-    box.classList.add("show");
-
-
-    setTimeout(
-        function(){
-
-            box.classList.remove(
-                "show"
-            );
-
-        },
-        2200
-    );
-
-}
-
-
-/* =========================================================
-   مراقبة الاتجاه
-========================================================= */
-
-if(screen.orientation){
-
-    screen.orientation.addEventListener(
-        "change",
-        function(){
-
-            console.log(
-                "اتجاه الشاشة:",
-                screen.orientation.type
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   Service Worker
-========================================================= */
+/* =====================================================
+   SERVICE WORKER
+===================================================== */
 
 if(
-    "serviceWorker" in navigator
+    "serviceWorker"
+    in navigator
 ){
 
     window.addEventListener(
         "load",
         function(){
 
-            navigator
-                .serviceWorker
+            navigator.serviceWorker
                 .register(
                     "./service-worker.js"
                 )
-
                 .then(
                     function(){
 
@@ -2303,7 +2399,6 @@ if(
 
                     }
                 )
-
                 .catch(
                     function(error){
 
@@ -2321,13 +2416,25 @@ if(
 }
 
 
-/* =========================================================
-   التشغيل الأول
-========================================================= */
+/* =====================================================
+   ORIENTATION
+===================================================== */
 
-prepareBackHistory();
+if(screen.orientation){
 
-initializeAgeWheel();
+    screen.orientation.addEventListener(
+        "change",
+        function(){
+
+            console.log(
+                "اتجاه الشاشة:",
+                screen.orientation.type
+            );
+
+        }
+    );
+
+}
 
 </script>
 
