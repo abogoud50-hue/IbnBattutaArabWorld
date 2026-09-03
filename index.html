@@ -2,14 +2,15 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,
-initial-scale=1,
-maximum-scale=1,
-user-scalable=no,
-viewport-fit=cover">
+      content="width=device-width,
+      initial-scale=1,
+      maximum-scale=1,
+      user-scalable=no,
+      viewport-fit=cover">
 
 <meta name="theme-color" content="#183f39">
 
@@ -17,16 +18,11 @@ viewport-fit=cover">
 
 <style>
 
-/* =====================================================
-   FONT
-===================================================== */
+/* =========================================================
+   GENERAL
+========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
-
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
     box-sizing:border-box;
@@ -43,19 +39,11 @@ body{
 }
 
 body{
-    font-family:
-        "Tajawal",
-        "Saudi",
-        "Arial",
-        sans-serif;
-
-    background:#183f39;
-
-    color:#303d38;
-
-    touch-action:manipulation;
-
+    font-family:"Tajawal","Arial",sans-serif;
+    background:#eee5d3;
+    color:#303b36;
     user-select:none;
+    touch-action:manipulation;
 }
 
 button,
@@ -63,66 +51,50 @@ input{
     font-family:inherit;
 }
 
-
-/* =====================================================
-   GAME
-===================================================== */
-
 #game{
     position:relative;
-
     width:100vw;
     height:100vh;
-
     width:100dvw;
     height:100dvh;
-
     overflow:hidden;
-
-    background:#eee4d1;
 }
 
 
-/* =====================================================
+/* =========================================================
    SCREENS
-===================================================== */
+========================================================= */
 
 .screen{
     position:absolute;
     inset:0;
-
-    width:100%;
-    height:100%;
-
     display:none;
-
     overflow:hidden;
 }
 
 .screen.active{
     display:block;
-
-    animation:
-        screenIn .45s ease both;
+    animation:screenIn .45s ease both;
 }
 
 @keyframes screenIn{
 
     from{
         opacity:0;
-        transform:scale(1.025);
+        transform:scale(1.015);
     }
 
     to{
         opacity:1;
         transform:scale(1);
     }
+
 }
 
 
-/* =====================================================
+/* =========================================================
    BACKGROUND
-===================================================== */
+========================================================= */
 
 .background{
     position:absolute;
@@ -130,51 +102,34 @@ input{
 
     background:
         radial-gradient(
-            circle at 50% 15%,
+            circle at 50% 20%,
             #fffaf0 0%,
-            #f1e6d1 55%,
-            #dfccb0 100%
+            #f1e5d0 58%,
+            #dec8a6 100%
         );
 }
 
 
-/* =====================================================
+/* =========================================================
    HOME
-===================================================== */
+========================================================= */
 
 #home{
+
     background:
         linear-gradient(
             180deg,
-            #c9e3e0,
-            #e7e0ce
+            #c7dfdc 0%,
+            #e9dfca 100%
         );
-}
-
-.home-decoration{
-    position:absolute;
-
-    left:6%;
-    right:6%;
-    top:23%;
-    bottom:20%;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(168,126,66,.30),
-            rgba(168,126,66,0) 70%
-        );
-
-    transform:rotate(-5deg);
 }
 
 .home-title{
+
     position:absolute;
 
-    top:9%;
+    top:10%;
+
     left:50%;
 
     transform:translateX(-50%);
@@ -187,107 +142,95 @@ input{
 }
 
 .home-title h1{
+
     color:#23443e;
 
     font-size:
-        clamp(28px,4.5vw,52px);
+        clamp(25px,4vw,46px);
+
+    line-height:1.35;
 
     font-weight:800;
-
-    line-height:1.25;
 }
 
 .home-title p{
+
     margin-top:10px;
 
-    color:#6d756c;
+    color:#766c5c;
 
     font-size:
-        clamp(13px,1.8vw,20px);
+        clamp(14px,1.8vw,19px);
 }
-
-
-/* =====================================================
-   DECORATIVE MAP
-===================================================== */
 
 .home-map{
+
     position:absolute;
 
+    top:29%;
+
     left:10%;
+
     right:10%;
 
-    top:29%;
     height:39%;
 
-    background:#d5b77d;
+    opacity:.65;
 
-    opacity:.8;
+    background:#d3b477;
 
     clip-path:polygon(
-        1% 39%,
-        8% 30%,
-        17% 31%,
-        23% 21%,
-        34% 25%,
-        42% 17%,
-        53% 20%,
-        62% 15%,
-        73% 23%,
-        83% 27%,
-        93% 38%,
-        99% 48%,
-        92% 57%,
-        84% 63%,
-        76% 71%,
-        66% 67%,
-        58% 80%,
-        49% 72%,
-        39% 81%,
-        30% 69%,
-        20% 71%,
-        12% 61%,
-        4% 57%
+        2% 41%,
+        11% 29%,
+        21% 33%,
+        28% 22%,
+        39% 26%,
+        47% 18%,
+        58% 21%,
+        68% 16%,
+        78% 24%,
+        90% 29%,
+        98% 43%,
+        91% 55%,
+        83% 62%,
+        74% 70%,
+        65% 66%,
+        57% 79%,
+        47% 72%,
+        38% 81%,
+        29% 69%,
+        19% 73%,
+        11% 61%,
+        4% 56%
     );
-
-    filter:
-        drop-shadow(
-            0 15px 20px
-            rgba(65,50,30,.12)
-        );
 }
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
 
 .primary-button{
 
     border:none;
 
+    padding:
+        13px 38px;
+
+    border-radius:17px;
+
     background:
         linear-gradient(
             135deg,
-            #9b6534,
-            #c08a4d
+            #976236,
+            #bf874b
         );
 
-    color:#fff;
+    color:white;
 
-    border-radius:18px;
+    font-size:
+        clamp(16px,2vw,22px);
 
     font-weight:700;
 
-    font-size:
-        clamp(16px,2.2vw,23px);
-
-    padding:
-        14px 42px;
-
     box-shadow:
-        0 10px 24px
-        rgba(76,49,25,.20);
+        0 10px 25px
+        rgba(76,49,25,.18);
 
     transition:
         transform .18s ease,
@@ -295,11 +238,12 @@ input{
 }
 
 .primary-button:active{
+
     transform:scale(.96);
 
     box-shadow:
-        0 5px 12px
-        rgba(76,49,25,.15);
+        0 5px 13px
+        rgba(76,49,25,.13);
 }
 
 .start-button{
@@ -307,33 +251,35 @@ input{
     position:absolute;
 
     left:50%;
-    bottom:7%;
+
+    bottom:8%;
 
     transform:translateX(-50%);
 
     min-width:
-        min(360px,55%);
+        min(340px,60%);
 
-    z-index:20;
+    z-index:10;
 }
 
 
-/* =====================================================
+/* =========================================================
    BACK BUTTON
-===================================================== */
+========================================================= */
 
 .back-button{
 
     position:absolute;
 
     top:4%;
+
     left:3%;
 
     width:
-        clamp(48px,5.5vw,65px);
+        clamp(48px,5.5vw,62px);
 
     height:
-        clamp(48px,5.5vw,65px);
+        clamp(48px,5.5vw,62px);
 
     border:none;
 
@@ -344,34 +290,34 @@ input{
     color:#fff;
 
     font-size:
-        clamp(25px,3vw,34px);
+        clamp(24px,3vw,32px);
+
+    line-height:1;
+
+    direction:ltr;
 
     z-index:100;
 
     box-shadow:
         0 8px 20px
-        rgba(0,0,0,.18);
-
-    direction:ltr;
-
-    transition:
-        transform .18s ease;
+        rgba(0,0,0,.17);
 }
 
 .back-button:active{
-    transform:scale(.92);
+    transform:scale(.93);
 }
 
 
-/* =====================================================
+/* =========================================================
    PAGE TITLE
-===================================================== */
+========================================================= */
 
 .page-title{
 
     position:absolute;
 
     top:7%;
+
     left:50%;
 
     transform:translateX(-50%);
@@ -388,50 +334,41 @@ input{
     color:#29463f;
 
     font-size:
-        clamp(25px,4vw,43px);
+        clamp(25px,3.8vw,42px);
 
     font-weight:800;
 }
 
-.page-title p{
 
-    margin-top:7px;
-
-    color:#786b59;
-
-    font-size:
-        clamp(13px,1.7vw,18px);
-}
-
-
-/* =====================================================
+/* =========================================================
    SETUP
-===================================================== */
+========================================================= */
 
 .setup-content{
 
     position:absolute;
 
+    top:22%;
+
     left:50%;
-    top:23%;
 
     transform:translateX(-50%);
 
-    width:min(900px,88%);
+    width:min(850px,88%);
 
     display:flex;
 
-    gap:22px;
-
-    align-items:center;
+    align-items:stretch;
 
     justify-content:center;
+
+    gap:18px;
 }
 
 
-/* =====================================================
+/* =========================================================
    GENDER
-===================================================== */
+========================================================= */
 
 .gender-container{
 
@@ -439,71 +376,77 @@ input{
 
     display:flex;
 
-    gap:14px;
+    gap:12px;
 }
 
 .gender-card{
 
     flex:1;
 
-    min-width:0;
-
     height:
-        clamp(165px,27vh,230px);
+        clamp(170px,27vh,225px);
 
     border:
-        3px solid #d8c39b;
+        2px solid #d8c49e;
 
-    border-radius:24px;
+    border-radius:22px;
 
     background:
-        rgba(255,250,239,.95);
+        rgba(255,250,240,.96);
 
     box-shadow:
-        0 12px 30px
-        rgba(66,52,31,.12);
+        0 12px 28px
+        rgba(70,51,28,.10);
 
     display:flex;
 
     flex-direction:column;
 
     align-items:center;
+
     justify-content:center;
 
-    color:#44382b;
+    color:#44382d;
 
     transition:
-        transform .2s ease,
-        border-color .2s ease,
-        box-shadow .2s ease;
+        .2s ease;
+}
+
+.gender-card.selected{
+
+    border-color:#a56c37;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(165,108,55,.10),
+        0 15px 30px
+        rgba(70,51,28,.13);
 }
 
 .gender-card:active{
     transform:scale(.97);
 }
 
-.gender-card.selected{
+.gender-name{
 
-    border-color:#a66d36;
+    font-size:
+        clamp(17px,2.2vw,23px);
 
-    box-shadow:
-        0 0 0 4px
-        rgba(166,109,54,.12),
-        0 15px 30px
-        rgba(66,52,31,.15);
+    font-weight:800;
 }
 
 
-/* =====================================================
-   MINI CHARACTER
-===================================================== */
+/* =========================================================
+   SIMPLE CHARACTERS
+========================================================= */
 
 .mini-character{
 
     position:relative;
 
-    width:70px;
-    height:92px;
+    width:64px;
+
+    height:85px;
 
     margin-bottom:10px;
 }
@@ -512,17 +455,19 @@ input{
 
     position:absolute;
 
-    left:21px;
+    left:19px;
+
     top:0;
 
-    width:29px;
-    height:29px;
+    width:27px;
+
+    height:27px;
 
     border-radius:50%;
 
     background:#c98561;
 
-    border:2px solid #774c35;
+    border:2px solid #754b35;
 
     z-index:2;
 }
@@ -531,10 +476,12 @@ input{
 
     position:absolute;
 
-    left:20px;
+    left:18px;
+
     top:1px;
 
-    width:31px;
+    width:29px;
+
     height:15px;
 
     border-radius:
@@ -549,53 +496,53 @@ input{
 
     position:absolute;
 
-    left:13px;
-    top:31px;
+    left:12px;
 
-    width:44px;
-    height:43px;
+    top:30px;
 
-    background:#eadfcb;
+    width:40px;
 
-    border:
-        3px solid #88745c;
+    height:40px;
 
-    border-radius:
-        16px 16px 8px 8px;
+    border-radius:14px;
+
+    background:#eadfca;
+
+    border:3px solid #88745c;
 }
 
 .mini-leg{
 
     position:absolute;
 
-    top:72px;
+    top:69px;
 
-    width:12px;
-    height:20px;
+    width:11px;
+
+    height:17px;
+
+    background:#46382c;
 
     border-radius:7px;
-
-    background:#47382b;
 }
 
 .mini-leg.one{
-    left:21px;
+    left:20px;
 }
 
 .mini-leg.two{
-    right:21px;
+    right:20px;
 }
-
-
-/* FEMALE */
 
 .mini-character.female .mini-hair{
 
-    left:16px;
+    left:15px;
+
     top:-3px;
 
-    width:38px;
-    height:39px;
+    width:35px;
+
+    height:38px;
 
     border-radius:
         50% 50% 35% 35%;
@@ -609,70 +556,34 @@ input{
 }
 
 
-/* =====================================================
-   GENDER TEXT
-===================================================== */
-
-.gender-name{
-
-    font-size:
-        clamp(17px,2.3vw,25px);
-
-    font-weight:800;
-}
-
-.gender-description{
-
-    margin-top:4px;
-
-    color:#88745d;
-
-    font-size:
-        clamp(11px,1.4vw,15px);
-}
-
-
-/* =====================================================
+/* =========================================================
    AGE
-===================================================== */
+========================================================= */
 
 .age-panel{
 
     flex:1;
 
     height:
-        clamp(245px,34vh,290px);
+        clamp(225px,31vh,275px);
 
     border:
-        3px solid #d8c39b;
+        2px solid #d8c49e;
 
-    border-radius:24px;
+    border-radius:22px;
 
     background:
-        rgba(255,250,239,.95);
+        rgba(255,250,240,.96);
 
     box-shadow:
-        0 12px 30px
-        rgba(66,52,31,.12);
+        0 12px 28px
+        rgba(70,51,28,.10);
 
     display:flex;
 
-    flex-direction:column;
-
     align-items:center;
+
     justify-content:center;
-}
-
-.age-title{
-
-    color:#776852;
-
-    font-size:
-        clamp(14px,1.7vw,18px);
-
-    margin-bottom:8px;
-
-    font-weight:700;
 }
 
 .age-wheel{
@@ -680,7 +591,8 @@ input{
     position:relative;
 
     width:150px;
-    height:160px;
+
+    height:170px;
 
     overflow:hidden;
 }
@@ -692,27 +604,27 @@ input{
 
     position:absolute;
 
-    left:10px;
-    right:10px;
+    left:8px;
+
+    right:8px;
 
     height:2px;
 
-    background:#d4b985;
+    background:#d4b47d;
 
-    z-index:10;
+    z-index:5;
 }
 
 .age-wheel::before{
-    top:55px;
+    top:59px;
 }
 
 .age-wheel::after{
-    bottom:55px;
+    bottom:59px;
 }
 
 .age-list{
 
-    width:100%;
     height:100%;
 
     overflow-y:auto;
@@ -721,10 +633,11 @@ input{
 
     scroll-snap-type:y mandatory;
 
-    padding-top:55px;
-    padding-bottom:55px;
-
     text-align:center;
+
+    padding-top:59px;
+
+    padding-bottom:59px;
 }
 
 .age-list::-webkit-scrollbar{
@@ -741,7 +654,7 @@ input{
 
     color:#b3a18a;
 
-    font-size:22px;
+    font-size:21px;
 
     font-weight:700;
 
@@ -754,24 +667,25 @@ input{
 
     color:#a66d36;
 
-    font-size:36px;
+    font-size:34px;
 }
 
 
-/* =====================================================
+/* =========================================================
    NAME SCREEN
-===================================================== */
+========================================================= */
 
 .name-content{
 
     position:absolute;
 
+    top:27%;
+
     left:50%;
-    top:28%;
 
     transform:translateX(-50%);
 
-    width:min(600px,82%);
+    width:min(570px,82%);
 
     text-align:center;
 }
@@ -781,84 +695,85 @@ input{
     color:#29463f;
 
     font-size:
-        clamp(23px,3.5vw,38px);
+        clamp(23px,3.4vw,36px);
 
     font-weight:800;
+
+    line-height:1.4;
 }
 
 .name-subtitle{
 
-    margin-top:8px;
+    margin-top:9px;
 
-    color:#786b59;
+    color:#786c5a;
 
     font-size:
-        clamp(13px,1.7vw,18px);
+        clamp(14px,1.7vw,18px);
 }
 
 .name-input{
 
     width:100%;
 
-    margin-top:28px;
-
     height:
-        clamp(58px,8vh,75px);
+        clamp(57px,8vh,72px);
+
+    margin-top:25px;
+
+    padding:0 20px;
 
     border:
-        3px solid #d7c29b;
+        2px solid #d5c19b;
 
-    border-radius:18px;
+    border-radius:17px;
 
     background:#fffaf0;
 
-    color:#3d4039;
+    color:#343a35;
 
     text-align:center;
 
     font-size:
-        clamp(19px,2.6vw,27px);
+        clamp(19px,2.5vw,26px);
 
     outline:none;
 
     user-select:text;
-
-    transition:
-        border-color .2s,
-        box-shadow .2s;
 }
 
 .name-input:focus{
 
-    border-color:#a66d36;
+    border-color:#a56c37;
 
     box-shadow:
         0 0 0 4px
-        rgba(166,109,54,.10);
+        rgba(165,108,55,.09);
 }
 
 .name-error{
 
-    min-height:26px;
+    min-height:24px;
 
-    margin-top:8px;
+    margin-top:7px;
 
-    color:#a34c3e;
+    color:#a24d40;
 
-    font-size:14px;
+    font-size:13px;
 }
 
 
-/* =====================================================
-   CHARACTER INTRO
-===================================================== */
+/* =========================================================
+   INTRO
+========================================================= */
 
 #intro{
+
     background:
         radial-gradient(
-            circle at 50% 25%,
+            circle at 50% 28%,
             #fffaf0,
-            #e7dac0
+            #e6dac1
         );
 }
 
@@ -872,20 +787,21 @@ input{
 }
 
 
-/* =====================================================
+/* =========================================================
    PLAYER
-===================================================== */
+========================================================= */
 
 .player{
 
     position:absolute;
 
-    left:15%;
+    left:13%;
 
     bottom:17%;
 
-    width:170px;
-    height:270px;
+    width:150px;
+
+    height:250px;
 
     animation:
         characterEnter
@@ -899,8 +815,8 @@ input{
     from{
         opacity:0;
         transform:
-            translateX(-80px)
-            scale(.9);
+            translateX(-60px)
+            scale(.92);
     }
 
     to{
@@ -915,18 +831,19 @@ input{
 
     position:absolute;
 
-    left:45px;
+    left:39px;
+
     top:0;
 
-    width:80px;
-    height:80px;
+    width:73px;
+
+    height:73px;
 
     border-radius:50%;
 
     background:#c98561;
 
-    border:
-        4px solid #744b34;
+    border:3px solid #754b35;
 
     z-index:3;
 }
@@ -935,16 +852,18 @@ input{
 
     position:absolute;
 
-    left:46px;
+    left:40px;
+
     top:1px;
 
-    width:76px;
-    height:35px;
+    width:71px;
 
-    background:#30251f;
+    height:32px;
 
     border-radius:
         50% 50% 20% 20%;
+
+    background:#30251f;
 
     z-index:4;
 }
@@ -953,29 +872,31 @@ input{
 
     position:absolute;
 
-    left:32px;
-    top:84px;
+    left:27px;
 
-    width:105px;
-    height:120px;
+    top:78px;
+
+    width:96px;
+
+    height:113px;
 
     border-radius:
-        42px 42px 17px 17px;
+        38px 38px 15px 15px;
 
     background:#eadfca;
 
-    border:
-        4px solid #88745c;
+    border:3px solid #88745c;
 }
 
 .player-arm{
 
     position:absolute;
 
-    top:101px;
+    top:96px;
 
-    width:27px;
-    height:88px;
+    width:24px;
+
+    height:82px;
 
     border-radius:20px;
 
@@ -983,12 +904,16 @@ input{
 }
 
 .player-arm.left{
-    left:12px;
+
+    left:8px;
+
     transform:rotate(10deg);
 }
 
 .player-arm.right{
-    right:12px;
+
+    right:8px;
+
     transform:rotate(-10deg);
 }
 
@@ -996,34 +921,37 @@ input{
 
     position:absolute;
 
-    top:198px;
+    top:186px;
 
-    width:35px;
-    height:70px;
+    width:32px;
+
+    height:64px;
 
     border-radius:15px;
 
-    background:#46372a;
+    background:#46372b;
 }
 
 .player-leg.left{
-    left:48px;
+    left:42px;
 }
 
 .player-leg.right{
-    right:48px;
+    right:42px;
 }
 
 
-/* FEMALE PLAYER */
+/* FEMALE */
 
 .player.female .player-hair{
 
-    left:39px;
+    left:33px;
+
     top:-6px;
 
-    width:91px;
-    height:100px;
+    width:85px;
+
+    height:94px;
 
     border-radius:
         50% 50% 40% 40%;
@@ -1037,9 +965,93 @@ input{
 }
 
 
-/* =====================================================
+/* =========================================================
+   SMALL EXCLAMATION BUBBLE
+   فوق رأس الشخصية
+========================================================= */
+
+.character-alert{
+
+    position:absolute;
+
+    left:54px;
+
+    top:-53px;
+
+    width:58px;
+
+    height:43px;
+
+    border-radius:
+        18px 18px 18px 7px;
+
+    background:#fffaf0;
+
+    border:
+        2px solid #d4b982;
+
+    box-shadow:
+        0 8px 18px
+        rgba(55,39,22,.12);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:5px;
+
+    color:#a66d36;
+
+    font-size:22px;
+
+    font-weight:800;
+
+    z-index:30;
+
+    animation:
+        alertFloat
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+.character-alert::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-10px;
+
+    left:10px;
+
+    border-top:
+        11px solid #d4b982;
+
+    border-right:
+        9px solid transparent;
+
+    border-left:
+        0 solid transparent;
+}
+
+@keyframes alertFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-5px);
+    }
+}
+
+
+/* =========================================================
    CARPET
-===================================================== */
+========================================================= */
 
 .carpet-area{
 
@@ -1049,13 +1061,14 @@ input{
 
     bottom:24%;
 
-    width:380px;
-    height:240px;
+    width:350px;
+
+    height:210px;
 
     animation:
         carpetEnter
         .9s
-        .25s
+        .2s
         cubic-bezier(.2,.8,.2,1)
         both;
 }
@@ -1065,7 +1078,7 @@ input{
     from{
         opacity:0;
         transform:
-            translateX(80px)
+            translateX(70px)
             scale(.9);
     }
 
@@ -1081,25 +1094,27 @@ input{
 
     position:absolute;
 
-    left:35px;
-    top:55px;
+    left:25px;
 
-    width:310px;
-    height:130px;
+    top:47px;
+
+    width:300px;
+
+    height:122px;
 
     border:
-        8px solid #d7a84e;
+        7px solid #d8aa55;
 
     border-radius:
-        10px 16px 8px 14px /
-        14px 8px 15px 9px;
+        11px 16px 8px 13px /
+        15px 9px 14px 10px;
 
     background:
         linear-gradient(
             135deg,
-            #703a2d,
-            #9d5631 50%,
-            #743a2c
+            #713b2e,
+            #9b5330 50%,
+            #71392d
         );
 
     transform:
@@ -1108,8 +1123,8 @@ input{
         rotateZ(-2deg);
 
     box-shadow:
-        0 25px 35px
-        rgba(54,34,19,.27);
+        0 22px 30px
+        rgba(50,31,18,.23);
 
     animation:
         carpetFloat
@@ -1133,46 +1148,44 @@ input{
             perspective(700px)
             rotateX(15deg)
             rotateZ(-2deg)
-            translateY(-10px);
+            translateY(-8px);
     }
 }
-
-
-/* carpet embroidery */
 
 .carpet-inner{
 
     position:absolute;
 
-    inset:13px;
+    inset:12px;
 
     border:
-        3px solid #e4b65c;
+        2px solid #e4b65c;
 
     border-radius:5px;
 
     background:
         repeating-linear-gradient(
             45deg,
-            transparent 0 17px,
-            rgba(228,182,92,.20)
-            18px 20px
+            transparent 0 16px,
+            rgba(228,182,92,.18)
+            17px 19px
         );
 }
 
 
-/* fringe */
+/* FRINGE */
 
 .fringe{
 
     position:absolute;
 
     left:4px;
+
     right:4px;
 
-    bottom:-19px;
+    bottom:-17px;
 
-    height:18px;
+    height:16px;
 
     display:flex;
 
@@ -1181,8 +1194,9 @@ input{
 
 .fringe span{
 
-    width:5px;
-    height:20px;
+    width:4px;
+
+    height:18px;
 
     background:#dfb05b;
 
@@ -1191,109 +1205,44 @@ input{
 }
 
 
-/* =====================================================
-   TRAVEL ARROW
-===================================================== */
-
-.travel-arrow{
-
-    position:absolute;
-
-    left:-210px;
-
-    top:120px;
-
-    width:190px;
-    height:5px;
-
-    border-radius:10px;
-
-    background:#a66d36;
-
-    animation:
-        arrowPulse
-        1.8s
-        ease-in-out
-        infinite;
-}
-
-.travel-arrow::after{
-
-    content:"";
-
-    position:absolute;
-
-    right:-1px;
-    top:50%;
-
-    width:17px;
-    height:17px;
-
-    border-top:
-        5px solid #a66d36;
-
-    border-right:
-        5px solid #a66d36;
-
-    transform:
-        translateY(-50%)
-        rotate(45deg);
-}
-
-@keyframes arrowPulse{
-
-    0%,100%{
-        opacity:.55;
-        transform:
-            translateX(0);
-    }
-
-    50%{
-        opacity:1;
-        transform:
-            translateX(12px);
-    }
-}
-
-
-/* =====================================================
-   DIALOGUE
-===================================================== */
+/* =========================================================
+   MAIN DIALOGUE
+========================================================= */
 
 .dialogue-box{
 
     position:absolute;
 
-    right:9%;
+    right:8%;
 
-    top:10%;
+    top:9%;
 
     width:
-        min(500px,42%);
+        min(430px,39%);
 
-    min-height:135px;
+    min-height:112px;
 
     padding:
-        22px 28px;
+        17px 23px 30px;
 
     border:
-        3px solid #d4b982;
+        2px solid #d4b982;
 
-    border-radius:27px;
+    border-radius:22px;
 
     background:#fffaf0;
 
     box-shadow:
-        0 15px 35px
-        rgba(59,43,23,.16);
+        0 13px 30px
+        rgba(59,43,23,.14);
 
     text-align:center;
 
-    z-index:20;
+    z-index:40;
 
     animation:
         dialogueEnter
-        .5s
+        .45s
         ease both;
 }
 
@@ -1302,8 +1251,8 @@ input{
     from{
         opacity:0;
         transform:
-            translateY(15px)
-            scale(.97);
+            translateY(10px)
+            scale(.98);
     }
 
     to{
@@ -1316,29 +1265,29 @@ input{
 
 
 /*
-   الذيل يخرج من أسفل الفقاعة
-   ويشير إلى رأس البساط نفسه.
+   الذيل من الفقاعة باتجاه رأس البساط
 */
 
 .dialogue-tail{
 
     position:absolute;
 
-    left:48%;
+    left:45%;
 
-    bottom:-30px;
+    bottom:-24px;
 
     width:0;
+
     height:0;
 
     border-left:
-        19px solid transparent;
+        15px solid transparent;
 
     border-right:
-        19px solid transparent;
+        15px solid transparent;
 
     border-top:
-        31px solid #d4b982;
+        25px solid #d4b982;
 }
 
 .dialogue-tail::after{
@@ -1347,128 +1296,187 @@ input{
 
     position:absolute;
 
-    left:-15px;
-    top:-31px;
+    left:-12px;
+
+    top:-25px;
 
     border-left:
-        15px solid transparent;
+        12px solid transparent;
 
     border-right:
-        15px solid transparent;
+        12px solid transparent;
 
     border-top:
-        25px solid #fffaf0;
+        20px solid #fffaf0;
 }
+
+
+/* SPEAKER */
 
 .dialogue-speaker{
 
     color:#a66d36;
 
     font-size:
-        clamp(13px,1.7vw,17px);
+        clamp(11px,1.35vw,14px);
 
-    font-weight:800;
+    font-weight:700;
 
-    margin-bottom:8px;
+    margin-bottom:5px;
 }
+
+
+/* TEXT */
 
 .dialogue-text{
 
-    color:#393a34;
+    color:#343a35;
 
     font-size:
-        clamp(17px,2.25vw,25px);
+        clamp(15px,1.85vw,21px);
 
-    line-height:1.65;
+    line-height:1.55;
 
     font-weight:500;
 }
 
 
-/* =====================================================
-   DIALOGUE HINT
-===================================================== */
+/* =========================================================
+   SKIP INSIDE BUBBLE
+========================================================= */
 
-.dialogue-hint{
+.skip-inside{
 
     position:absolute;
 
-    right:50%;
+    bottom:7px;
 
-    transform:translateX(50%);
+    left:50%;
 
-    bottom:6%;
+    transform:translateX(-50%);
 
-    padding:
-        10px 18px;
+    border:none;
 
-    border-radius:12px;
+    background:none;
 
-    background:
-        rgba(36,71,64,.94);
-
-    color:#fff;
+    color:#a66d36;
 
     font-size:
-        clamp(12px,1.5vw,16px);
+        clamp(10px,1.25vw,13px);
+
+    font-weight:700;
+
+    padding:2px 12px;
+}
+
+.skip-inside:active{
+
+    transform:
+        translateX(-50%)
+        scale(.94);
+}
+
+
+/* =========================================================
+   7 SECOND DARK OVERLAY
+========================================================= */
+
+#continueOverlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.57);
+
+    backdrop-filter:
+        blur(3px);
+
+    -webkit-backdrop-filter:
+        blur(3px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     opacity:0;
 
     pointer-events:none;
 
     transition:
-        opacity .5s ease;
+        opacity .35s ease;
 
-    z-index:40;
+    z-index:500;
 }
 
-.dialogue-hint.show{
+#continueOverlay.show{
 
     opacity:1;
 
     pointer-events:auto;
 }
 
-.skip-button{
+.overlay-message{
 
-    margin-right:10px;
+    color:#fff;
 
-    border:none;
-
-    background:transparent;
-
-    color:#e7c98e;
+    font-size:
+        clamp(18px,2.5vw,28px);
 
     font-weight:700;
 
-    font-size:inherit;
+    text-align:center;
+
+    line-height:1.6;
+
+    padding:20px;
+
+    animation:
+        overlayMessageIn
+        .4s
+        ease;
+}
+
+@keyframes overlayMessageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 
-/* =====================================================
-   FINAL INTRO BUTTON
-===================================================== */
+/* =========================================================
+   READY BUTTON
+========================================================= */
 
 .ready-area{
 
     position:absolute;
 
     left:50%;
+
     bottom:7%;
 
     transform:translateX(-50%);
-
-    z-index:50;
 
     opacity:0;
 
     pointer-events:none;
 
-    animation:
-        readyAppear
-        .6s
-        1.1s
-        ease forwards;
+    z-index:100;
+
+    transition:
+        opacity .4s ease,
+        transform .4s ease;
 }
 
 .ready-area.show{
@@ -1476,56 +1484,81 @@ input{
     opacity:1;
 
     pointer-events:auto;
-}
 
-@keyframes readyAppear{
-
-    from{
-        opacity:0;
-        transform:
-            translateX(-50%)
-            translateY(15px);
-    }
-
-    to{
-        opacity:1;
-        transform:
-            translateX(-50%)
-            translateY(0);
-    }
+    transform:
+        translateX(-50%)
+        translateY(0);
 }
 
 
-/* =====================================================
-   WORLD SCREEN
-===================================================== */
+/* =========================================================
+   WORLD
+========================================================= */
 
-.world-map{
+#world{
+
+    background:
+        linear-gradient(
+            180deg,
+            #d7e7e2,
+            #eee4d0
+        );
+}
+
+.world-title{
+
+    position:absolute;
+
+    top:9%;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:90%;
+
+    text-align:center;
+}
+
+.world-title h2{
+
+    color:#29463f;
+
+    font-size:
+        clamp(25px,3.8vw,42px);
+
+    font-weight:800;
+}
+
+.world-map-panel{
 
     position:absolute;
 
     left:8%;
+
     right:8%;
 
-    top:22%;
-    bottom:12%;
+    top:23%;
 
-    border-radius:28px;
+    bottom:10%;
+
+    border-radius:25px;
 
     background:
         linear-gradient(
             135deg,
-            #d5e7df,
-            #c1dad5
+            #d5e6df,
+            #c2dad4
         );
 
     box-shadow:
         0 15px 35px
-        rgba(43,69,62,.13);
+        rgba(43,69,62,.12);
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 }
 
@@ -1533,29 +1566,29 @@ input{
 
     text-align:center;
 
-    color:#50675f;
+    color:#536860;
 }
 
 .world-message h3{
 
     font-size:
-        clamp(22px,3vw,34px);
+        clamp(21px,3vw,33px);
 
     font-weight:800;
 }
 
 .world-message p{
 
-    margin-top:8px;
+    margin-top:7px;
 
     font-size:
-        clamp(13px,1.7vw,18px);
+        clamp(13px,1.6vw,17px);
 }
 
 
-/* =====================================================
-   MODAL
-===================================================== */
+/* =========================================================
+   EXIT MODAL
+========================================================= */
 
 .modal{
 
@@ -1569,6 +1602,7 @@ input{
     display:none;
 
     align-items:center;
+
     justify-content:center;
 
     z-index:9999;
@@ -1583,11 +1617,11 @@ input{
 .modal-box{
 
     width:
-        min(420px,90%);
+        min(410px,90%);
 
-    padding:28px;
+    padding:27px;
 
-    border-radius:24px;
+    border-radius:22px;
 
     background:#fffaf0;
 
@@ -1595,37 +1629,21 @@ input{
 
     box-shadow:
         0 20px 50px
-        rgba(0,0,0,.25);
-
-    animation:
-        modalIn .25s ease;
-}
-
-@keyframes modalIn{
-
-    from{
-        transform:scale(.92);
-        opacity:0;
-    }
-
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
+        rgba(0,0,0,.24);
 }
 
 .modal-box h3{
 
     color:#29463f;
 
-    font-size:24px;
+    font-size:23px;
 
     font-weight:800;
 }
 
 .modal-box p{
 
-    margin-top:9px;
+    margin-top:8px;
 
     color:#756957;
 
@@ -1636,9 +1654,9 @@ input{
 
     display:flex;
 
-    gap:12px;
+    gap:11px;
 
-    margin-top:22px;
+    margin-top:20px;
 }
 
 .modal-buttons button{
@@ -1647,75 +1665,134 @@ input{
 
     border:none;
 
-    border-radius:14px;
+    border-radius:13px;
 
-    padding:12px;
+    padding:11px;
 
-    font-size:17px;
+    font-size:16px;
 
     font-weight:700;
 }
 
 .modal-cancel{
 
-    background:#e5dac7;
+    background:#e4dac8;
 
-    color:#4b453b;
+    color:#4a453d;
 }
 
 .modal-confirm{
 
-    background:#9b6534;
+    background:#976236;
 
-    color:#fff;
+    color:white;
 }
 
 
-/* =====================================================
+/* =========================================================
    TOAST
-===================================================== */
+========================================================= */
 
 #toast{
 
     position:fixed;
 
     left:50%;
+
     bottom:18px;
 
     transform:
-        translate(-50%,100px);
+        translate(-50%,90px);
+
+    padding:
+        11px 18px;
+
+    border-radius:12px;
 
     background:#263e37;
 
-    color:#fff;
+    color:white;
 
-    padding:12px 20px;
-
-    border-radius:13px;
-
-    z-index:10000;
+    font-size:13px;
 
     opacity:0;
 
-    transition:
-        transform .3s,
-        opacity .3s;
+    z-index:10000;
 
-    font-size:14px;
+    transition:
+        .3s ease;
 }
 
 #toast.show{
 
+    opacity:1;
+
     transform:
         translate(-50%,0);
-
-    opacity:1;
 }
 
 
-/* =====================================================
+/* =========================================================
    RESPONSIVE
-===================================================== */
+========================================================= */
+
+@media(max-width:700px){
+
+    .setup-content{
+
+        width:94%;
+
+        gap:8px;
+    }
+
+    .gender-container{
+
+        gap:6px;
+    }
+
+    .gender-card{
+
+        border-width:2px;
+    }
+
+    .age-panel{
+
+        border-width:2px;
+    }
+
+    .dialogue-box{
+
+        width:44%;
+
+        right:5%;
+
+        min-height:105px;
+
+        padding:
+            15px 18px 28px;
+    }
+
+    .player{
+
+        left:8%;
+
+        transform:scale(.85);
+
+        transform-origin:
+            bottom left;
+    }
+
+    .carpet-area{
+
+        right:7%;
+
+        transform:scale(.85);
+
+        transform-origin:
+            bottom right;
+    }
+
+}
 
 @media(max-height:520px){
 
@@ -1724,7 +1801,7 @@ input{
     }
 
     .setup-content{
-        top:16%;
+        top:14%;
     }
 
     .gender-card{
@@ -1732,42 +1809,54 @@ input{
     }
 
     .age-panel{
-        height:205px;
+        height:195px;
     }
 
     .age-wheel{
-        height:125px;
+        height:130px;
     }
 
     .age-list{
-        padding-top:42px;
-        padding-bottom:42px;
+        padding-top:40px;
+        padding-bottom:40px;
     }
 
     .age-wheel::before{
-        top:42px;
+        top:40px;
     }
 
     .age-wheel::after{
-        bottom:42px;
-    }
-
-    .player{
-        bottom:11%;
-        transform:scale(.78);
-        transform-origin:bottom left;
-    }
-
-    .carpet-area{
-        bottom:17%;
-        transform:scale(.78);
-        transform-origin:bottom right;
+        bottom:40px;
     }
 
     .dialogue-box{
-        top:6%;
-        min-height:105px;
-        padding:15px 20px;
+
+        top:5%;
+
+        min-height:95px;
+
+        padding:
+            12px 16px 26px;
+    }
+
+    .player{
+
+        bottom:10%;
+
+        transform:scale(.7);
+
+        transform-origin:
+            bottom left;
+    }
+
+    .carpet-area{
+
+        bottom:15%;
+
+        transform:scale(.7);
+
+        transform-origin:
+            bottom right;
     }
 
     .ready-area{
@@ -1775,55 +1864,29 @@ input{
     }
 }
 
-@media(max-width:700px){
-
-    .setup-content{
-        width:93%;
-        gap:9px;
-    }
-
-    .gender-container{
-        gap:7px;
-    }
-
-    .gender-card{
-        border-width:2px;
-    }
-
-    .age-panel{
-        border-width:2px;
-    }
-
-}
-
-
-/* =====================================================
-   LANDSCAPE MOBILE
-===================================================== */
-
 @media(max-width:850px) and (orientation:landscape){
 
     .dialogue-box{
-        width:40%;
-        right:5%;
-        top:8%;
+
+        width:39%;
+
+        right:4%;
+
+        top:6%;
     }
 
     .player{
-        left:8%;
+        left:6%;
     }
 
     .carpet-area{
-        right:8%;
+        right:6%;
     }
 
-    .travel-arrow{
-        left:-150px;
-        width:135px;
-    }
 }
 
 </style>
+
 </head>
 
 
@@ -1836,18 +1899,12 @@ input{
      HOME
 ===================================================== -->
 
-<section
-    id="home"
-    class="screen active">
-
-    <div class="home-decoration"></div>
-
-    <div class="home-map"></div>
+<section id="home" class="screen active">
 
     <div class="home-title">
 
         <h1>
-            ابن بطوطة في الوطن العربي
+            عودة ابن بطوطة من جديد إلى الوطن العربي
         </h1>
 
         <p>
@@ -1855,6 +1912,8 @@ input{
         </p>
 
     </div>
+
+    <div class="home-map"></div>
 
     <button
         class="primary-button start-button"
@@ -1871,9 +1930,7 @@ input{
      SETUP
 ===================================================== -->
 
-<section
-    id="setup"
-    class="screen">
+<section id="setup" class="screen">
 
     <div class="background"></div>
 
@@ -1888,12 +1945,8 @@ input{
     <div class="page-title">
 
         <h2>
-            اختر الجنس والعمر
+            اختر الجنس
         </h2>
-
-        <p>
-            ثم اكتب اسمك المستعار
-        </p>
 
     </div>
 
@@ -1924,10 +1977,6 @@ input{
                     ذكر
                 </div>
 
-                <div class="gender-description">
-                    رحّال
-                </div>
-
             </button>
 
 
@@ -1951,20 +2000,12 @@ input{
                     أنثى
                 </div>
 
-                <div class="gender-description">
-                    رحّالة
-                </div>
-
             </button>
 
         </div>
 
 
         <div class="age-panel">
-
-            <div class="age-title">
-                اختر عمرك
-            </div>
 
             <div class="age-wheel">
 
@@ -2001,9 +2042,7 @@ input{
      NAME
 ===================================================== -->
 
-<section
-    id="name"
-    class="screen">
+<section id="name" class="screen">
 
     <div class="background"></div>
 
@@ -2016,27 +2055,14 @@ input{
     </button>
 
 
-    <div class="page-title">
-
-        <h2>
-            اختر اسمك المستعار
-        </h2>
-
-        <p>
-            هذا هو الاسم الذي سيعرفك به الناس في رحلتك
-        </p>
-
-    </div>
-
-
     <div class="name-content">
 
         <div class="name-title">
-            اكتب اسمك
+            اكتب اسمك المستعار
         </div>
 
         <div class="name-subtitle">
-            يمكنك استخدام العربية أو الإنجليزية فقط
+            هذا هو الاسم الذي سيعرفك به الناس في رحلتك.
         </div>
 
         <input
@@ -2078,18 +2104,27 @@ input{
      INTRO
 ===================================================== -->
 
-<section
-    id="intro"
-    class="screen">
+<section id="intro" class="screen">
 
     <div class="intro-scene">
 
 
-        <!-- PLAYER -->
+        <!-- CHARACTER -->
 
         <div
             id="playerCharacter"
             class="player">
+
+
+            <!-- SMALL ALERT BUBBLE -->
+
+            <div class="character-alert">
+
+                <span>!</span>
+                <span>!</span>
+
+            </div>
+
 
             <div class="player-head"></div>
 
@@ -2106,11 +2141,9 @@ input{
         </div>
 
 
-        <!-- CARPET -->
+        <!-- MAGIC CARPET -->
 
         <div class="carpet-area">
-
-            <div class="travel-arrow"></div>
 
             <div class="carpet">
 
@@ -2161,26 +2194,34 @@ input{
 
             </div>
 
-            <div class="dialogue-tail"></div>
 
-        </div>
-
-
-        <!-- HINT -->
-
-        <div
-            id="dialogueHint"
-            class="dialogue-hint">
-
-            اضغط على الشاشة للمتابعة
+            <!-- SKIP INSIDE EVERY BUBBLE -->
 
             <button
-                class="skip-button"
+                class="skip-inside"
                 onclick="skipDialogue(event)">
 
                 تخطي
 
             </button>
+
+
+            <div class="dialogue-tail"></div>
+
+        </div>
+
+
+        <!-- 7 SECOND OVERLAY -->
+
+        <div
+            id="continueOverlay"
+            onclick="nextDialogueFromOverlay()">
+
+            <div class="overlay-message">
+
+                اضغط على الشاشة للمتابعة
+
+            </div>
 
         </div>
 
@@ -2210,11 +2251,15 @@ input{
      WORLD
 ===================================================== -->
 
-<section
-    id="world"
-    class="screen">
+<section id="world" class="screen">
 
-    <div class="background"></div>
+    <div class="world-title">
+
+        <h2>
+            بداية الرحلة
+        </h2>
+
+    </div>
 
     <button
         class="back-button"
@@ -2224,21 +2269,7 @@ input{
 
     </button>
 
-
-    <div class="page-title">
-
-        <h2>
-            بداية الرحلة
-        </h2>
-
-        <p>
-            اختر وجهتك الأولى
-        </p>
-
-    </div>
-
-
-    <div class="world-map">
+    <div class="world-map-panel">
 
         <div class="world-message">
 
@@ -2308,9 +2339,9 @@ input{
 
 <script>
 
-/* =====================================================
-   PLAYER DATA
-===================================================== */
+/* =========================================================
+   PLAYER
+========================================================= */
 
 const player = {
 
@@ -2325,59 +2356,27 @@ const player = {
 };
 
 
-/* =====================================================
+/* =========================================================
    HISTORY
-===================================================== */
+========================================================= */
 
 let historyStack = ["home"];
 
 
-/* =====================================================
-   DIALOGUE
-===================================================== */
+/* =========================================================
+   START GAME
+========================================================= */
 
-let dialogueIndex = 0;
+function startGame(){
 
-let dialogueTimer = null;
-
-let dialogueSkipped = false;
-
-
-function getDialogue(){
-
-    const isFemale =
-        player.gender === "female";
-
-
-    return [
-
-        {
-            text:
-                isFemale
-                ? "آه! بنت بطوطة... أهلا بعودتك."
-                : "آه! ابن بطوطة... أهلا بعودتك."
-        },
-
-        {
-            text:
-                "تغيّر العالم كثيرا بعد مرور أكثر من 650 عاما منذ رحلتك الأخيرة."
-        },
-
-        {
-            text:
-                isFemale
-                ? "هل أنت مستعدة لإعادة أمجاد الماضي؟"
-                : "هل أنت مستعد لإعادة أمجاد الماضي؟"
-        }
-
-    ];
+    showScreen("setup");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    SHOW SCREEN
-===================================================== */
+========================================================= */
 
 function showScreen(
     id,
@@ -2408,7 +2407,7 @@ function showScreen(
 
         const last =
             historyStack[
-                historyStack.length - 1
+                historyStack.length-1
             ];
 
 
@@ -2423,40 +2422,14 @@ function showScreen(
 }
 
 
-/* =====================================================
-   START
-===================================================== */
-
-function startGame(){
-
-    try{
-
-        if(
-            screen.orientation &&
-            screen.orientation.lock
-        ){
-
-            screen.orientation
-                .lock("landscape")
-                .catch(()=>{});
-
-        }
-
-    }catch(e){}
-
-
-    showScreen("setup");
-
-}
-
-
-/* =====================================================
+/* =========================================================
    GENDER
-===================================================== */
+========================================================= */
 
 function selectGender(gender){
 
-    player.gender = gender;
+    player.gender =
+        gender;
 
 
     document
@@ -2477,9 +2450,9 @@ function selectGender(gender){
 }
 
 
-/* =====================================================
-   AGE
-===================================================== */
+/* =========================================================
+   AGE WHEEL
+========================================================= */
 
 const ageList =
     document.getElementById(
@@ -2494,22 +2467,26 @@ for(
 ){
 
     const item =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     item.className =
         "age-item";
 
 
-    item.textContent =
-        age;
-
-
     item.dataset.age =
         age;
 
 
-    ageList.appendChild(item);
+    item.textContent =
+        age;
+
+
+    ageList.appendChild(
+        item
+    );
 
 }
 
@@ -2536,20 +2513,25 @@ function updateAge(){
 
         const itemCenter =
             item.offsetTop +
-            item.offsetHeight / 2;
+            item.offsetHeight/2;
 
 
-        const d =
+        const currentDistance =
             Math.abs(
                 center-itemCenter
             );
 
 
-        if(d<distance){
+        if(
+            currentDistance <
+            distance
+        ){
 
-            distance=d;
+            distance =
+                currentDistance;
 
-            closest=item;
+            closest =
+                item;
 
         }
 
@@ -2588,16 +2570,15 @@ ageList.addEventListener(
 );
 
 
-setTimeout(()=>{
+setTimeout(
+    updateAge,
+    150
+);
 
-    updateAge();
 
-},100);
-
-
-/* =====================================================
-   TO NAME
-===================================================== */
+/* =========================================================
+   GO NAME
+========================================================= */
 
 function goToName(){
 
@@ -2616,22 +2597,12 @@ function goToName(){
 
     showScreen("name");
 
-    setTimeout(()=>{
-
-        document
-            .getElementById(
-                "nameInput"
-            )
-            .focus();
-
-    },300);
-
 }
 
 
-/* =====================================================
+/* =========================================================
    NAME VALIDATION
-===================================================== */
+========================================================= */
 
 function validateName(value){
 
@@ -2660,29 +2631,28 @@ function validateName(value){
 
 
     /*
-       العربية فقط:
-       \u0600-\u06FF
-       الإنجليزية فقط:
-       A-Z / a-z
+       عربي فقط
+       أو إنجليزي فقط
+       بدون أرقام أو رموز
     */
 
-    const arabic =
+    const arabicOnly =
         /^[\u0600-\u06FF]+(?:\s[\u0600-\u06FF]+)*$/;
 
 
-    const english =
+    const englishOnly =
         /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
 
 
     if(
-        !arabic.test(value) &&
-        !english.test(value)
+        !arabicOnly.test(value) &&
+        !englishOnly.test(value)
     ){
 
         return {
             valid:false,
             message:
-                "استخدم حروفا عربية فقط أو إنجليزية فقط، بدون أرقام"
+                "استخدم لغة واحدة فقط، وبدون أرقام أو رموز"
         };
 
     }
@@ -2702,6 +2672,7 @@ function validateNameLive(){
         document.getElementById(
             "nameInput"
         );
+
 
     const error =
         document.getElementById(
@@ -2766,15 +2737,54 @@ function confirmName(){
 }
 
 
-/* =====================================================
-   INTRO
-===================================================== */
+/* =========================================================
+   DIALOGUES
+========================================================= */
+
+let dialogueIndex = 0;
+
+let dialogueTimer = null;
+
+
+function getDialogue(){
+
+    const female =
+        player.gender === "female";
+
+
+    return [
+
+        {
+            text:
+                female
+                ? "آه! بنت بطوطة... أهلا بعودتك."
+                : "آه! ابن بطوطة... أهلا بعودتك."
+        },
+
+        {
+            text:
+                "تغيّر العالم كثيرا بعد مرور أكثر من 650 عاما منذ رحلتك الأخيرة."
+        },
+
+        {
+            text:
+                female
+                ? "هل أنت مستعدة لإعادة أمجاد الماضي؟"
+                : "هل أنت مستعد لإعادة أمجاد الماضي؟"
+        }
+
+    ];
+
+}
+
+
+/* =========================================================
+   START INTRO
+========================================================= */
 
 function startIntro(){
 
-    dialogueIndex = 0;
-
-    dialogueSkipped = false;
+    dialogueIndex=0;
 
 
     const character =
@@ -2796,9 +2806,9 @@ function startIntro(){
 }
 
 
-/* =====================================================
+/* =========================================================
    RENDER DIALOGUE
-===================================================== */
+========================================================= */
 
 function renderDialogue(){
 
@@ -2813,6 +2823,11 @@ function renderDialogue(){
     if(!current){
         return;
     }
+
+
+    clearTimeout(
+        dialogueTimer
+    );
 
 
     document
@@ -2834,30 +2849,52 @@ function renderDialogue(){
     void box.offsetWidth;
 
     box.style.animation =
-        "dialogueEnter .5s ease both";
-
-
-    document
-        .getElementById(
-            "dialogueHint"
-        )
-        .classList.remove("show");
-
-
-    document
-        .getElementById(
-            "readyArea"
-        )
-        .classList.remove("show");
-
-
-    clearTimeout(
-        dialogueTimer
-    );
+        "dialogueEnter .45s ease both";
 
 
     /*
-       بعد 15 ثانية تظهر التلميحة.
+       إخفاء التعتيم
+    */
+
+    document
+        .getElementById(
+            "continueOverlay"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    /*
+       الزر لا يظهر إلا في الفقاعة الثالثة
+    */
+
+    const ready =
+        document.getElementById(
+            "readyArea"
+        );
+
+
+    if(
+        dialogueIndex ===
+        lines.length-1
+    ){
+
+        ready.classList.add(
+            "show"
+        );
+
+    }else{
+
+        ready.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    /*
+       بعد 7 ثوانٍ فقط
     */
 
     dialogueTimer =
@@ -2865,12 +2902,12 @@ function renderDialogue(){
 
             if(
                 dialogueIndex <
-                lines.length - 1
+                lines.length-1
             ){
 
                 document
                     .getElementById(
-                        "dialogueHint"
+                        "continueOverlay"
                     )
                     .classList.add(
                         "show"
@@ -2878,20 +2915,20 @@ function renderDialogue(){
 
             }
 
-        },15000);
+        },7000);
 
 }
 
 
-/* =====================================================
-   NEXT DIALOGUE
-===================================================== */
+/* =========================================================
+   NEXT
+========================================================= */
 
 function nextDialogue(){
 
     if(
         dialogueIndex >=
-        getDialogue().length - 1
+        getDialogue().length-1
     ){
 
         return;
@@ -2906,9 +2943,9 @@ function nextDialogue(){
 }
 
 
-/* =====================================================
+/* =========================================================
    SKIP
-===================================================== */
+========================================================= */
 
 function skipDialogue(event){
 
@@ -2921,83 +2958,70 @@ function skipDialogue(event){
 
 
     dialogueIndex =
-        getDialogue().length - 1;
+        getDialogue().length-1;
 
 
     renderDialogue();
 
+}
+
+
+/* =========================================================
+   OVERLAY CLICK
+========================================================= */
+
+function nextDialogueFromOverlay(){
 
     document
         .getElementById(
-            "dialogueHint"
+            "continueOverlay"
         )
         .classList.remove(
             "show"
         );
 
 
-    document
-        .getElementById(
-            "readyArea"
-        )
-        .classList.add(
-            "show"
-        );
+    nextDialogue();
 
 }
 
 
-/* =====================================================
-   FINAL DIALOGUE
-===================================================== */
+/* =========================================================
+   WORLD
+========================================================= */
 
-document
-    .getElementById(
-        "dialogue"
-    )
-    .addEventListener(
-        "click",
-        function(){
+function startWorld(){
 
-            if(
-                dialogueIndex ===
-                getDialogue().length - 1
-            ){
-
-                document
-                    .getElementById(
-                        "readyArea"
-                    )
-                    .classList.add(
-                        "show"
-                    );
-
-            }
-
-        }
+    clearTimeout(
+        dialogueTimer
     );
 
 
-/* =====================================================
-   START WORLD
-===================================================== */
+    document
+        .getElementById(
+            "continueOverlay"
+        )
+        .classList.remove(
+            "show"
+        );
 
-function startWorld(){
 
     showScreen("world");
 
 }
 
 
-/* =====================================================
-   BACK
-===================================================== */
+/* =========================================================
+   BACK BUTTON
+========================================================= */
 
 function goBack(){
 
     if(
         historyStack.length <= 1
     ){
+
+        openExitModal();
 
         return;
 
@@ -3009,7 +3033,7 @@ function goBack(){
 
     const previous =
         historyStack[
-            historyStack.length - 1
+            historyStack.length-1
         ];
 
 
@@ -3021,78 +3045,9 @@ function goBack(){
 }
 
 
-/* =====================================================
-   ANDROID / BROWSER BACK
-===================================================== */
-
-let backPresses = 0;
-
-let backResetTimer = null;
-
-
-window.addEventListener(
-    "popstate",
-    function(){
-
-        handleDeviceBack();
-
-    }
-);
-
-
-function handleDeviceBack(){
-
-    clearTimeout(
-        backResetTimer
-    );
-
-
-    backPresses++;
-
-
-    if(
-        historyStack.length > 1
-    ){
-
-        goBack();
-
-        backPresses=0;
-
-        return;
-
-    }
-
-
-    if(backPresses >= 2){
-
-        openExitModal();
-
-        backPresses=0;
-
-        return;
-
-    }
-
-
-    showToast(
-        "اضغط مرة أخرى للخروج"
-    );
-
-
-    backResetTimer =
-        setTimeout(
-            ()=>{
-                backPresses=0;
-            },
-            1800
-        );
-
-}
-
-
-/* =====================================================
-   EXIT MODAL
-===================================================== */
+/* =========================================================
+   EXIT
+========================================================= */
 
 function openExitModal(){
 
@@ -3100,7 +3055,9 @@ function openExitModal(){
         .getElementById(
             "exitModal"
         )
-        .classList.add("show");
+        .classList.add(
+            "show"
+        );
 
 }
 
@@ -3111,31 +3068,38 @@ function closeExitModal(){
         .getElementById(
             "exitModal"
         )
-        .classList.remove("show");
+        .classList.remove(
+            "show"
+        );
 
 }
 
 
 function confirmExit(){
 
-    /*
-       يحاول إغلاق الصفحة/النشاط.
-       في نسخة APK يمكن ربطه أيضا
-       مع MainActivity لاحقا.
-    */
-
     try{
 
-        window.close();
+        if(
+            window.Android &&
+            window.Android.closeApp
+        ){
+
+            window.Android.closeApp();
+
+        }else{
+
+            window.close();
+
+        }
 
     }catch(e){}
 
 }
 
 
-/* =====================================================
+/* =========================================================
    TOAST
-===================================================== */
+========================================================= */
 
 function showToast(text){
 
@@ -3160,14 +3124,14 @@ function showToast(text){
             "show"
         );
 
-    },2200);
+    },2000);
 
 }
 
 
-/* =====================================================
-   TOUCH ANYWHERE
-===================================================== */
+/* =========================================================
+   TOUCH INTRO
+========================================================= */
 
 document
     .getElementById("intro")
@@ -3180,7 +3144,7 @@ document
                     ".dialogue-box"
                 ) ||
                 event.target.closest(
-                    ".dialogue-hint"
+                    ".continueOverlay"
                 ) ||
                 event.target.closest(
                     ".ready-area"
@@ -3194,7 +3158,7 @@ document
 
             if(
                 dialogueIndex <
-                getDialogue().length - 1
+                getDialogue().length-1
             ){
 
                 nextDialogue();
@@ -3205,13 +3169,12 @@ document
     );
 
 
-/* =====================================================
+/* =========================================================
    SERVICE WORKER
-===================================================== */
+========================================================= */
 
 if(
-    "serviceWorker"
-    in navigator
+    "serviceWorker" in navigator
 ){
 
     window.addEventListener(
