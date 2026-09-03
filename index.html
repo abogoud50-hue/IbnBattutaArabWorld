@@ -343,7 +343,6 @@ input{
 /* =========================================================
    SETUP
 ========================================================= */
-
 .setup-content{
 
     position:absolute;
@@ -354,7 +353,8 @@ input{
 
     transform:translateX(-50%);
 
-    width:min(850px,88%);
+    /* تضييق المستطيلات وترك مساحة واضحة من الجانبين */
+    width:min(650px,78%);
 
     display:flex;
 
@@ -362,7 +362,7 @@ input{
 
     justify-content:center;
 
-    gap:18px;
+    gap:14px;
 }
 
 
@@ -376,26 +376,27 @@ input{
 
     display:flex;
 
-    gap:12px;
+    gap:10px;
 }
 
 .gender-card{
 
     flex:1;
 
+    /* تصغير بطاقات الجنس */
     height:
-        clamp(170px,27vh,225px);
+        clamp(115px,18vh,155px);
 
     border:
         2px solid #d8c49e;
 
-    border-radius:22px;
+    border-radius:18px;
 
     background:
         rgba(255,250,240,.96);
 
     box-shadow:
-        0 12px 28px
+        0 10px 22px
         rgba(70,51,28,.10);
 
     display:flex;
@@ -419,7 +420,7 @@ input{
     box-shadow:
         0 0 0 3px
         rgba(165,108,55,.10),
-        0 15px 30px
+        0 12px 25px
         rgba(70,51,28,.13);
 }
 
@@ -429,8 +430,9 @@ input{
 
 .gender-name{
 
+    /* تصغير اسم الجنس */
     font-size:
-        clamp(17px,2.2vw,23px);
+        clamp(15px,2vw,20px);
 
     font-weight:800;
 }
@@ -444,24 +446,25 @@ input{
 
     position:relative;
 
-    width:64px;
+    /* تصغير الشخصية داخل البطاقة */
+    width:52px;
 
-    height:85px;
+    height:70px;
 
-    margin-bottom:10px;
+    margin-bottom:7px;
 }
 
 .mini-head{
 
     position:absolute;
 
-    left:19px;
+    left:15px;
 
     top:0;
 
-    width:27px;
+    width:23px;
 
-    height:27px;
+    height:23px;
 
     border-radius:50%;
 
