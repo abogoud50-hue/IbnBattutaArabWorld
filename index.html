@@ -15,7 +15,13 @@
 
 <title>ابن بطوطة في الوطن العربي</title>
 
+<link rel="manifest" href="manifest.json">
+
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -24,7 +30,8 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
     overflow:hidden;
@@ -39,6 +46,11 @@ body{
     touch-action:manipulation;
 }
 
+
+/* =========================================================
+   اللعبة
+========================================================= */
+
 #game{
     position:relative;
     width:100vw;
@@ -50,13 +62,20 @@ body{
 }
 
 @media (orientation:portrait){
+
     #game{
         width:100dvh;
         height:100dvw;
         transform:rotate(90deg);
         flex:none;
     }
+
 }
+
+
+/* =========================================================
+   الشاشات
+========================================================= */
 
 .screen{
     position:absolute;
@@ -71,9 +90,15 @@ body{
     display:block;
 }
 
+
+/* =========================================================
+   الخلفيات
+========================================================= */
+
 .background{
     position:absolute;
     inset:0;
+
     background:
         radial-gradient(
             circle at 50% 20%,
@@ -83,6 +108,11 @@ body{
         );
 }
 
+
+/* =========================================================
+   شاشة البداية
+========================================================= */
+
 #home{
     background:#cce4e2;
 }
@@ -90,6 +120,7 @@ body{
 .sky{
     position:absolute;
     inset:0;
+
     background:
         linear-gradient(
             180deg,
@@ -99,26 +130,61 @@ body{
         );
 }
 
+
+/* =========================================================
+   الخريطة
+========================================================= */
+
 .map{
     position:absolute;
+
     left:7%;
     right:7%;
+
     top:24%;
     height:48%;
+
     background:#d6b87d;
 
     clip-path:polygon(
-        0% 40%,5% 30%,13% 28%,18% 20%,
-        27% 22%,34% 14%,43% 13%,51% 18%,
-        60% 17%,68% 21%,78% 22%,87% 30%,
-        96% 41%,100% 49%,94% 56%,86% 59%,
-        79% 67%,71% 73%,63% 79%,55% 73%,
-        48% 84%,41% 78%,33% 71%,25% 70%,
-        18% 62%,10% 58%,3% 50%
+        0% 40%,
+        5% 30%,
+        13% 28%,
+        18% 20%,
+        27% 22%,
+        34% 14%,
+        43% 13%,
+        51% 18%,
+        60% 17%,
+        68% 21%,
+        78% 22%,
+        87% 30%,
+        96% 41%,
+        100% 49%,
+        94% 56%,
+        86% 59%,
+        79% 67%,
+        71% 73%,
+        63% 79%,
+        55% 73%,
+        48% 84%,
+        41% 78%,
+        33% 71%,
+        25% 70%,
+        18% 62%,
+        10% 58%,
+        3% 50%
     );
 
-    box-shadow:0 20px 40px rgba(50,70,60,.18);
+    box-shadow:
+        0 20px 40px
+        rgba(50,70,60,.18);
 }
+
+
+/* =========================================================
+   عنوان البداية
+========================================================= */
 
 .home-title{
     position:absolute;
@@ -132,7 +198,10 @@ body{
 
 .home-title h1{
     color:#24443d;
-    font-size:clamp(24px,4.2vw,46px);
+
+    font-size:
+        clamp(24px,4.2vw,46px);
+
     line-height:1.2;
     white-space:nowrap;
 }
@@ -140,315 +209,618 @@ body{
 .home-title p{
     margin-top:8px;
     color:#60756e;
-    font-size:clamp(12px,1.8vw,19px);
+
+    font-size:
+        clamp(12px,1.8vw,19px);
 }
+
+
+/* =========================================================
+   الإعدادات
+========================================================= */
 
 .settings{
+
     position:absolute;
+
     top:4%;
     right:3%;
-    width:clamp(46px,5vw,62px);
-    height:clamp(46px,5vw,62px);
+
+    width:
+        clamp(46px,5vw,62px);
+
+    height:
+        clamp(46px,5vw,62px);
+
     border:none;
     border-radius:50%;
+
     background:#24463f;
+
     color:white;
-    font-size:clamp(20px,2.5vw,28px);
+
+    font-size:
+        clamp(20px,2.5vw,28px);
+
     z-index:20;
-    box-shadow:0 7px 18px rgba(0,0,0,.2);
+
+    box-shadow:
+        0 7px 18px
+        rgba(0,0,0,.2);
 }
+
+
+/* =========================================================
+   زر البداية
+========================================================= */
 
 .start-button{
+
     position:absolute;
+
     left:50%;
     bottom:6%;
+
     transform:translateX(-50%);
-    width:min(430px,50%);
-    padding:clamp(13px,2vw,19px);
+
+    width:
+        min(430px,50%);
+
+    padding:
+        clamp(13px,2vw,19px);
+
     border:none;
     border-radius:18px;
-    background:linear-gradient(135deg,#a86e35,#c38a4b);
+
+    background:
+        linear-gradient(
+            135deg,
+            #a86e35,
+            #c38a4b
+        );
+
     color:white;
-    font-size:clamp(17px,2.5vw,26px);
+
+    font-size:
+        clamp(17px,2.5vw,26px);
+
     font-weight:bold;
+
     z-index:20;
-    box-shadow:0 10px 25px rgba(70,45,20,.25);
+
+    box-shadow:
+        0 10px 25px
+        rgba(70,45,20,.25);
 }
 
+
+/* =========================================================
+   العناوين
+========================================================= */
+
 .page-title{
+
     position:absolute;
-    top:6%;
+
+    top:7%;
     left:50%;
+
     transform:translateX(-50%);
+
     width:90%;
+
     text-align:center;
+
     z-index:5;
 }
 
 .page-title h2{
+
     color:#31483f;
-    font-size:clamp(25px,4vw,43px);
+
+    font-size:
+        clamp(25px,4vw,43px);
+
     line-height:1.2;
 }
 
 .page-title p{
+
     margin-top:7px;
+
     color:#806e55;
-    font-size:clamp(12px,1.7vw,18px);
+
+    font-size:
+        clamp(12px,1.7vw,18px);
 }
 
-/* زر الرجوع */
 
-.back-button{
+/* =========================================================
+   صفحة الجنس والعمر
+========================================================= */
+
+.setup-container{
+
     position:absolute;
-    top:4%;
-    left:3%;
-    min-width:100px;
-    height:48px;
-    padding:0 18px;
-    border:none;
-    border-radius:14px;
-    background:#24463f;
-    color:white;
-    font-family:inherit;
-    font-size:17px;
-    font-weight:bold;
-    z-index:100;
-    box-shadow:0 6px 16px rgba(0,0,0,.18);
-}
 
-/* اختيار الجنس */
-
-.gender-container{
-    position:absolute;
     left:50%;
-    top:25%;
+    top:21%;
+
     transform:translateX(-50%);
-    width:min(760px,82%);
+
+    width:min(900px,86%);
+
     display:flex;
-    gap:25px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:35px;
+
     direction:rtl;
 }
 
-.gender-card{
+
+/* =========================================================
+   الجنس
+========================================================= */
+
+.gender-section{
+
     flex:1;
-    height:clamp(150px,27vh,220px);
-    border:3px solid #d5b681;
-    border-radius:25px;
-    background:#fffaf0;
-    box-shadow:0 12px 28px rgba(70,50,25,.13);
+
+    text-align:center;
+}
+
+.section-label{
+
+    color:#806e55;
+
+    font-size:
+        clamp(15px,2vw,20px);
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+}
+
+.gender-container{
+
     display:flex;
+
+    gap:15px;
+
+    width:100%;
+}
+
+.gender-card{
+
+    flex:1;
+
+    min-height:
+        clamp(145px,25vh,210px);
+
+    border:
+        3px solid #d5b681;
+
+    border-radius:22px;
+
+    background:#fffaf0;
+
+    box-shadow:
+        0 12px 28px
+        rgba(70,50,25,.13);
+
+    display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     color:#493927;
-    font-family:inherit;
-    transition:.2s;
+
+    transition:.15s;
 }
 
 .gender-card.selected{
+
     border-color:#a86e35;
-    background:#f7ead4;
-    transform:translateY(-4px);
+
+    background:#f7ead5;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(90,55,25,.20);
 }
 
 .gender-icon{
-    font-size:clamp(55px,7vw,82px);
-    margin-bottom:6px;
+
+    font-size:
+        clamp(48px,7vw,78px);
+
+    margin-bottom:5px;
 }
 
 .gender-name{
-    font-size:clamp(18px,2.7vw,28px);
+
+    font-size:
+        clamp(16px,2.5vw,25px);
+
     font-weight:bold;
 }
 
 .gender-description{
+
     margin-top:5px;
+
     color:#88745b;
-    font-size:clamp(12px,1.5vw,16px);
+
+    font-size:
+        clamp(11px,1.4vw,15px);
 }
 
-/* العمر */
 
-.age-section-title{
+/* =========================================================
+   عجلة العمر
+========================================================= */
+
+.age-section{
+
+    flex:1;
+
+    text-align:center;
+}
+
+.age-wheel-box{
+
+    position:relative;
+
+    height:
+        clamp(190px,30vh,240px);
+
+    background:#fffaf0;
+
+    border:
+        3px solid #d5b681;
+
+    border-radius:22px;
+
+    box-shadow:
+        0 12px 28px
+        rgba(70,50,25,.13);
+
+    overflow:hidden;
+}
+
+
+/* التدرج فوق وتحت */
+
+.age-wheel-box::before{
+
+    content:"";
+
     position:absolute;
-    top:57%;
-    left:50%;
-    transform:translateX(-50%);
-    color:#806d55;
-    font-size:clamp(16px,2vw,22px);
-    font-weight:bold;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:35%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #fffaf0,
+            rgba(255,250,240,0)
+        );
+
     z-index:5;
+
+    pointer-events:none;
+}
+
+.age-wheel-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:35%;
+
+    background:
+        linear-gradient(
+            to top,
+            #fffaf0,
+            rgba(255,250,240,0)
+        );
+
+    z-index:5;
+
+    pointer-events:none;
+}
+
+
+/* خط تحديد الرقم */
+
+.age-selector{
+
+    position:absolute;
+
+    left:8%;
+    right:8%;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    height:55px;
+
+    border-top:
+        2px solid #d6bd8b;
+
+    border-bottom:
+        2px solid #d6bd8b;
+
+    z-index:3;
+
+    pointer-events:none;
 }
 
 .age-wheel{
+
     position:absolute;
-    left:50%;
-    top:63%;
-    transform:translateX(-50%);
-    width:180px;
-    height:145px;
-    overflow:hidden;
-    border-radius:22px;
-    background:#fffaf0;
-    border:2px solid #d6bd8b;
-    box-shadow:0 10px 25px rgba(70,50,25,.14);
-    touch-action:none;
-    user-select:none;
+
+    inset:0;
+
+    overflow-y:scroll;
+
+    scroll-snap-type:y mandatory;
+
+    scrollbar-width:none;
+
+    -webkit-overflow-scrolling:touch;
+
+    padding-top:67px;
+    padding-bottom:67px;
 }
 
-.age-wheel::before,
-.age-wheel::after{
-    content:"";
-    position:absolute;
-    left:15px;
-    right:15px;
-    height:1px;
-    background:#d6bd8b;
-    z-index:4;
-}
-
-.age-wheel::before{
-    top:48px;
-}
-
-.age-wheel::after{
-    top:96px;
-}
-
-.age-list{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    transition:transform .12s ease-out;
+.age-wheel::-webkit-scrollbar{
+    display:none;
 }
 
 .age-item{
-    width:100%;
-    height:48px;
+
+    height:55px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
+    scroll-snap-align:center;
+
+    color:#9c8a70;
+
     font-size:25px;
-    color:#9b876c;
-    opacity:.45;
+
     font-weight:bold;
+
+    user-select:none;
 }
 
-.age-item.selected{
+.age-item.active{
     color:#a66d35;
-    opacity:1;
-    font-size:31px;
+    font-size:34px;
 }
 
-.age-help{
-    position:absolute;
-    top:82%;
-    left:50%;
-    transform:translateX(-50%);
-    color:#9b876c;
-    font-size:13px;
-}
 
-/* أزرار */
+/* =========================================================
+   زر المتابعة
+========================================================= */
 
 .next-button{
+
     position:absolute;
+
     left:50%;
     bottom:6%;
+
     transform:translateX(-50%);
+
     border:none;
+
     border-radius:17px;
-    padding:13px 48px;
+
+    padding:
+        13px 48px;
+
     background:#a86e35;
+
     color:white;
-    font-family:inherit;
-    font-size:clamp(16px,2vw,21px);
+
+    font-size:
+        clamp(16px,2vw,21px);
+
     font-weight:bold;
+
     z-index:30;
 }
 
-/* الشخصية */
+
+/* =========================================================
+   زر الرجوع داخل اللعبة
+========================================================= */
+
+.back-button{
+
+    position:absolute;
+
+    top:4%;
+    left:3%;
+
+    width:
+        clamp(46px,5vw,62px);
+
+    height:
+        clamp(46px,5vw,62px);
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#24463f;
+
+    color:white;
+
+    font-size:
+        clamp(22px,3vw,30px);
+
+    z-index:50;
+
+    box-shadow:
+        0 7px 18px
+        rgba(0,0,0,.18);
+}
+
+
+/* =========================================================
+   الشخصية
+========================================================= */
 
 .character-layout{
+
     position:absolute;
+
     left:50%;
     top:19%;
+
     transform:translateX(-50%);
+
     width:78%;
     height:55%;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:12%;
+
     direction:ltr;
 }
 
 .player-character{
+
     position:relative;
+
     width:180px;
     height:270px;
+
     flex-shrink:0;
 }
 
 .head{
+
     position:absolute;
+
     left:49px;
     top:0;
+
     width:82px;
     height:82px;
+
     border-radius:50%;
+
     background:#c98561;
+
     border:4px solid #744b34;
 }
 
 .hair{
+
     position:absolute;
+
     left:51px;
     top:1px;
+
     width:76px;
     height:35px;
-    border-radius:50% 50% 20% 20%;
+
+    border-radius:
+        50% 50% 20% 20%;
+
     background:#30251f;
 }
 
 .body{
+
     position:absolute;
+
     left:36px;
     top:87px;
+
     width:110px;
     height:125px;
-    border-radius:45px 45px 18px 18px;
+
+    border-radius:
+        45px 45px 18px 18px;
+
     background:#eee3ce;
-    border:4px solid #88745d;
+
+    border:
+        4px solid #88745d;
 }
 
 .arm{
+
     position:absolute;
+
     top:103px;
+
     width:28px;
     height:88px;
+
     border-radius:20px;
+
     background:#efd5bd;
 }
 
 .arm.left{
+
     left:17px;
+
     transform:rotate(12deg);
 }
 
 .arm.right{
+
     right:17px;
+
     transform:rotate(-12deg);
 }
 
 .leg{
+
     position:absolute;
+
     top:207px;
+
     width:35px;
     height:63px;
+
     border-radius:15px;
+
     background:#46372a;
 }
 
@@ -461,132 +833,249 @@ body{
 }
 
 .player-info{
+
     text-align:center;
     direction:rtl;
 }
 
 .player-name{
+
     margin-top:5px;
+
     color:#a66d35;
-    font-size:clamp(19px,2.5vw,26px);
+
+    font-size:
+        clamp(19px,2.5vw,26px);
+
     font-weight:bold;
 }
 
 .player-age{
+
     margin-top:4px;
+
     color:#7b6952;
 }
 
-/* البساط */
+
+/* =========================================================
+   البساط
+========================================================= */
 
 .carpet-wrapper{
+
     display:flex;
+
     align-items:center;
     justify-content:center;
 }
 
 .carpet{
+
     position:relative;
-    width:clamp(240px,28vw,350px);
-    height:clamp(75px,10vw,110px);
+
+    width:
+        clamp(240px,28vw,350px);
+
+    height:
+        clamp(75px,10vw,110px);
+
     border-radius:50%;
-    background:linear-gradient(135deg,#773e2d,#b96f38);
-    border:8px solid #dfb15e;
-    transform:perspective(500px) rotateX(35deg);
-    box-shadow:0 20px 35px rgba(55,35,20,.3);
-    animation:carpetFloat 2.5s ease-in-out infinite;
+
+    background:
+        linear-gradient(
+            135deg,
+            #773e2d,
+            #b96f38
+        );
+
+    border:
+        8px solid #dfb15e;
+
+    transform:
+        perspective(500px)
+        rotateX(35deg);
+
+    box-shadow:
+        0 20px 35px
+        rgba(55,35,20,.3);
+
+    animation:
+        carpetFloat 2.5s ease-in-out infinite;
 }
 
 .carpet-symbol{
+
     position:absolute;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%);
-    font-size:clamp(30px,4vw,45px);
+
+    transform:
+        translate(-50%,-50%);
+
+    font-size:
+        clamp(30px,4vw,45px);
 }
 
 @keyframes carpetFloat{
+
     0%,100%{
-        transform:perspective(500px) rotateX(35deg) translateY(0);
+
+        transform:
+            perspective(500px)
+            rotateX(35deg)
+            translateY(0);
     }
+
     50%{
-        transform:perspective(500px) rotateX(35deg) translateY(-10px);
+
+        transform:
+            perspective(500px)
+            rotateX(35deg)
+            translateY(-10px);
     }
 }
 
+
+/* =========================================================
+   الحوار
+========================================================= */
+
 .dialogue{
+
     position:absolute;
+
     left:50%;
     bottom:13%;
+
     transform:translateX(-50%);
+
     width:min(800px,76%);
+
     min-height:75px;
-    padding:12px 22px;
-    border:2px solid #d6bd8b;
+
+    padding:
+        12px 22px;
+
+    border:
+        2px solid #d6bd8b;
+
     border-radius:20px;
+
     background:#fffaf0;
+
     text-align:center;
-    box-shadow:0 8px 22px rgba(60,40,20,.12);
+
+    box-shadow:
+        0 8px 22px
+        rgba(60,40,20,.12);
+
     z-index:10;
 }
 
 .speaker{
+
     color:#a66d35;
+
     font-weight:bold;
+
     margin-bottom:3px;
 }
 
 .dialogue-text{
+
     color:#443a2f;
-    font-size:clamp(15px,2vw,22px);
+
+    font-size:
+        clamp(15px,2vw,22px);
 }
 
-/* الدولة */
+
+/* =========================================================
+   الدولة
+========================================================= */
 
 .country-map{
+
     position:absolute;
+
     left:7%;
     right:7%;
+
     top:21%;
+
     height:60%;
+
     border-radius:25px;
-    background:linear-gradient(135deg,#d9ece9,#c0ddda);
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9ece9,
+            #c0ddda
+        );
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    box-shadow:0 12px 30px rgba(40,70,65,.12);
+
+    box-shadow:
+        0 12px 30px
+        rgba(40,70,65,.12);
 }
 
 .country-map-content{
+
     text-align:center;
+
     color:#597068;
 }
 
 .country-map-icon{
+
     font-size:70px;
+
     margin-bottom:10px;
 }
 
 .country-map-title{
+
     font-size:23px;
+
     font-weight:bold;
 }
 
 .country-map-subtitle{
+
     margin-top:7px;
+
     font-size:14px;
 }
 
-/* نافذة الخروج */
+
+/* =========================================================
+   نافذة الخروج
+========================================================= */
 
 .exit-overlay{
-    position:absolute;
+
+    position:fixed;
+
     inset:0;
-    background:rgba(20,35,32,.58);
+
+    background:
+        rgba(20,35,32,.58);
+
     display:none;
+
     align-items:center;
     justify-content:center;
-    z-index:9999;
+
+    z-index:100000;
+
+    padding:25px;
 }
 
 .exit-overlay.show{
@@ -594,44 +1083,60 @@ body{
 }
 
 .exit-box{
-    width:min(430px,80%);
-    padding:28px;
-    border-radius:25px;
+
+    width:min(430px,90%);
+
     background:#fffaf0;
+
+    border-radius:24px;
+
+    padding:30px 25px;
+
     text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.3);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.30);
 }
 
 .exit-box h3{
+
     color:#31483f;
-    font-size:24px;
+
+    font-size:25px;
+
     margin-bottom:10px;
 }
 
 .exit-box p{
+
     color:#806e55;
+
     margin-bottom:22px;
 }
 
 .exit-buttons{
+
     display:flex;
+
     gap:12px;
-    justify-content:center;
 }
 
 .exit-buttons button{
-    flex:1;
-    padding:12px;
-    border:none;
-    border-radius:13px;
-    font-family:inherit;
-    font-size:17px;
-    font-weight:bold;
-}
 
-.exit-no{
-    background:#ddd1bc;
-    color:#493927;
+    flex:1;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:13px;
+
+    font-family:inherit;
+
+    font-size:17px;
+
+    font-weight:bold;
 }
 
 .exit-yes{
@@ -639,29 +1144,49 @@ body{
     color:white;
 }
 
-/* الرسائل */
+.exit-no{
+    background:#dce8e5;
+    color:#31483f;
+}
+
+
+/* =========================================================
+   الرسائل
+========================================================= */
 
 #message{
+
     position:fixed;
+
     left:50%;
     bottom:20px;
-    transform:translate(-50%,120px);
+
+    transform:
+        translate(-50%,120px);
+
     background:#263e37;
+
     color:white;
+
     padding:12px 22px;
+
     border-radius:13px;
+
     z-index:99999;
+
     transition:.25s;
 }
 
 #message.show{
-    transform:translate(-50%,0);
+
+    transform:
+        translate(-50%,0);
 }
 
-button{
-    font-family:inherit;
-    cursor:pointer;
-}
+
+/* =========================================================
+   الشاشات القصيرة
+========================================================= */
 
 @media(max-height:500px){
 
@@ -682,24 +1207,13 @@ button{
         top:4%;
     }
 
-    .gender-container{
-        top:19%;
+    .setup-container{
+        top:15%;
+        height:67%;
     }
 
-    .gender-card{
-        height:125px;
-    }
-
-    .age-section-title{
-        top:52%;
-    }
-
-    .age-wheel{
-        top:58%;
-    }
-
-    .age-help{
-        top:80%;
+    .age-wheel-box{
+        height:180px;
     }
 
     .character-layout{
@@ -712,16 +1226,29 @@ button{
         min-height:60px;
     }
 
+    .back-button{
+        top:3%;
+    }
+
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
 }
 
 </style>
 </head>
 
+
 <body>
 
 <div id="game">
 
-<!-- البداية -->
+
+<!-- =====================================================
+     البداية
+===================================================== -->
 
 <section id="home" class="screen active">
 
@@ -730,26 +1257,40 @@ button{
     <div class="map"></div>
 
     <div class="home-title">
-        <h1>ابن بطوطة في الوطن العربي</h1>
-        <p>رحلة استكشافية عبر الوطن العربي</p>
+
+        <h1>
+            ابن بطوطة في الوطن العربي
+        </h1>
+
+        <p>
+            رحلة استكشافية عبر الوطن العربي
+        </p>
+
     </div>
 
     <button
         class="settings"
         onclick="message('الإعدادات ستتوفر لاحقًا')">
+
         ⚙️
+
     </button>
 
     <button
         class="start-button"
         onclick="startJourney()">
+
         🧭 بدء الرحلة
+
     </button>
 
 </section>
 
 
-<!-- الجنس + العمر في صفحة واحدة -->
+
+<!-- =====================================================
+     الجنس + العمر
+===================================================== -->
 
 <section id="setup" class="screen">
 
@@ -758,94 +1299,122 @@ button{
     <button
         class="back-button"
         onclick="goBack()">
-        ← رجوع
+
+        ←
+
     </button>
+
 
     <div class="page-title">
 
-        <h2>اختر الجنس</h2>
+        <h2>
+            ابدأ رحلتك
+        </h2>
 
-        <p>ثم اختر عمرك لبدء الرحلة</p>
-
-    </div>
-
-
-    <div class="gender-container">
-
-        <button
-            id="maleCard"
-            class="gender-card selected"
-            onclick="chooseGender('male')">
-
-            <div class="gender-icon">
-                👨🏻
-            </div>
-
-            <div class="gender-name">
-                ذكر
-            </div>
-
-            <div class="gender-description">
-                ابن بطوطة
-            </div>
-
-        </button>
-
-
-        <button
-            id="femaleCard"
-            class="gender-card"
-            onclick="chooseGender('female')">
-
-            <div class="gender-icon">
-                👩🏻
-            </div>
-
-            <div class="gender-name">
-                أنثى
-            </div>
-
-            <div class="gender-description">
-                بنت بطوطة
-            </div>
-
-        </button>
+        <p>
+            اختر الجنس والعمر
+        </p>
 
     </div>
 
 
-    <div class="age-section-title">
-        اختر العمر
-    </div>
+    <div class="setup-container">
 
 
-    <div
-        id="ageWheel"
-        class="age-wheel">
+        <!-- الجنس -->
 
-        <div
-            id="ageList"
-            class="age-list">
+        <div class="gender-section">
+
+            <div class="section-label">
+                اختر الجنس
+            </div>
+
+            <div class="gender-container">
+
+                <button
+                    id="maleCard"
+                    class="gender-card selected"
+                    onclick="chooseGender('male')">
+
+                    <div class="gender-icon">
+                        👨🏻
+                    </div>
+
+                    <div class="gender-name">
+                        ذكر
+                    </div>
+
+                    <div class="gender-description">
+                        ابن بطوطة
+                    </div>
+
+                </button>
+
+
+                <button
+                    id="femaleCard"
+                    class="gender-card"
+                    onclick="chooseGender('female')">
+
+                    <div class="gender-icon">
+                        👩🏻
+                    </div>
+
+                    <div class="gender-name">
+                        أنثى
+                    </div>
+
+                    <div class="gender-description">
+                        بنت بطوطة
+                    </div>
+
+                </button>
+
+            </div>
+
         </div>
 
-    </div>
+
+        <!-- العمر -->
+
+        <div class="age-section">
+
+            <div class="section-label">
+                اختر العمر
+            </div>
+
+            <div class="age-wheel-box">
+
+                <div class="age-selector"></div>
+
+                <div
+                    id="ageWheel"
+                    class="age-wheel">
+                </div>
+
+            </div>
+
+        </div>
 
 
-    <div class="age-help">
-        اسحب لأعلى أو لأسفل لاختيار العمر
     </div>
 
 
     <button
         class="next-button"
         onclick="confirmSetup()">
+
         متابعة
+
     </button>
 
 </section>
 
 
-<!-- الشخصية -->
+
+<!-- =====================================================
+     الشخصية
+===================================================== -->
 
 <section id="character" class="screen">
 
@@ -854,40 +1423,60 @@ button{
     <button
         class="back-button"
         onclick="goBack()">
-        ← رجوع
+
+        ←
+
     </button>
 
+
     <div class="page-title">
-        <h2>بداية الرحلة</h2>
+
+        <h2>
+            بداية الرحلة
+        </h2>
+
     </div>
 
 
     <div class="character-layout">
+
 
         <div class="player-info">
 
             <div class="player-character">
 
                 <div class="head"></div>
+
                 <div class="hair"></div>
+
                 <div class="body"></div>
+
                 <div class="arm left"></div>
+
                 <div class="arm right"></div>
+
                 <div class="leg left"></div>
+
                 <div class="leg right"></div>
 
             </div>
 
+
             <div
                 id="playerName"
                 class="player-name">
+
                 ابن بطوطة
+
             </div>
+
 
             <div
                 id="playerAge"
                 class="player-age">
+
                 العمر: 15 سنة
+
             </div>
 
         </div>
@@ -924,13 +1513,18 @@ button{
     <button
         class="next-button"
         onclick="readyForJourney()">
+
         نعم، أنا جاهز!
+
     </button>
 
 </section>
 
 
-<!-- الدولة -->
+
+<!-- =====================================================
+     الدولة
+===================================================== -->
 
 <section id="country" class="screen">
 
@@ -939,14 +1533,21 @@ button{
     <button
         class="back-button"
         onclick="goBack()">
-        ← رجوع
+
+        ←
+
     </button>
+
 
     <div class="page-title">
 
-        <h2>اختر بلد انطلاقك</h2>
+        <h2>
+            اختر بلد انطلاقك
+        </h2>
 
-        <p>من أين تريد أن تبدأ رحلتك؟</p>
+        <p>
+            من أين تريد أن تبدأ رحلتك؟
+        </p>
 
     </div>
 
@@ -973,13 +1574,20 @@ button{
 
 </section>
 
+
 </div>
 
+
+<!-- =====================================================
+     رسالة صغيرة
+===================================================== -->
 
 <div id="message"></div>
 
 
-<!-- نافذة الخروج -->
+<!-- =====================================================
+     نافذة الخروج
+===================================================== -->
 
 <div
     id="exitOverlay"
@@ -987,22 +1595,30 @@ button{
 
     <div class="exit-box">
 
-        <h3>هل تريد الخروج؟</h3>
+        <h3>
+            هل تريد الخروج؟
+        </h3>
 
-        <p>هل أنت متأكد أنك تريد الخروج من اللعبة؟</p>
+        <p>
+            هل أنت متأكد أنك تريد الخروج من اللعبة؟
+        </p>
 
         <div class="exit-buttons">
 
             <button
                 class="exit-no"
-                onclick="cancelExit()">
+                onclick="closeExitDialog()">
+
                 لا
+
             </button>
 
             <button
                 class="exit-yes"
-                onclick="confirmExit()">
-                نعم، خروج
+                onclick="exitGame()">
+
+                نعم
+
             </button>
 
         </div>
@@ -1010,6 +1626,7 @@ button{
     </div>
 
 </div>
+
 
 
 <script>
@@ -1020,226 +1637,228 @@ button{
 
 const player = {
 
-    gender: "male",
+    gender:"male",
 
-    age: 15,
+    age:15,
 
-    name: "ابن بطوطة"
+    name:"ابن بطوطة"
 
 };
 
 
 /* =========================================================
-   إعداد عجلة العمر
+   حالة اللعبة
 ========================================================= */
 
-const MIN_AGE = 15;
-const MAX_AGE = 50;
-const ITEM_HEIGHT = 48;
+let currentScreen = "home";
 
-let ageStartY = 0;
-let ageStartOffset = 0;
-let ageDragging = false;
+let historyStack = ["home"];
 
-const ageList =
-    document.getElementById("ageList");
+let exitDialogOpen = false;
+
+
+/* =========================================================
+   عجلة العمر
+========================================================= */
 
 const ageWheel =
     document.getElementById("ageWheel");
 
 
-function createAgeWheel(){
+for(let age = 15; age <= 50; age++){
 
-    ageList.innerHTML = "";
+    const item =
+        document.createElement("div");
 
-    for(
-        let age = MIN_AGE;
-        age <= MAX_AGE;
-        age++
-    ){
+    item.className = "age-item";
 
-        const item =
-            document.createElement("div");
+    item.dataset.age = age;
 
-        item.className = "age-item";
+    item.textContent = age;
 
-        item.dataset.age = age;
-
-        item.textContent = age;
-
-        ageList.appendChild(item);
-
-    }
-
-    setAge(player.age, false);
-
+    ageWheel.appendChild(item);
 }
 
 
-function setAge(age, animate = true){
+/* =========================================================
+   تحديد العمر الحالي
+========================================================= */
 
-    age =
-        Math.max(
-            MIN_AGE,
-            Math.min(MAX_AGE, age)
-        );
+function updateAgeFromWheel(){
 
-    player.age = age;
+    const items =
+        document.querySelectorAll(".age-item");
 
-    const index =
-        age - MIN_AGE;
+    const center =
+        ageWheel.scrollTop +
+        ageWheel.clientHeight / 2;
 
-    const offset =
-        -(index * ITEM_HEIGHT);
+    let closest = null;
 
-    ageList.style.transition =
-        animate
-        ? "transform .18s ease-out"
-        : "none";
+    let closestDistance = Infinity;
 
-    ageList.style.transform =
-        "translateY(" + offset + "px)";
+    items.forEach(item => {
 
-    document
-        .querySelectorAll(".age-item")
-        .forEach(item => {
+        const itemCenter =
+            item.offsetTop +
+            item.offsetHeight / 2;
 
-            item.classList.toggle(
-                "selected",
-                Number(item.dataset.age) === age
-            );
+        const distance =
+            Math.abs(center - itemCenter);
+
+        if(distance < closestDistance){
+
+            closestDistance = distance;
+
+            closest = item;
+
+        }
+
+    });
+
+
+    if(closest){
+
+        items.forEach(item => {
+
+            item.classList.remove("active");
 
         });
 
+        closest.classList.add("active");
+
+        player.age =
+            Number(closest.dataset.age);
+
+    }
+
 }
 
 
-function ageFromOffset(offset){
+ageWheel.addEventListener(
+    "scroll",
+    function(){
 
-    const index =
-        Math.round(
-            Math.abs(offset) / ITEM_HEIGHT
+        window.clearTimeout(
+            ageWheel.scrollTimer
         );
 
-    return Math.max(
-        MIN_AGE,
-        Math.min(
-            MAX_AGE,
-            MIN_AGE + index
-        )
-    );
+        ageWheel.scrollTimer =
+            window.setTimeout(
+                function(){
+
+                    updateAgeFromWheel();
+
+                    snapAgeToCenter();
+
+                },
+                80
+            );
+
+    }
+);
+
+
+/* =========================================================
+   تثبيت العمر في المنتصف
+========================================================= */
+
+function snapAgeToCenter(){
+
+    const items =
+        document.querySelectorAll(".age-item");
+
+    let closest = null;
+
+    let closestDistance = Infinity;
+
+    const center =
+        ageWheel.scrollTop +
+        ageWheel.clientHeight / 2;
+
+    items.forEach(item => {
+
+        const itemCenter =
+            item.offsetTop +
+            item.offsetHeight / 2;
+
+        const distance =
+            Math.abs(center - itemCenter);
+
+        if(distance < closestDistance){
+
+            closestDistance = distance;
+
+            closest = item;
+
+        }
+
+    });
+
+
+    if(closest){
+
+        ageWheel.scrollTo({
+
+            top:
+                closest.offsetTop -
+                (
+                    ageWheel.clientHeight -
+                    closest.offsetHeight
+                ) / 2,
+
+            behavior:"smooth"
+
+        });
+
+    }
 
 }
 
 
 /* =========================================================
-   سحب عجلة العمر
+   تجهيز عجلة العمر
 ========================================================= */
 
-ageWheel.addEventListener(
-    "pointerdown",
-    function(event){
+function initializeAgeWheel(){
 
-        ageDragging = true;
-
-        ageStartY = event.clientY;
-
-        ageStartOffset =
-            -(player.age - MIN_AGE)
-            * ITEM_HEIGHT;
-
-        ageList.style.transition = "none";
-
-        ageWheel.setPointerCapture(
-            event.pointerId
+    const item =
+        document.querySelector(
+            '.age-item[data-age="15"]'
         );
 
-    }
-);
+    if(item){
 
-
-ageWheel.addEventListener(
-    "pointermove",
-    function(event){
-
-        if(!ageDragging){
-            return;
-        }
-
-        const delta =
-            event.clientY - ageStartY;
-
-        let offset =
-            ageStartOffset + delta;
-
-        const minOffset =
-            -(MAX_AGE - MIN_AGE)
-            * ITEM_HEIGHT;
-
-        offset =
-            Math.max(
-                minOffset,
-                Math.min(0, offset)
-            );
-
-        ageList.style.transform =
-            "translateY(" + offset + "px)";
-
-        const age =
-            ageFromOffset(offset);
-
-        player.age = age;
-
-        document
-            .querySelectorAll(".age-item")
-            .forEach(item => {
-
-                item.classList.toggle(
-                    "selected",
-                    Number(item.dataset.age) === age
-                );
-
-            });
+        ageWheel.scrollTop =
+            item.offsetTop -
+            (
+                ageWheel.clientHeight -
+                item.offsetHeight
+            ) / 2;
 
     }
-);
 
-
-function finishAgeDrag(){
-
-    if(!ageDragging){
-        return;
-    }
-
-    ageDragging = false;
-
-    setAge(player.age, true);
+    updateAgeFromWheel();
 
 }
-
-
-ageWheel.addEventListener(
-    "pointerup",
-    finishAgeDrag
-);
-
-ageWheel.addEventListener(
-    "pointercancel",
-    finishAgeDrag
-);
 
 
 /* =========================================================
    تغيير الشاشة
 ========================================================= */
 
-function showScreen(id){
+function showScreen(
+    id,
+    addHistory = true
+){
 
     document
         .querySelectorAll(".screen")
         .forEach(screen => {
 
-            screen.classList.remove("active");
+            screen.classList.remove(
+                "active"
+            );
 
         });
 
@@ -1248,48 +1867,29 @@ function showScreen(id){
         document.getElementById(id);
 
 
-    if(target){
-
-        target.classList.add("active");
-
+    if(!target){
+        return;
     }
 
-}
 
-
-/* =========================================================
-   نظام التنقل
-========================================================= */
-
-let currentScreen = "home";
-
-
-let navigationStarted = false;
-
-
-function navigateTo(id){
+    target.classList.add("active");
 
     currentScreen = id;
 
-    showScreen(id);
 
-    if(navigationStarted){
+    if(addHistory){
 
-        history.pushState(
-            { gameScreen: id },
-            "",
-            "#"+id
+        historyStack.push(id);
+
+    }
+
+
+    if(id === "setup"){
+
+        setTimeout(
+            initializeAgeWheel,
+            50
         );
-
-    }else{
-
-        history.replaceState(
-            { gameScreen: id },
-            "",
-            "#"+id
-        );
-
-        navigationStarted = true;
 
     }
 
@@ -1304,7 +1904,7 @@ function startJourney(){
 
     forceLandscape();
 
-    navigateTo("setup");
+    showScreen("setup");
 
 }
 
@@ -1318,33 +1918,45 @@ function chooseGender(gender){
     player.gender = gender;
 
 
+    const male =
+        document.getElementById(
+            "maleCard"
+        );
+
+    const female =
+        document.getElementById(
+            "femaleCard"
+        );
+
+
+    male.classList.remove(
+        "selected"
+    );
+
+    female.classList.remove(
+        "selected"
+    );
+
+
     if(gender === "female"){
 
         player.name =
             "بنت بطوطة";
+
+        female.classList.add(
+            "selected"
+        );
 
     }else{
 
         player.name =
             "ابن بطوطة";
 
+        male.classList.add(
+            "selected"
+        );
+
     }
-
-
-    document
-        .getElementById("maleCard")
-        .classList.toggle(
-            "selected",
-            gender === "male"
-        );
-
-
-    document
-        .getElementById("femaleCard")
-        .classList.toggle(
-            "selected",
-            gender === "female"
-        );
 
 }
 
@@ -1369,7 +1981,7 @@ function confirmSetup(){
         " سنة";
 
 
-    navigateTo("character");
+    showScreen("character");
 
 }
 
@@ -1380,99 +1992,103 @@ function confirmSetup(){
 
 function readyForJourney(){
 
-    navigateTo("country");
+    showScreen("country");
 
 }
 
 
 /* =========================================================
-   الرجوع داخل اللعبة
+   الرجوع
 ========================================================= */
 
 function goBack(){
 
-    if(currentScreen === "setup"){
+    if(currentScreen === "home"){
 
-        navigateToHome();
-
-        return;
-
-    }
-
-
-    if(currentScreen === "character"){
-
-        navigateTo("setup");
+        showExitDialog();
 
         return;
 
     }
 
 
-    if(currentScreen === "country"){
+    if(historyStack.length > 1){
 
-        navigateTo("character");
+        historyStack.pop();
 
-        return;
+        const previous =
+            historyStack[
+                historyStack.length - 1
+            ];
+
+        showScreen(
+            previous,
+            false
+        );
+
+    }else{
+
+        showExitDialog();
 
     }
-
-
-    showExitDialog();
-
-}
-
-
-function navigateToHome(){
-
-    currentScreen = "home";
-
-    showScreen("home");
-
-    history.replaceState(
-        { gameScreen:"home" },
-        "",
-        "#home"
-    );
-
-    navigationStarted = false;
 
 }
 
 
 /* =========================================================
-   زر الرجوع من History
+   زر رجوع الجوال
 ========================================================= */
 
 window.addEventListener(
     "popstate",
     function(){
 
-        const state =
-            history.state;
+        if(exitDialogOpen){
 
-
-        if(
-            state &&
-            state.gameScreen
-        ){
-
-            const id =
-                state.gameScreen;
-
-            currentScreen = id;
-
-            showScreen(id);
+            closeExitDialog();
 
             return;
 
         }
 
 
-        navigateToHome();
+        goBack();
 
     }
 );
+
+
+/* =========================================================
+   اعتراض زر الرجوع داخل WebView
+========================================================= */
+
+function prepareBackHistory(){
+
+    try{
+
+        history.replaceState(
+            {
+                game:true
+            },
+            "",
+            location.href
+        );
+
+        history.pushState(
+            {
+                game:true
+            },
+            "",
+            location.href
+        );
+
+    }catch(error){
+
+        console.log(error);
+
+    }
+
+}
 
 
 /* =========================================================
@@ -1481,41 +2097,74 @@ window.addEventListener(
 
 function showExitDialog(){
 
+    exitDialogOpen = true;
+
     document
-        .getElementById("exitOverlay")
+        .getElementById(
+            "exitOverlay"
+        )
         .classList.add("show");
 
 }
 
 
-function cancelExit(){
+function closeExitDialog(){
+
+    exitDialogOpen = false;
 
     document
-        .getElementById("exitOverlay")
+        .getElementById(
+            "exitOverlay"
+        )
         .classList.remove("show");
 
 }
 
 
-function confirmExit(){
+function exitGame(){
+
+    closeExitDialog();
+
 
     /*
-     * Android سيغلق الـActivity
-     * من خلال MainActivity.java
+     * نحاول إغلاق التطبيق إذا كان
+     * WebView يسمح بذلك.
      */
 
-    if(
-        window.Android &&
-        Android.exitApp
-    ){
+    try{
 
-        Android.exitApp();
+        if(
+            window.Android &&
+            typeof window.Android.exitApp ===
+            "function"
+        ){
 
-    }else{
+            window.Android.exitApp();
 
-        window.close();
+            return;
+
+        }
+
+    }catch(error){
+
+        console.log(error);
 
     }
+
+
+    /*
+     * إذا لم يسمح النظام بإغلاق التطبيق،
+     * نرجع للصفحة الرئيسية.
+     */
+
+    showScreen(
+        "home",
+        false
+    );
+
+    historyStack = [
+        "home"
+    ];
 
 }
 
@@ -1530,7 +2179,8 @@ async function forceLandscape(){
 
         if(
             !document.fullscreenElement &&
-            document.documentElement.requestFullscreen
+            document.documentElement
+                .requestFullscreen
         ){
 
             await document
@@ -1542,7 +2192,7 @@ async function forceLandscape(){
     }catch(error){
 
         console.log(
-            "Fullscreen غير متاح",
+            "Fullscreen غير متاح:",
             error
         );
 
@@ -1565,7 +2215,7 @@ async function forceLandscape(){
     }catch(error){
 
         console.log(
-            "قفل الاتجاه غير متاح",
+            "قفل الاتجاه غير متاح:",
             error
         );
 
@@ -1594,7 +2244,9 @@ function message(text){
     setTimeout(
         function(){
 
-            box.classList.remove("show");
+            box.classList.remove(
+                "show"
+            );
 
         },
         2200
@@ -1604,44 +2256,78 @@ function message(text){
 
 
 /* =========================================================
-   تشغيل عجلة العمر
+   مراقبة الاتجاه
 ========================================================= */
 
-createAgeWheel();
+if(screen.orientation){
+
+    screen.orientation.addEventListener(
+        "change",
+        function(){
+
+            console.log(
+                "اتجاه الشاشة:",
+                screen.orientation.type
+            );
+
+        }
+    );
+
+}
 
 
 /* =========================================================
    Service Worker
 ========================================================= */
 
-if("serviceWorker" in navigator){
+if(
+    "serviceWorker" in navigator
+){
 
     window.addEventListener(
         "load",
         function(){
 
-            navigator.serviceWorker
-                .register("./service-worker.js")
-                .then(function(){
+            navigator
+                .serviceWorker
+                .register(
+                    "./service-worker.js"
+                )
 
-                    console.log(
-                        "Service Worker registered"
-                    );
+                .then(
+                    function(){
 
-                })
-                .catch(function(error){
+                        console.log(
+                            "Service Worker registered"
+                        );
 
-                    console.log(
-                        "Service Worker error:",
-                        error
-                    );
+                    }
+                )
 
-                });
+                .catch(
+                    function(error){
+
+                        console.log(
+                            "Service Worker error:",
+                            error
+                        );
+
+                    }
+                );
 
         }
     );
 
 }
+
+
+/* =========================================================
+   التشغيل الأول
+========================================================= */
+
+prepareBackHistory();
+
+initializeAgeWheel();
 
 </script>
 
