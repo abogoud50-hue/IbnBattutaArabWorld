@@ -17,4 +17,355 @@ html,body{
     height:100%;
     overflow:hidden;
     font-family:Arial,"Tahoma",sans-serif;
-    background:#f4
+    background:#f4ead7;
+    color:#222;
+}
+
+.game{
+    width:100vw;
+    height:100vh;
+    min-height:320px;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at center, #fffaf0 0%, #f5ead5 65%, #ead8ba 100%);
+}
+
+/* العنوان */
+.title{
+    position:absolute;
+    top:5%;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:10;
+    text-align:center;
+    white-space:nowrap;
+}
+
+.title h1{
+    font-size:clamp(20px,3vw,34px);
+    font-weight:700;
+}
+
+.title p{
+    margin-top:6px;
+    font-size:clamp(12px,1.6vw,17px);
+}
+
+/* مساحة الخريطة */
+.map-area{
+    position:absolute;
+    left:4%;
+    right:4%;
+    top:15%;
+    bottom:5%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* الخريطة */
+.map{
+    position:relative;
+    width:min(92vw,1100px);
+    aspect-ratio:950 / 550;
+    background:#e8d7b8;
+    border:2px solid rgba(90,70,45,.25);
+    border-radius:22px;
+    box-shadow:
+        0 10px 30px rgba(70,50,30,.12),
+        inset 0 0 35px rgba(255,255,255,.45);
+    overflow:hidden;
+}
+
+/* شكل تقريبي للوطن العربي كبداية */
+.land{
+    position:absolute;
+    left:7%;
+    right:7%;
+    top:16%;
+    bottom:13%;
+    background:#d9c49c;
+    clip-path:polygon(
+        2% 31%, 9% 22%, 17% 25%, 23% 18%,
+        31% 20%, 38% 12%, 47% 15%, 55% 11%,
+        64% 17%, 72% 22%, 81% 25%, 89% 36%,
+        96% 44%, 91% 53%, 85% 55%, 81% 63%,
+        73% 68%, 67% 76%, 58% 74%, 50% 82%,
+        43% 76%, 36% 83%, 29% 72%, 23% 67%,
+        17% 62%, 10% 58%, 6% 49%, 1% 43%
+    );
+    border:2px solid rgba(80,65,40,.28);
+}
+
+/* البحر */
+.sea{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        rgba(190,215,220,.22),
+        rgba(210,230,228,.08)
+    );
+    pointer-events:none;
+}
+
+/* علامات الدول */
+.country{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    width:clamp(24px,3vw,38px);
+    height:clamp(24px,3vw,38px);
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,.95);
+    background:#d58b62;
+    box-shadow:0 3px 10px rgba(70,45,25,.25);
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.country::after{
+    content:"";
+    position:absolute;
+    width:7px;
+    height:7px;
+    background:white;
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+.country:hover,
+.country.selected{
+    transform:translate(-50%,-50%) scale(1.2);
+    box-shadow:0 0 0 7px rgba(213,139,98,.18),
+               0 4px 14px rgba(70,45,25,.3);
+}
+
+/* أسماء الدول تظهر عند الاختيار */
+.country-name{
+    position:absolute;
+    transform:translate(-50%, -120%);
+    background:rgba(255,250,240,.96);
+    border:1px solid rgba(80,60,35,.2);
+    border-radius:10px;
+    padding:5px 9px;
+    font-size:clamp(10px,1.3vw,15px);
+    font-weight:700;
+    white-space:nowrap;
+    display:none;
+    pointer-events:none;
+}
+
+.country.selected + .country-name{
+    display:block;
+}
+
+/* رسالة الاختيار */
+.choice{
+    position:absolute;
+    left:50%;
+    bottom:3%;
+    transform:translateX(-50%);
+    min-width:min(80vw,330px);
+    padding:10px 18px;
+    text-align:center;
+    background:rgba(255,250,240,.96);
+    border:1px solid rgba(80,60,35,.18);
+    border-radius:14px;
+    box-shadow:0 5px 18px rgba(70,50,30,.12);
+    font-size:clamp(12px,1.5vw,16px);
+    display:none;
+}
+
+.choice.show{
+    display:block;
+}
+
+.choice button{
+    margin-top:7px;
+    border:0;
+    border-radius:9px;
+    padding:7px 18px;
+    background:#b97852;
+    color:#fff;
+    font-size:14px;
+    cursor:pointer;
+}
+
+/* مواقع تقريبية للدول */
+.morocco{left:13%;top:42%}
+.algeria{left:21%;top:39%}
+.tunisia{left:29%;top:38%}
+.libya{left:37%;top:43%}
+.egypt{left:47%;top:46%}
+.sudan{left:49%;top:61%}
+.palestine{left:55%;top:43%}
+.jordan{left:57%;top:39%}
+.lebanon{left:56%;top:34%}
+.syria{left:61%;top:34%}
+.iraq{left:67%;top:38%}
+.kuwait{left:70%;top:46%}
+.saudi{left:65%;top:57%}
+.yemen{left:64%;top:72%}
+.oman{left:76%;top:67%}
+.uae{left:78%;top:57%}
+.qatar{left:73%;top:54%}
+.bahrain{left:72%;top:51%}
+.moritania{left:8%;top:55%}
+.somalia{left:75%;top:82%}
+.djibouti{left:66%;top:79%}
+.comoros{left:58%;top:88%}
+
+/* الجوال */
+@media(max-width:700px){
+    .map-area{
+        left:2%;
+        right:2%;
+    }
+
+    .map{
+        width:96vw;
+    }
+
+    .choice{
+        bottom:1%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="game">
+
+    <div class="title">
+        <h1>اختر بلدك لبدء رحلتك</h1>
+        <p>اضغط على بلدك على الخريطة</p>
+    </div>
+
+    <div class="map-area">
+        <div class="map">
+
+            <div class="sea"></div>
+            <div class="land"></div>
+
+            <div class="country morocco" data-country="المغرب"></div>
+            <div class="country-name morocco">المغرب</div>
+
+            <div class="country algeria" data-country="الجزائر"></div>
+            <div class="country-name algeria">الجزائر</div>
+
+            <div class="country tunisia" data-country="تونس"></div>
+            <div class="country-name tunisia">تونس</div>
+
+            <div class="country libya" data-country="ليبيا"></div>
+            <div class="country-name libya">ليبيا</div>
+
+            <div class="country egypt" data-country="مصر"></div>
+            <div class="country-name egypt">مصر</div>
+
+            <div class="country sudan" data-country="السودان"></div>
+            <div class="country-name sudan">السودان</div>
+
+            <div class="country palestine" data-country="فلسطين"></div>
+            <div class="country-name palestine">فلسطين</div>
+
+            <div class="country jordan" data-country="الأردن"></div>
+            <div class="country-name jordan">الأردن</div>
+
+            <div class="country lebanon" data-country="لبنان"></div>
+            <div class="country-name lebanon">لبنان</div>
+
+            <div class="country syria" data-country="سوريا"></div>
+            <div class="country-name syria">سوريا</div>
+
+            <div class="country iraq" data-country="العراق"></div>
+            <div class="country-name iraq">العراق</div>
+
+            <div class="country kuwait" data-country="الكويت"></div>
+            <div class="country-name kuwait">الكويت</div>
+
+            <div class="country saudi" data-country="السعودية"></div>
+            <div class="country-name saudi">السعودية</div>
+
+            <div class="country yemen" data-country="اليمن"></div>
+            <div class="country-name yemen">اليمن</div>
+
+            <div class="country oman" data-country="عمان"></div>
+            <div class="country-name oman">عمان</div>
+
+            <div class="country uae" data-country="الإمارات"></div>
+            <div class="country-name uae">الإمارات</div>
+
+            <div class="country qatar" data-country="قطر"></div>
+            <div class="country-name qatar">قطر</div>
+
+            <div class="country bahrain" data-country="البحرين"></div>
+            <div class="country-name bahrain">البحرين</div>
+
+            <div class="country mauritania" data-country="موريتانيا"></div>
+            <div class="country-name mauritania">موريتانيا</div>
+
+            <div class="country somalia" data-country="الصومال"></div>
+            <div class="country-name somalia">الصومال</div>
+
+            <div class="country djibouti" data-country="جيبوتي"></div>
+            <div class="country-name djibouti">جيبوتي</div>
+
+            <div class="country comoros" data-country="جزر القمر"></div>
+            <div class="country-name comoros">جزر القمر</div>
+
+            <div class="choice" id="choice">
+                <div id="choiceText"></div>
+                <button id="confirm">اختيار بلد البداية</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+const countries = document.querySelectorAll(".country");
+const choice = document.getElementById("choice");
+const choiceText = document.getElementById("choiceText");
+const confirm = document.getElementById("confirm");
+
+let selectedCountry = "";
+
+countries.forEach(country => {
+
+    country.addEventListener("click", () => {
+
+        countries.forEach(c => c.classList.remove("selected"));
+
+        country.classList.add("selected");
+
+        selectedCountry = country.dataset.country;
+
+        choiceText.textContent =
+            "هل تريد بدء رحلتك من " + selectedCountry + "؟";
+
+        choice.classList.add("show");
+    });
+
+});
+
+confirm.addEventListener("click", () => {
+
+    if(!selectedCountry) return;
+
+    localStorage.setItem("startCountry", selectedCountry);
+
+    alert(
+        "تم اختيار " + selectedCountry +
+        " كنقطة بداية.\\n\\nالخطوة التالية ستكون تحديد وجهات الرحلة."
+    );
+
+});
+</script>
+
+</body>
+</html>
